@@ -36,18 +36,6 @@ function Header(props) {
                 <MenuIcon />
               </IconButton>
             </Grid>
-            <Grid container alignItems="center" spacing={1}>
-              <Grid item xs>
-                <Typography
-                  align="center"
-                  color="inherit"
-                  variant="h6"
-                  component="h1"
-                >
-                  Welcome to My Portfolio Site!
-                </Typography>
-              </Grid>
-            </Grid>
           </Grid>
         </Toolbar>
       </AppBar>
