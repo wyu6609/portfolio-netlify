@@ -11,15 +11,32 @@ import Content from "./Content";
 import Header from "./Header";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import TypeWriterEffect from "react-typewriter-effect";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import "./Paperbase.css";
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}.
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      justifyContent="space-around"
+      align="center"
+    >
+      <Link
+        // className="blink-1"
+        href="https://github.com/wyu6609"
+        target="_blank"
+        sx={{ p: 0.5 }}
+      >
+        <GitHubIcon fontSize="large" sx={{ color: "primary.main" }} />
+      </Link>
+      <Link
+        // className="blink-2"
+        href="https://www.linkedin.com/in/will-yu-56b101a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3IFmW0pcQTeRea%2FmutKVsw%3D%3D"
+        target="_blank"
+      >
+        <LinkedInIcon fontSize="large" sx={{ color: "primary.main" }} />
+      </Link>
     </Typography>
   );
 }
