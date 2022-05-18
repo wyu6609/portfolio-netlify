@@ -11,11 +11,11 @@ import {
 
 const user = {
   avatar: "../../images/avatar.png",
-  city: "Brooklyn NY,",
+  city: "Software Engineer | Full Stack | Ruby on Rails | JavaScript | ReactJS",
   country: "USA",
   jobTitle: "Senior Developer",
   name: "William Yu",
-  timezone: "Eastern Time GMT-4",
+  timezone: "Brooklyn NY",
 };
 
 export const AccountProfile = (props) => (
@@ -41,10 +41,15 @@ export const AccountProfile = (props) => (
         <Typography color="textPrimary" gutterBottom variant="h4">
           {user.name}
         </Typography>
-        <Typography color="textSecondary" variant="body2">
+        <Typography color="textSecondary" align="center" variant="body2">
           {`${user.city} ${user.country}`}
         </Typography>
-        <Typography color="textSecondary" variant="body2">
+        <Typography
+          align="center"
+          justifyContent="center"
+          color="textSecondary"
+          variant="body2"
+        >
           {user.timezone}
         </Typography>
       </Box>
