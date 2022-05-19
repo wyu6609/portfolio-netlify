@@ -15,14 +15,14 @@ import "./Project.css";
 
 const cards = [
   {
-    title: "Bot.IO 2.0",
+    title: "Bot.io 2.0",
     description:
       "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project4.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
   },
   {
-    title: "Bot.IO 1.0",
+    title: "Bot.io 1.0",
     description: "The first version of Bot.IO",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
     link: "http://bot-market-io.herokuapp.com/",
