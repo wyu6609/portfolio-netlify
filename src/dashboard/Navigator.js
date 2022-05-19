@@ -14,6 +14,7 @@ import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact
 import PublicIcon from "@mui/icons-material/Public";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
 import { toast } from "react-toastify";
+import Weather from "./Weather.js";
 const categories = [
   {
     id: "Menu",

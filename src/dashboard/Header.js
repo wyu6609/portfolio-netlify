@@ -16,6 +16,9 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import TypeWriterEffect from "react-typewriter-effect";
 import "./Header.css";
+import Clock from "./Clock.js";
+import CloudIcon from "@mui/icons-material/Cloud";
+import Weather from "./Weather.js";
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
 function Header(props) {
@@ -23,9 +26,9 @@ function Header(props) {
 
   return (
     <React.Fragment>
-      <AppBar color="primary" position="sticky" elevation={0}>
+      <AppBar component="div" color="primary" position="sticky" elevation={6}>
         <Toolbar>
-          <Grid container spacing={1} alignItems="center">
+          <Grid container spacing={1} sx={{ display: "flex" }}>
             <Grid sx={{ display: { sm: "none", xs: "block" } }} item>
               <IconButton
                 color="inherit"
@@ -35,6 +38,13 @@ function Header(props) {
               >
                 <MenuIcon />
               </IconButton>
+            </Grid>
+            <Grid sx={{ mt: 1.5 }} item xs>
+              <Clock />
+            </Grid>
+            <Grid sx={{ mt: 2 }}>
+              <CloudIcon edge="end" />
+              {/* <Weather /> */}
             </Grid>
           </Grid>
         </Toolbar>
@@ -60,13 +70,7 @@ function Header(props) {
             </Grid>
           </Grid>
         </Toolbar>
-      </AppBar>
-      <AppBar
-        component="div"
-        position="static"
-        elevation={0}
-        sx={{ zIndex: 1 }}
-      ></AppBar> */}
+      </AppBar> */}
     </React.Fragment>
   );
 }
