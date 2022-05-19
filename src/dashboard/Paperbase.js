@@ -251,6 +251,8 @@ export default function Paperbase() {
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
               btnSound={btnSound}
+              setColorMain={setColorMain}
+              setColorSecondary={setColorSecondary}
             />
           )}
 
