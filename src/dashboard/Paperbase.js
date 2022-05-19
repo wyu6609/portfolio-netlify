@@ -272,7 +272,8 @@ export default function Paperbase() {
               py: 6,
               px: 4,
               bgcolor: "#eaeff1",
-              backgroundImage: "url(../images/background.jpeg)",
+              backgroundImage:
+                "url(https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/background.jpeg?raw=true)",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
               backgroundPosition: "center",
