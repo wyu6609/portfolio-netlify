@@ -5,8 +5,8 @@ import Typography from "@mui/material/Typography";
 const apiKey = "2efac6464a3c82a53742c450a59a383d";
 
 const Weather = ({ selectedIndex }) => {
-  const [latitude, setLatitude] = useState(40.7128);
-  const [longitude, setLongitude] = useState(-74.006);
+  const [latitude, setLatitude] = useState(40.7127837);
+  const [longitude, setLongitude] = useState(-74.0059413);
   // const [displayWeather, setDisplayWeather] = useState();
 
   const [cityName, setCityName] = useState("");
