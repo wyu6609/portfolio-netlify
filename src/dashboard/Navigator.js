@@ -11,10 +11,9 @@ import ListItemText from "@mui/material/ListItemText";
 import ArticleIcon from "@mui/icons-material/Article";
 import CottageIcon from "@mui/icons-material/Cottage";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
-import PublicIcon from "@mui/icons-material/Public";
+import Color from "./Color.js";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
-import { toast } from "react-toastify";
-import Weather from "./Weather.js";
+
 const categories = [
   {
     id: "Menu",
@@ -122,6 +121,12 @@ export default function Navigator(props) {
             <Divider sx={{ mt: 2 }} />
           </Box>
         ))}
+        <ListItem edge="end">
+          <Color
+            setColorMain={props.setColorMain}
+            setColorSecondary={props.setColorSecondary}
+          />
+        </ListItem>
       </List>
     </Drawer>
   );

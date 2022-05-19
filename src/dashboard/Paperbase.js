@@ -51,152 +51,158 @@ const btnSound = () => {
   btnAudio.play();
 };
 
-let theme = createTheme({
-  palette: {
-    primary: {
-      light: "#6c65e9",
-      main: "#5048e5",
-      dark: "#6c65e9",
-    },
-  },
-  typography: {
-    h5: {
-      fontWeight: 500,
-      fontSize: 26,
-      letterSpacing: 0.5,
-    },
-  },
-  shape: {
-    borderRadius: 8,
-  },
-  components: {
-    MuiTab: {
-      defaultProps: {
-        disableRipple: true,
-      },
-    },
-  },
-  mixins: {
-    toolbar: {
-      minHeight: 48,
-    },
-  },
-});
-
-theme = {
-  ...theme,
-  components: {
-    MuiDrawer: {
-      styleOverrides: {
-        paper: {
-          backgroundColor: "#111827",
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-        },
-        contained: {
-          boxShadow: "none",
-          "&:active": {
-            boxShadow: "none",
-          },
-        },
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          marginLeft: theme.spacing(1),
-        },
-        indicator: {
-          height: 3,
-          borderTopLeftRadius: 3,
-          borderTopRightRadius: 3,
-          backgroundColor: theme.palette.common.white,
-        },
-      },
-    },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          textTransform: "none",
-          margin: "0 16px",
-          minWidth: 0,
-          padding: 0,
-          [theme.breakpoints.up("md")]: {
-            padding: 0,
-            minWidth: 0,
-          },
-        },
-      },
-    },
-    MuiIconButton: {
-      styleOverrides: {
-        root: {
-          padding: theme.spacing(1),
-        },
-      },
-    },
-    MuiTooltip: {
-      styleOverrides: {
-        tooltip: {
-          borderRadius: 4,
-        },
-      },
-    },
-    MuiDivider: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "rgb(255,255,255,0.15)",
-        },
-      },
-    },
-    MuiListItemButton: {
-      styleOverrides: {
-        root: {
-          "&.Mui-selected": {
-            color: "#5048e4",
-          },
-        },
-      },
-    },
-    MuiListItemText: {
-      styleOverrides: {
-        primary: {
-          fontSize: 14,
-          fontWeight: theme.typography.fontWeightMedium,
-        },
-      },
-    },
-    MuiListItemIcon: {
-      styleOverrides: {
-        root: {
-          color: "inherit",
-          minWidth: "auto",
-          marginRight: theme.spacing(2),
-          "& svg": {
-            fontSize: 20,
-          },
-        },
-      },
-    },
-    MuiAvatar: {
-      styleOverrides: {
-        root: {
-          width: 32,
-          height: 32,
-        },
-      },
-    },
-  },
-};
-
 const drawerWidth = 256;
 
 export default function Paperbase() {
+  //color palette state
+
+  const [colorMain, setColorMain] = React.useState("#5048e5");
+  const [colorSecondary, setColorSecondary] = React.useState("#6c65e9");
+
+  // theme
+  let theme = createTheme({
+    palette: {
+      primary: {
+        light: colorSecondary,
+        main: colorMain,
+        dark: colorSecondary,
+      },
+    },
+    typography: {
+      h5: {
+        fontWeight: 500,
+        fontSize: 26,
+        letterSpacing: 0.5,
+      },
+    },
+    shape: {
+      borderRadius: 8,
+    },
+    components: {
+      MuiTab: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
+    },
+    mixins: {
+      toolbar: {
+        minHeight: 48,
+      },
+    },
+  });
+
+  theme = {
+    ...theme,
+    components: {
+      MuiDrawer: {
+        styleOverrides: {
+          paper: {
+            backgroundColor: "#111827",
+          },
+        },
+      },
+      MuiButton: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+          },
+          contained: {
+            boxShadow: "none",
+            "&:active": {
+              boxShadow: "none",
+            },
+          },
+        },
+      },
+      MuiTabs: {
+        styleOverrides: {
+          root: {
+            marginLeft: theme.spacing(1),
+          },
+          indicator: {
+            height: 3,
+            borderTopLeftRadius: 3,
+            borderTopRightRadius: 3,
+            backgroundColor: theme.palette.common.white,
+          },
+        },
+      },
+      MuiTab: {
+        styleOverrides: {
+          root: {
+            textTransform: "none",
+            margin: "0 16px",
+            minWidth: 0,
+            padding: 0,
+            [theme.breakpoints.up("md")]: {
+              padding: 0,
+              minWidth: 0,
+            },
+          },
+        },
+      },
+      MuiIconButton: {
+        styleOverrides: {
+          root: {
+            padding: theme.spacing(1),
+          },
+        },
+      },
+      MuiTooltip: {
+        styleOverrides: {
+          tooltip: {
+            borderRadius: 4,
+          },
+        },
+      },
+      MuiDivider: {
+        styleOverrides: {
+          root: {
+            backgroundColor: "rgb(255,255,255,0.15)",
+          },
+        },
+      },
+      MuiListItemButton: {
+        styleOverrides: {
+          root: {
+            "&.Mui-selected": {
+              color: colorMain,
+            },
+          },
+        },
+      },
+      MuiListItemText: {
+        styleOverrides: {
+          primary: {
+            fontSize: 14,
+            fontWeight: theme.typography.fontWeightMedium,
+          },
+        },
+      },
+      MuiListItemIcon: {
+        styleOverrides: {
+          root: {
+            color: "inherit",
+            minWidth: "auto",
+            marginRight: theme.spacing(2),
+            "& svg": {
+              fontSize: 20,
+            },
+          },
+        },
+      },
+      MuiAvatar: {
+        styleOverrides: {
+          root: {
+            width: 32,
+            height: 32,
+          },
+        },
+      },
+    },
+  };
+
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
@@ -254,6 +260,8 @@ export default function Paperbase() {
             selectedIndex={selectedIndex}
             setSelectedIndex={setSelectedIndex}
             btnSound={btnSound}
+            setColorMain={setColorMain}
+            setColorSecondary={setColorSecondary}
           />
         </Box>
         <Box

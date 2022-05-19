@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Bio from "../portfolio-content/about/Bio";
 import Projects from "../portfolio-content/Projects";
@@ -12,7 +12,12 @@ export default function Content({ setSelectedIndex, btnSound }) {
   return (
     <Paper sx={{ maxWidth: 936, margin: "auto", overflow: "hidden" }}>
       <Routes>
-        <Route path="/" element={<Bio setSelectedIndex btnSound />} />
+        <Route
+          path="/"
+          element={
+            <Bio setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
+          }
+        />
         <Route path="/projects" element={<Projects />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/login" element={<Login />} />

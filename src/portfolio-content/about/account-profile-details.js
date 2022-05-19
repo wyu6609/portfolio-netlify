@@ -52,11 +52,12 @@ export const AccountProfileDetails = (props) => {
         }}
       >
         <Button
-          component={Link}
-          to="/projects"
+          // component={Link}
+          // to="/projects"
           color="primary"
           variant="contained"
           onClick={() => {
+            props.navigate("/projects");
             props.btnSound();
             props.setSelectedIndex(1);
           }}
