@@ -54,7 +54,9 @@ const Weather = ({ selectedIndex }) => {
   return (
     <>
       <Grid>
-        <Typography sx={{ fontSize: 12, mt: 0.5 }}>{cityName},</Typography>
+        <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+          {cityName},
+        </Typography>
       </Grid>
       <Grid>
         <Avatar
@@ -64,7 +66,9 @@ const Weather = ({ selectedIndex }) => {
         />
       </Grid>
       <Grid>
-        <Typography sx={{ fontSize: 12, mt: 0.5 }}>{temp}°F </Typography>
+        <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+          {temp}°F{" "}
+        </Typography>
       </Grid>
     </>
   );

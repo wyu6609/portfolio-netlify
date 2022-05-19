@@ -2,7 +2,43 @@ import React from "react";
 import { Container, IconButton } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 
+const colorPalette = [
+  {
+    mainColor: "#009be5",
+    secondaryColor: "#63ccff",
+  },
+  {
+    mainColor: "#00ab55",
+    secondaryColor: "#55ffa9",
+  },
+  {
+    mainColor: "#f57c00",
+    secondaryColor: "#ffbd7a",
+  },
+  {
+    mainColor: "#c2185b",
+    secondaryColor: "#ee7da9",
+  },
+  {
+    mainColor: "#5048e5",
+    secondaryColor: "#6c65e9",
+  },
+];
+
 const Color = ({ setColorMain, setColorSecondary }) => {
+  let renderColorPalette = colorPalette.map((color) => {
+    return (
+      <IconButton
+        onClick={() => {
+          setColorMain(color.mainColor);
+          setColorSecondary(color.secondaryColor);
+        }}
+      >
+        <CircleIcon sx={{ color: color.mainColor }} />
+      </IconButton>
+    );
+  });
+
   return (
     <Container
       sx={{
@@ -13,46 +49,7 @@ const Color = ({ setColorMain, setColorSecondary }) => {
         borderRadius: 20,
       }}
     >
-      <IconButton
-        onClick={() => {
-          setColorMain("#009be5");
-          setColorSecondary("#63ccff");
-        }}
-      >
-        <CircleIcon sx={{ color: "#009be5" }} />
-      </IconButton>
-      <IconButton
-        onClick={() => {
-          setColorMain("#00ab55");
-          setColorSecondary("#55ffa9");
-        }}
-      >
-        <CircleIcon sx={{ color: "#00ab55" }} />
-      </IconButton>
-      <IconButton
-        onClick={() => {
-          setColorMain("#f57c00");
-          setColorSecondary("#ffbd7a");
-        }}
-      >
-        <CircleIcon sx={{ color: "#f57c00" }} />
-      </IconButton>
-      <IconButton
-        onClick={() => {
-          setColorMain("#c2185b");
-          setColorSecondary("#ee7da9");
-        }}
-      >
-        <CircleIcon sx={{ color: "#c2185b" }} />
-      </IconButton>
-      <IconButton
-        onClick={() => {
-          setColorMain("#5048e5");
-          setColorSecondary("#6c65e9");
-        }}
-      >
-        <CircleIcon sx={{ color: "#5048e5" }} />
-      </IconButton>
+      {renderColorPalette}
     </Container>
   );
 };

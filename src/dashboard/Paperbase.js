@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import AssignmentReturnedIcon from "@mui/icons-material/AssignmentReturned";
 import "./Paperbase.css";
 function Copyright() {
   return (
@@ -23,19 +24,39 @@ function Copyright() {
       align="center"
     >
       <Link
+        // className="blink-2"
+        href="https://www.linkedin.com/in/will-yu-56b101a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3IFmW0pcQTeRea%2FmutKVsw%3D%3D"
+        target="_blank"
+      >
+        <LinkedInIcon
+          className="fancy_card1"
+          fontSize="large"
+          sx={{ color: "white" }}
+        />
+      </Link>
+      <Link
         // className="blink-1"
         href="https://github.com/wyu6609"
         target="_blank"
         sx={{ p: 0.5 }}
       >
-        <GitHubIcon fontSize="large" sx={{ color: "white" }} />
+        <GitHubIcon
+          className="fancy_card1"
+          fontSize="large"
+          sx={{ color: "white" }}
+        />
       </Link>
       <Link
-        // className="blink-2"
-        href="https://www.linkedin.com/in/will-yu-56b101a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3IFmW0pcQTeRea%2FmutKVsw%3D%3D"
+        // className="blink-1"
+        href="https://docs.google.com/document/d/1oa_u1ZHqmTgdkaV5kXvUkkA75NNLJAN64YNKXD4po4Y/edit?usp=sharing"
         target="_blank"
+        sx={{ p: 0.5 }}
       >
-        <LinkedInIcon fontSize="large" sx={{ color: "white" }} />
+        <AssignmentReturnedIcon
+          className="fancy_card1"
+          fontSize="large"
+          sx={{ color: "white" }}
+        />
       </Link>
     </Typography>
   );
@@ -282,11 +303,6 @@ export default function Paperbase() {
               py: 6,
               px: 4,
               bgcolor: "#eaeff1",
-              backgroundImage:
-                "url(https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/background.jpeg?raw=true)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
             }}
           >
             <Content setSelectedIndex={setSelectedIndex} btnSound={btnSound} />

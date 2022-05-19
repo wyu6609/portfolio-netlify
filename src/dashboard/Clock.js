@@ -46,12 +46,7 @@ const Clock = () => {
   }
 
   return (
-    <Typography
-      sx={{ fontSize: 12 }}
-      color="inherit"
-      variant="h8"
-      component="h2"
-    >
+    <Typography sx={{ fontSize: 12 }} color="white" variant="h8" component="h2">
       {time}
     </Typography>
   );
