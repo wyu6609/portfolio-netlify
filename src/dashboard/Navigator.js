@@ -100,16 +100,16 @@ export default function Navigator(props) {
                   onClick={(event) => {
                     handleListItemClick(event, index);
                     props.btnSound();
-                    toast.success(`${childId}`, {
-                      theme: "colored",
-                      position: "bottom-left",
-                      autoClose: 300,
-                      hideProgressBar: true,
-                      closeOnClick: true,
-                      pauseOnHover: false,
-                      draggable: false,
-                      progress: undefined,
-                    });
+                    // toast.success(`${childId}`, {
+                    //   theme: "colored",
+                    //   position: "bottom-left",
+                    //   autoClose: 300,
+                    //   hideProgressBar: true,
+                    //   closeOnClick: true,
+                    //   pauseOnHover: false,
+                    //   draggable: false,
+                    //   progress: undefined,
+                    // });
                   }}
                   sx={item}
                 >
