@@ -14,3 +14,9 @@
   padding: 20px;
   align-items: center;
 }
+
+@media (max-width: 600px) {
+  .pdf-container {
+    height: 700px;
+  }
+}

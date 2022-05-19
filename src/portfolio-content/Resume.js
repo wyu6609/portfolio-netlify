@@ -28,6 +28,7 @@ const Resume = () => {
     //   </Grid>
     // </Grid>
     <object
+      className="pdf-container"
       data={resumePDF}
       type="application/pdf"
       width="100%"
