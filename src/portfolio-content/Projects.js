@@ -15,11 +15,17 @@ import "./Project.css";
 
 const cards = [
   {
-    title: "Bot.io",
+    title: "Bot.IO 2.0",
     description:
       "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project4.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
+  },
+  {
+    title: "Bot.IO 1.0",
+    description: "The first version of Bot.IO",
+    img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
+    link: "http://bot-market-io.herokuapp.com/",
   },
   {
     title: "WhatsUpp",
@@ -42,26 +48,35 @@ const cards = [
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
     link: "https://wyu6609.github.io/NYC-health-inspection/",
   },
+  {
+    title: "Minimalist Weather",
+    description: "Simple and clean weather app. Built with Vanilla JavaScript",
+    img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
+    link: "https://wyu6609.github.io/Weather-app/",
+  },
+  {
+    title: "Guess My Number",
+    description: "Guess a number between 1-20. Built with Vanilla JavaScript",
+    img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project5.png?raw=true",
+    link: "https://wyu6609.github.io/numberguessinggame",
+  },
+  {
+    title: "To-Do App",
+    description:
+      "Manage and track your daily to-do list with this web app. Built on Vanilla JavaScript.",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/todo%20mockup.png?raw=true",
+    link: "https://wills-todo.netlify.app/",
+  },
 ];
 const stackCards = [1, 2, 3, 4];
 const Projects = () => {
   return (
-    <Container
-      sx={{
-        py: 8,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-
-        alignItems: "center",
-      }}
-      maxWidth="lg"
-    >
+    <Container sx={{ pb: 3, alignItems: "center", backgroundColor: "#0f2033" }}>
       <Typography
         align="center"
         variant="h4"
         component="h2"
-        sx={{ pb: 3, alignItems: "center" }}
+        sx={{ py: 3, alignItems: "center", color: "white" }}
       >
         Select a project to view!
       </Typography>
@@ -108,7 +123,6 @@ const Projects = () => {
           </Grid>
         ))}
       </Grid>
-      <Divider />
     </Container>
   );
 };
