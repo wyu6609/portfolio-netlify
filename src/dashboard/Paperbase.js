@@ -28,14 +28,14 @@ function Copyright() {
         target="_blank"
         sx={{ p: 0.5 }}
       >
-        <GitHubIcon fontSize="large" sx={{ color: "primary.main" }} />
+        <GitHubIcon fontSize="large" sx={{ color: "white" }} />
       </Link>
       <Link
         // className="blink-2"
         href="https://www.linkedin.com/in/will-yu-56b101a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3IFmW0pcQTeRea%2FmutKVsw%3D%3D"
         target="_blank"
       >
-        <LinkedInIcon fontSize="large" sx={{ color: "primary.main" }} />
+        <LinkedInIcon fontSize="large" sx={{ color: "white" }} />
       </Link>
     </Typography>
   );
@@ -196,19 +196,6 @@ theme = {
 
 const drawerWidth = 256;
 
-const toastFxn = (route) => {
-  toast.success(`${route}`, {
-    theme: "colored",
-    position: "bottom-left",
-    autoClose: 300,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnHover: false,
-    draggable: false,
-    progress: undefined,
-  });
-};
-
 export default function Paperbase() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -218,23 +205,18 @@ export default function Paperbase() {
     console.log(location.pathname);
     switch (location.pathname) {
       case "/":
-        toastFxn("HOME");
         setSelectedIndex(0);
         break;
       case "/projects":
-        toastFxn("PROJECTS");
         setSelectedIndex(1);
         break;
       case "/resume":
-        toastFxn("RESUME");
         setSelectedIndex(2);
         break;
       case "/contact":
-        toastFxn("CONTACT");
         setSelectedIndex(3);
         break;
       case "/login":
-        toastFxn("LOGIN!");
         setSelectedIndex(4);
         break;
       default:
@@ -274,15 +256,37 @@ export default function Paperbase() {
             btnSound={btnSound}
           />
         </Box>
-        <Box sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
+        <Box
+          sx={{
+            flex: 1,
+            display: "flex",
+            flexDirection: "column",
+            backgroundImage: "url(https://wallpaperaccess.com/full/667319.png)",
+          }}
+        >
           <Header onDrawerToggle={handleDrawerToggle} />
           <Box
             component="main"
-            sx={{ flex: 1, py: 6, px: 4, bgcolor: "#eaeff1" }}
+            sx={{
+              flex: 1,
+              py: 6,
+              px: 4,
+              bgcolor: "#eaeff1",
+              backgroundImage: "url(../images/background.jpeg)",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
           >
             <Content setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
           </Box>
-          <Box component="footer" sx={{ p: 2, bgcolor: "#eaeff1" }}>
+          <Box
+            component="footer"
+            sx={{
+              p: 1,
+              bgcolor: "primary.main",
+            }}
+          >
             <Copyright />
           </Box>
         </Box>

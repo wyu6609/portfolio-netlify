@@ -2,10 +2,6 @@
   -webkit-animation: blink-1 5s infinite both;
   animation: blink-1 5s infinite both;
 }
-.blink-2 {
-  -webkit-animation: blink-1 5s infinite both;
-  animation: blink-1 5s infinite both;
-}
 
 @-webkit-keyframes blink-1 {
   0%,
@@ -28,4 +24,8 @@
   75% {
     opacity: 0;
   }
+}
+
+.background {
+  background-image: url("https://wallpaperaccess.com/full/667319.png");
 }

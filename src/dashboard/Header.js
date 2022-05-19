@@ -42,9 +42,11 @@ function Header(props) {
             <Grid sx={{ mt: 1.5 }} item xs>
               <Clock />
             </Grid>
-            <Grid sx={{ mt: 2 }}>
-              <CloudIcon edge="end" />
-              {/* <Weather /> */}
+            <Grid
+              component="div"
+              sx={{ display: "flex", mt: 2, justifyContent: "space-even" }}
+            >
+              <Weather sx={{ mt: 2 }} />
             </Grid>
           </Grid>
         </Toolbar>

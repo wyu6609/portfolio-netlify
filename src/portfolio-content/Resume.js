@@ -27,7 +27,12 @@ const Resume = () => {
     //     </Paper>
     //   </Grid>
     // </Grid>
-    <object data={resumePDF} type="application/pdf" width="100%" height="800px">
+    <object
+      data={resumePDF}
+      type="application/pdf"
+      width="100%"
+      height="1200px"
+    >
       <p className="pdf-paragraph">
         It appears you don't have a PDF plugin for this browser. No biggie...
         you can &nbsp;
