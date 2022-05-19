@@ -51,28 +51,6 @@ function Header(props) {
           </Grid>
         </Toolbar>
       </AppBar>
-      {/* <AppBar
-        component="div"
-        color="primary"
-        position="static"
-        elevation={3}
-        sx={{ zIndex: 0 }}
-      >
-        <Toolbar>
-          <Grid container alignItems="center" spacing={1}>
-            <Grid item xs>
-              <Typography
-                align="center"
-                color="inherit"
-                variant="h6"
-                component="h1"
-              >
-                Welcome to My Portfolio Site!
-              </Typography>
-            </Grid>
-          </Grid>
-        </Toolbar>
-      </AppBar> */}
     </React.Fragment>
   );
 }

@@ -12,21 +12,6 @@ const Resume = () => {
     setNumPages(numPages);
   }
   return (
-    // <Grid
-    //   container
-    //   xs={12}
-    //   spacing={0}
-    //   direction="column"
-    //   alignItems="center"
-    //   justifyContent="center"
-    //   sx={{ p: 7, minHeight: "100vh" }}
-    // >
-    //   <Grid item xs={12}>
-    //     <Paper variant="outlined">
-    //       <Document file={resumePDF} onLoadError={console.error}></Document>
-    //     </Paper>
-    //   </Grid>
-    // </Grid>
     <object
       className="pdf-container"
       data={resumePDF}

@@ -287,6 +287,7 @@ export default function Paperbase() {
               p: 1,
               bgcolor: "primary.main",
             }}
+            elevation={6}
           >
             <Copyright />
           </Box>
