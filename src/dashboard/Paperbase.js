@@ -77,8 +77,48 @@ const drawerWidth = 256;
 export default function Paperbase() {
   //color palette state
 
-  const [colorMain, setColorMain] = React.useState("#5048e5");
-  const [colorSecondary, setColorSecondary] = React.useState("#6c65e9");
+  const [colorMain, setColorMain] = React.useState("#009be5");
+  const [colorSecondary, setColorSecondary] = React.useState("#63ccff");
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+  React.useEffect(() => {
+    const data_main_color = window.localStorage.getItem("MAIN_COLOR");
+    if (data_main_color !== null) {
+      setColorMain(JSON.parse(data_main_color));
+    }
+
+    const data_secondary_color = window.localStorage.getItem("SECONDARY_COLOR");
+    if (data_main_color !== null) {
+      setColorSecondary(JSON.parse(data_secondary_color));
+    }
+
+    switch (location.pathname) {
+      case "/":
+        setSelectedIndex(0);
+        break;
+      case "/projects":
+        setSelectedIndex(1);
+        break;
+      case "/resume":
+        setSelectedIndex(2);
+        break;
+      case "/contact":
+        setSelectedIndex(3);
+        break;
+      case "/login":
+        setSelectedIndex(4);
+        break;
+      default:
+        setSelectedIndex(false);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    window.localStorage.setItem("MAIN_COLOR", JSON.stringify(colorMain));
+    window.localStorage.setItem(
+      "SECONDARY_COLOR",
+      JSON.stringify(colorSecondary)
+    );
+  }, [colorMain, colorSecondary]);
 
   // theme
   let theme = createTheme({
@@ -227,29 +267,7 @@ export default function Paperbase() {
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
-  React.useEffect(() => {
-    console.log(location.pathname);
-    switch (location.pathname) {
-      case "/":
-        setSelectedIndex(0);
-        break;
-      case "/projects":
-        setSelectedIndex(1);
-        break;
-      case "/resume":
-        setSelectedIndex(2);
-        break;
-      case "/contact":
-        setSelectedIndex(3);
-        break;
-      case "/login":
-        setSelectedIndex(4);
-        break;
-      default:
-        setSelectedIndex(false);
-    }
-  }, []);
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
     drawerSound();
