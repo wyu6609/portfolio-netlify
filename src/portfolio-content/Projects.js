@@ -2,6 +2,7 @@ import React from "react";
 import {
   Link,
   Container,
+  IconButton,
   Button,
   Grid,
   Card,
@@ -11,6 +12,7 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
 import "./Project.css";
 
 const cards = [
@@ -20,12 +22,14 @@ const cards = [
       "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project4.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
+    git: "https://github.com/wyu6609/bot_io_2.0",
   },
   {
     title: "Bot.io 1.0",
     description: "The first version of Bot.IO",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
     link: "http://bot-market-io.herokuapp.com/",
+    git: "https://github.com/wyu6609/bot_heroku_Test",
   },
   {
     title: "WhatsUpp",
@@ -33,6 +37,7 @@ const cards = [
       "Chat app inspired by WhatsApp. Utilizes action cable and web sockets!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project1.png?raw=true",
     link: "https://github.com/wyu6609/whats-app-clone-frontend",
+    git: "https://github.com/wyu6609/whats-app-clone-frontend",
   },
   {
     title: "UHungry?",
@@ -40,6 +45,7 @@ const cards = [
       "Hungry? Search an ingredient and see a bunch of random recipes!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project3.png?raw=true",
     link: "https://zen-lamport-1715c0.netlify.app/#/",
+    git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
   },
   {
     title: "NYC HEALTH",
@@ -47,18 +53,21 @@ const cards = [
       "Search a NYC restaurant. Visualize the health stats on Google Maps",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
     link: "https://wyu6609.github.io/NYC-health-inspection/",
+    git: "https://github.com/wyu6609/NYC-health-inspection",
   },
   {
     title: "Minimalist Weather",
     description: "Simple and clean weather app. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
     link: "https://wyu6609.github.io/Weather-app/",
+    git: "https://github.com/wyu6609/Weather-app",
   },
   {
     title: "Guess My Number",
     description: "Guess a number between 1-20. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project5.png?raw=true",
     link: "https://wyu6609.github.io/numberguessinggame",
+    git: "https://github.com/wyu6609/NumberGuessingGame",
   },
   {
     title: "To-Do App",
@@ -66,6 +75,7 @@ const cards = [
       "Manage and track your daily to-do list with this web app. Built on Vanilla JavaScript.",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/todo%20mockup.png?raw=true",
     link: "https://wills-todo.netlify.app/",
+    git: "https://github.com/wyu6609/ToDoList",
   },
 ];
 const stackCards = [1, 2, 3, 4];
@@ -118,6 +128,16 @@ const Projects = () => {
                     {card.description}
                   </Typography>
                 </CardContent>
+                <Divider />
+                <CardActions>
+                  <IconButton
+                    onClick={() => {
+                      window.open(card.git, "_blank");
+                    }}
+                  >
+                    <GitHubIcon sx={{ color: "primary.main" }} />
+                  </IconButton>
+                </CardActions>
               </Card>
             </Link>
           </Grid>
