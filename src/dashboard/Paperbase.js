@@ -305,7 +305,6 @@ export default function Paperbase() {
             flex: 1,
             display: "flex",
             flexDirection: "column",
-            backgroundImage: "url(https://wallpaperaccess.com/full/667319.png)",
           }}
         >
           <Header onDrawerToggle={handleDrawerToggle} btnSound={btnSound} />
