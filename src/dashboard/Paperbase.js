@@ -127,6 +127,7 @@ export default function Paperbase() {
         light: colorSecondary,
         main: colorMain,
         dark: colorSecondary,
+        contrastText: "#fff",
       },
     },
     typography: {

@@ -2,6 +2,11 @@ import React from "react";
 import { Container, IconButton } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 
+const colorSound = () => {
+  let colorAudio = new Audio("/sounds/water_drop.mp3");
+  colorAudio.play();
+};
+
 const colorPalette = [
   {
     mainColor: "#009be5",
@@ -30,6 +35,7 @@ const Color = ({ setColorMain, setColorSecondary }) => {
     return (
       <IconButton
         onClick={() => {
+          colorSound();
           setColorMain(color.mainColor);
           setColorSecondary(color.secondaryColor);
         }}
