@@ -72,8 +72,8 @@ const drawerWidth = 256;
 export default function Paperbase() {
   //color palette state
 
-  const [colorMain, setColorMain] = React.useState("#009be5");
-  const [colorSecondary, setColorSecondary] = React.useState("#63ccff");
+  const [colorMain, setColorMain] = React.useState("#1976d2");
+  const [colorSecondary, setColorSecondary] = React.useState("#84baf0");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   React.useEffect(() => {
     const data_main_color = window.localStorage.getItem("MAIN_COLOR");

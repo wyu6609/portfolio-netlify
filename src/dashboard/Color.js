@@ -9,8 +9,8 @@ const colorSound = () => {
 
 const colorPalette = [
   {
-    mainColor: "#009be5",
-    secondaryColor: "#63ccff",
+    mainColor: "#1976d2",
+    secondaryColor: "#84baf0",
   },
   {
     mainColor: "#00ab55",
