@@ -22,7 +22,7 @@ import Weather from "./Weather.js";
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
 function Header(props) {
-  const { onDrawerToggle } = props;
+  const { onDrawerToggle, btnSound } = props;
 
   return (
     <React.Fragment>
@@ -33,7 +33,10 @@ function Header(props) {
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                onClick={onDrawerToggle}
+                onClick={() => {
+                  onDrawerToggle();
+                  btnSound();
+                }}
                 edge="start"
               >
                 <MenuIcon sx={{ color: "white" }} />

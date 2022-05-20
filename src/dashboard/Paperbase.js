@@ -62,11 +62,6 @@ function Copyright() {
   );
 }
 
-const drawerSound = () => {
-  let drawerAudio = new Audio("/sounds/slide.mp3");
-  drawerAudio.play();
-};
-
 const btnSound = () => {
   let btnAudio = new Audio("/sounds/buttonClick.mp3");
   btnAudio.play();
@@ -271,7 +266,6 @@ export default function Paperbase() {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-    drawerSound();
   };
 
   return (
@@ -314,7 +308,7 @@ export default function Paperbase() {
             backgroundImage: "url(https://wallpaperaccess.com/full/667319.png)",
           }}
         >
-          <Header onDrawerToggle={handleDrawerToggle} />
+          <Header onDrawerToggle={handleDrawerToggle} btnSound={btnSound} />
           <Box
             component="main"
             sx={{
