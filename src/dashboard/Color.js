@@ -26,7 +26,7 @@ const colorPalette = [
   },
   {
     mainColor: "#5048e5",
-    secondaryColor: "#6c65e9",
+    secondaryColor: "#a7a3f1",
   },
 ];
 
@@ -40,7 +40,7 @@ const Color = ({ setColorMain, setColorSecondary }) => {
           setColorSecondary(color.secondaryColor);
         }}
       >
-        <CircleIcon sx={{ color: color.mainColor }} />
+        <CircleIcon className="fancy_card1" sx={{ color: color.mainColor }} />
       </IconButton>
     );
   });
