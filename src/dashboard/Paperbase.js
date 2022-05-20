@@ -13,7 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
-import AssignmentReturnedIcon from "@mui/icons-material/AssignmentReturned";
+import ArticleIcon from "@mui/icons-material/Article";
 import "./Paperbase.css";
 function Copyright() {
   return (
@@ -52,7 +52,7 @@ function Copyright() {
         target="_blank"
         sx={{ p: 0.5 }}
       >
-        <AssignmentReturnedIcon
+        <ArticleIcon
           className="fancy_card1"
           fontSize="large"
           sx={{ color: "white" }}

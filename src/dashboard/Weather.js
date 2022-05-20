@@ -7,7 +7,6 @@ const apiKey = "2efac6464a3c82a53742c450a59a383d";
 const Weather = ({ selectedIndex }) => {
   const [latitude, setLatitude] = useState(40.7127837);
   const [longitude, setLongitude] = useState(-74.0059413);
-  // const [displayWeather, setDisplayWeather] = useState();
 
   const [cityName, setCityName] = useState("");
   const [temp, setTemp] = useState("");
@@ -66,7 +65,7 @@ const Weather = ({ selectedIndex }) => {
       </Grid>
       <Grid>
         <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
-          {temp}°F{" "}
+          {temp}°F
         </Typography>
       </Grid>
     </>

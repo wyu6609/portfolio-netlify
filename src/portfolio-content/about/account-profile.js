@@ -11,11 +11,11 @@ import {
 
 const user = {
   avatar: "../../images/avatar.png",
-  city: "Software Engineer | Full Stack | Ruby on Rails | JavaScript | ReactJS",
-  country: "USA",
+  city: "Software Engineer | JavaScript | ReactJS | NodeJS | Ruby | Ruby on Rails | ",
+  country: "Git | Github | Version Control",
   jobTitle: "Senior Developer",
   name: "William Yu",
-  timezone: "Brooklyn NY",
+  timezone: "BootStrap, Material-UI",
 };
 
 export const AccountProfile = (props) => (
