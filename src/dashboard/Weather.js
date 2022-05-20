@@ -44,13 +44,12 @@ const Weather = ({ selectedIndex }) => {
       console.log("no geolocation");
     } else {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
       });
     }
   }
-  console.log(weatherIcon);
+
   return (
     <>
       <Grid>
