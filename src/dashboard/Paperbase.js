@@ -48,7 +48,7 @@ function Copyright() {
       </Link>
       <Link
         // className="blink-1"
-        href="https://docs.google.com/document/d/1oa_u1ZHqmTgdkaV5kXvUkkA75NNLJAN64YNKXD4po4Y/edit?usp=sharing"
+        href="https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing"
         target="_blank"
         sx={{ p: 0.5 }}
       >
