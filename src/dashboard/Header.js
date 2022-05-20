@@ -36,7 +36,7 @@ function Header(props) {
                 onClick={onDrawerToggle}
                 edge="start"
               >
-                <MenuIcon />
+                <MenuIcon sx={{ color: "white" }} />
               </IconButton>
             </Grid>
             <Grid sx={{ mt: 1.5 }} item xs>
