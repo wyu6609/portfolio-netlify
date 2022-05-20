@@ -35,7 +35,7 @@ export const AccountProfile = (props) => (
             height: 240,
             mb: 4.4,
             width: 240,
-            backgroundColor: "#ccc",
+            backgroundColor: "primary.main",
           }}
         />
         <Typography color="textPrimary" gutterBottom variant="h4">
