@@ -87,7 +87,6 @@ const Projects = () => {
         alignItems: "center",
         backgroundColor: "#eaeff1",
         border: "none",
-        elevation: 0,
       }}
     >
       <Typography
@@ -96,12 +95,12 @@ const Projects = () => {
         component="h2"
         color="#111827"
         fontWeight="bold"
-        letterSpacing="px"
+        letterSpacing="1px"
         sx={{ py: 3, alignItems: "center" }}
       >
         PROJECTS
       </Typography>
-      <Grid container spacing={1}>
+      <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
             <Link href={card.link} underline="none" target="_blank">

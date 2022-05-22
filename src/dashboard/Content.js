@@ -10,20 +10,18 @@ import Error from "../portfolio-content/Error";
 
 export default function Content({ setSelectedIndex, btnSound }) {
   return (
-    <Paper sx={{ maxWidth: 936, margin: "auto", overflow: "hidden" }}>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Bio setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
-          }
-        />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/contact" element={<Contact btnSound />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </Paper>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Bio setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
+        }
+      />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/resume" element={<Resume />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/contact" element={<Contact btnSound />} />
+      <Route path="*" element={<Error />} />
+    </Routes>
   );
 }

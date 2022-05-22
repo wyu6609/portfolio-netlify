@@ -72,20 +72,21 @@ export default function Contact({ btnSound }) {
   return (
     <Grid container align="center" className="aboutContainer">
       <Grid item xs={12} sm={12} md={12}>
-        <div className="marquee2">
+        <Paper sx={{ mx: { xs: 0, sm: 10 } }}>
           <Box
             sx={{
-              my: 10,
+              py: 10,
+              my: 5,
               mx: 5,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
+            <Avatar sx={{ mb: 1, bgcolor: "primary.main" }}>
               <EmailIcon />
             </Avatar>
-            <Typography component="h1" variant="h5" sx={{ mb: 5 }}>
+            <Typography component="h1" variant="h5" sx={{ mb: 2 }}>
               Leave me a message!
             </Typography>
             <Box
@@ -136,7 +137,7 @@ export default function Contact({ btnSound }) {
               </Button>
             </Box>
           </Box>
-        </div>
+        </Paper>
       </Grid>
     </Grid>
   );
