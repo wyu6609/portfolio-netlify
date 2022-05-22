@@ -44,7 +44,7 @@ const cards = [
     description:
       "Hungry? Search an ingredient and see a bunch of random recipes!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project3.png?raw=true",
-    link: "https://zen-lamport-1715c0.netlify.app/#/",
+    link: "https://u-hungry.netlify.app/#/",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
   },
   {
@@ -59,7 +59,7 @@ const cards = [
     title: "Minimalist Weather",
     description: "Simple and clean weather app. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
-    link: "https://wyu6609.github.io/Weather-app/",
+    link: "https://nyc-health-inspection.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
   },
   {
