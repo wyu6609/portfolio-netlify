@@ -45,8 +45,8 @@ const Weather = ({ selectedIndex }) => {
         `Geolocation disabled... Showing default city weather (NYC)`,
         {
           theme: "colored",
-          position: "top-center",
-          autoClose: 500,
+          position: "bottom-center",
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: false,
@@ -64,7 +64,7 @@ const Weather = ({ selectedIndex }) => {
           {
             theme: "colored",
 
-            position: "top-center",
+            position: "bottom-center",
             autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
