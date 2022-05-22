@@ -124,7 +124,7 @@ const Projects = () => {
                   >
                     {card.title}
                   </Typography>
-                  <Typography align="center" variant="body2">
+                  <Typography align="center" variant="body2" sx={{ mb: -2 }}>
                     {card.description}
                   </Typography>
                 </CardContent>

@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import EmailIcon from "@mui/icons-material/Email";
 import Typography from "@mui/material/Typography";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import emailjs from "@emailjs/browser";
 
