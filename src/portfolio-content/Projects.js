@@ -131,11 +131,21 @@ const Projects = () => {
                 <Divider />
                 <CardActions>
                   <IconButton
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "#cccccc",
+                      },
+                    }}
                     onClick={() => {
                       window.open(card.git, "_blank");
                     }}
                   >
-                    <GitHubIcon sx={{ color: "primary.main" }} />
+                    <GitHubIcon
+                      sx={{
+                        color: "primary.main",
+                        fontSize: 30,
+                      }}
+                    />
                   </IconButton>
                 </CardActions>
               </Card>
