@@ -88,7 +88,7 @@ const Weather = ({ selectedIndex }) => {
         <Avatar
           sx={{ width: 25, height: 25 }}
           alt="weather-icon"
-          src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+          src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
         />
       </Grid>
       <Grid>

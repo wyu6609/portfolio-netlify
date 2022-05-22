@@ -1,4 +1,3 @@
-import "./App.css";
 import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Paperbase from "./dashboard/Paperbase";

@@ -90,7 +90,7 @@ const Projects = () => {
       >
         Select a project to view!
       </Typography>
-      <Grid container spacing={2}>
+      <Grid container spacing={1}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
             <Link href={card.link} underline="none" target="_blank">
@@ -110,7 +110,8 @@ const Projects = () => {
                   component="img"
                   sx={{
                     // 16:9
-                    pt: "",
+                    p: 2.5,
+                    width: 250,
                   }}
                   image={card.img}
                   alt="random"
@@ -119,12 +120,18 @@ const Projects = () => {
                   <Typography
                     align="center"
                     gutterBottom
-                    variant="h6"
+                    variant="h5"
                     component="h6"
+                    sx={{ mt: -2 }}
+                    color="primary.main"
                   >
                     {card.title}
                   </Typography>
-                  <Typography align="center" variant="body2" sx={{ mb: -2 }}>
+                  <Typography
+                    align="center"
+                    variant="body2"
+                    sx={{ mb: -2, fontSize: 12 }}
+                  >
                     {card.description}
                   </Typography>
                 </CardContent>

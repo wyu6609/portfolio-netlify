@@ -11,11 +11,11 @@ import {
 
 const user = {
   avatar: "../../images/avatar.png",
-  city: "Software Engineer | JavaScript | ReactJS | NodeJS | Ruby | Ruby on Rails | ",
-  country: "Git | Github | Version Control",
+  skills:
+    "Software Engineer | JavaScript | ReactJS | NodeJS | Ruby | Ruby on Rails | Git | Github | Version Control",
   jobTitle: "Senior Developer",
   name: "William Yu",
-  timezone: "BootStrap, Material-UI",
+  skills2: "Netlify | Heroku | BootStrap | Material-UI",
 };
 
 export const AccountProfile = (props) => (
@@ -42,7 +42,7 @@ export const AccountProfile = (props) => (
           {user.name}
         </Typography>
         <Typography color="textSecondary" align="center" variant="body2">
-          {`${user.city} ${user.country}`}
+          {`${user.skills} `}
         </Typography>
         <Typography
           align="center"
@@ -50,7 +50,7 @@ export const AccountProfile = (props) => (
           color="textSecondary"
           variant="body2"
         >
-          {user.timezone}
+          {user.skills2}
         </Typography>
       </Box>
     </CardContent>
