@@ -12,7 +12,7 @@ const Bio = ({ setSelectedIndex, btnSound }) => {
         component="main"
         sx={{
           flexGrow: 1,
-          py: 8,
+          py: { xs: 1, md: 8 },
         }}
       >
         <Container maxWidth="lg">
