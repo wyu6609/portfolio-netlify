@@ -79,6 +79,7 @@ export default function Navigator(props) {
             ...item,
             ...itemCategory,
             fontSize: 28,
+            fontWeight: "bold",
             color: "#fff",
           }}
         >

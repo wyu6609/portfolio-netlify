@@ -81,14 +81,25 @@ const cards = [
 const stackCards = [1, 2, 3, 4];
 const Projects = () => {
   return (
-    <Container sx={{ pb: 3, alignItems: "center", backgroundColor: "#0f2033" }}>
+    <Container
+      sx={{
+        pb: 3,
+        alignItems: "center",
+        backgroundColor: "#eaeff1",
+        border: "none",
+        elevation: 0,
+      }}
+    >
       <Typography
         align="center"
         variant="h4"
         component="h2"
-        sx={{ py: 3, alignItems: "center", color: "white" }}
+        color="#111827"
+        fontWeight="bold"
+        letterSpacing="px"
+        sx={{ py: 3, alignItems: "center" }}
       >
-        Select a project to view!
+        PROJECTS
       </Typography>
       <Grid container spacing={1}>
         {cards.map((card) => (
@@ -124,6 +135,7 @@ const Projects = () => {
                     component="h6"
                     sx={{ mt: -2 }}
                     color="primary.main"
+                    fontWeight="bold"
                   >
                     {card.title}
                   </Typography>
