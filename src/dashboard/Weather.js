@@ -7,8 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 const apiKey = "2efac6464a3c82a53742c450a59a383d";
 
 const Weather = ({ selectedIndex }) => {
-  const [latitude, setLatitude] = useState(40.7127837);
-  const [longitude, setLongitude] = useState(-74.0059413);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
   const [cityName, setCityName] = useState(null);
   const [temp, setTemp] = useState(null);
@@ -40,27 +40,38 @@ const Weather = ({ selectedIndex }) => {
 
   //check browser geo location function
   function checkGeoLocation() {
-    if (!navigator.geolocation) {
-      toast.error(
-        `Geolocation disabled... Showing default city weather (NYC)`,
-        {
-          theme: "colored",
-          position: "bottom-center",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          progress: undefined,
-        }
-      );
+    if (navigator.geolocation) {
+      success();
     } else {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLatitude(position.coords.latitude);
+      handleLocationError(false);
+    }
+  }
 
+  function handleLocationError(browserHasGeolocation) {
+    let errorMessage = browserHasGeolocation
+      ? "ERROR: THE GEOLOCATION SERVICE HAS FAILED"
+      : "ERROR: YOUR BROWSER DOESN'T SUPPORT GEOLOCATION SERVICE.";
+    toast.error(`${errorMessage}... Showing default city weather (NYC)`, {
+      theme: "colored",
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: false,
+      progress: undefined,
+    });
+    setLatitude(40.7127837);
+    setLongitude(-74.0059413);
+  }
+
+  function success() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
         toast.success(
-          `Geolocation enabled! Your coordinates are ${longitude}, ${latitude}`,
+          `Geolocation success! Your coordinates are ${position.coords.latitude}, ${position.coords.longitude}`,
           {
             theme: "colored",
 
@@ -73,29 +84,42 @@ const Weather = ({ selectedIndex }) => {
             progress: undefined,
           }
         );
-      });
-    }
+      },
+      () => {
+        handleLocationError(true);
+      }
+    );
   }
 
   return (
     <>
-      <Grid>
-        <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
-          {cityName},
-        </Typography>
-      </Grid>
-      <Grid>
-        <Avatar
-          sx={{ width: 25, height: 25 }}
-          alt="weather-icon"
-          src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-        />
-      </Grid>
-      <Grid>
-        <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
-          {temp}°F
-        </Typography>
-      </Grid>
+      {latitude ? (
+        <>
+          <Grid>
+            <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+              {cityName},
+            </Typography>
+          </Grid>
+          <Grid>
+            <Avatar
+              sx={{ width: 25, height: 25 }}
+              alt="weather-icon"
+              src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+            />
+          </Grid>
+          <Grid>
+            <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+              {temp}°F
+            </Typography>
+          </Grid>
+        </>
+      ) : (
+        <>
+          <Typography sx={{ fontSize: 14, mt: 0.5, color: "white" }}>
+            fetching weather...
+          </Typography>
+        </>
+      )}
     </>
   );
 };
