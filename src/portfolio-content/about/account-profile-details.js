@@ -47,7 +47,7 @@ export const AccountProfileDetails = (props) => {
       <Box
         sx={{
           display: "flex",
-          justifyContent: "flex-start",
+          justifyContent: { xs: "center", sm: "flex-start" },
           p: 2,
         }}
       >
