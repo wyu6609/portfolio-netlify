@@ -38,7 +38,7 @@ const cards = [
     description:
       "Chat app inspired by WhatsApp. Utilizes action cable and web sockets!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project1.png?raw=true",
-    link: "https://github.com/wyu6609/whats-app-clone-frontend",
+    link: "https://whats-upp-chat.netlify.app/",
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
@@ -47,7 +47,7 @@ const cards = [
     description:
       "Hungry? Search an ingredient and see a bunch of random recipes!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project3.png?raw=true",
-    link: "https://u-hungry.netlify.app/#/",
+    link: "https://u-hungry.netlify.app/#/https://whats-upp-chat.netlify.app/",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
   },
@@ -56,7 +56,7 @@ const cards = [
     description:
       "Search a NYC restaurant. Visualize the health stats on Google Maps",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
-    link: "https://wyu6609.github.io/NYC-health-inspection/",
+    link: "https://nyc-health-inspection.netlify.app/",
     git: "https://github.com/wyu6609/NYC-health-inspection",
     demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
   },
@@ -64,14 +64,14 @@ const cards = [
     title: "Minimalist Weather",
     description: "Simple and clean weather app. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
-    link: "https://nyc-health-inspection.netlify.app/",
+    link: "https://minimalists-weather.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
   },
   {
     title: "Guess My Number",
     description: "Guess a number between 1-20. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project5.png?raw=true",
-    link: "https://wyu6609.github.io/numberguessinggame",
+    link: "https://number-guess-gaming.netlify.app/",
     git: "https://github.com/wyu6609/NumberGuessingGame",
   },
   {
