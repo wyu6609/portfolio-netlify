@@ -49,18 +49,21 @@ const Weather = ({ selectedIndex }) => {
 
   function handleLocationError(browserHasGeolocation) {
     let errorMessage = browserHasGeolocation
-      ? "ERROR: THE GEOLOCATION SERVICE HAS FAILED"
+      ? "ERROR: YOUR GEOLOCATION IS DISABLED "
       : "ERROR: YOUR BROWSER DOESN'T SUPPORT GEOLOCATION SERVICE.";
-    toast.error(`${errorMessage}... Showing default city weather (NYC)`, {
-      theme: "colored",
-      position: "bottom-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: false,
-      progress: undefined,
-    });
+    toast.error(
+      `${errorMessage} => Showing default city weather (NYC) instead`,
+      {
+        theme: "colored",
+        position: "bottom-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+      }
+    );
     setLatitude(40.7127837);
     setLongitude(-74.0059413);
   }
@@ -97,7 +100,7 @@ const Weather = ({ selectedIndex }) => {
         <>
           <Grid>
             <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
-              {cityName},
+              {cityName}
             </Typography>
           </Grid>
           <Grid>

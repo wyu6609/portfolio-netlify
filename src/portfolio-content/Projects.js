@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import "./Project.css";
 
 const cards = [
@@ -23,6 +24,7 @@ const cards = [
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project4.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
     git: "https://github.com/wyu6609/bot_io_2.0",
+    demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
   },
   {
     title: "Bot.io 1.0",
@@ -38,6 +40,7 @@ const cards = [
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project1.png?raw=true",
     link: "https://github.com/wyu6609/whats-app-clone-frontend",
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
+    demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
   {
     title: "UHungry?",
@@ -46,6 +49,7 @@ const cards = [
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project3.png?raw=true",
     link: "https://u-hungry.netlify.app/#/",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
+    demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
   },
   {
     title: "NYC HEALTH",
@@ -54,6 +58,7 @@ const cards = [
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
     link: "https://wyu6609.github.io/NYC-health-inspection/",
     git: "https://github.com/wyu6609/NYC-health-inspection",
+    demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
   },
   {
     title: "Minimalist Weather",
@@ -148,6 +153,28 @@ const Projects = () => {
                 </CardContent>
                 <Divider />
                 <CardActions>
+                  {card.demo ? (
+                    <IconButton
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "#cccccc",
+                        },
+                      }}
+                      onClick={() => {
+                        window.open(card.demo, "_blank");
+                      }}
+                    >
+                      <YouTubeIcon
+                        sx={{
+                          color: "primary.main",
+                          fontSize: 30,
+                        }}
+                      />
+                    </IconButton>
+                  ) : (
+                    <></>
+                  )}
+
                   <IconButton
                     sx={{
                       "&:hover": {

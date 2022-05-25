@@ -63,7 +63,7 @@ export const AccountProfileDetails = (props) => {
             props.setSelectedIndex(1);
           }}
         >
-          Go to projects!
+          See My Projects!
         </Button>
       </Box>
     </Card>

@@ -8,13 +8,17 @@ import Login from "../portfolio-content/Login";
 import Resume from "../portfolio-content/Resume";
 import Error from "../portfolio-content/Error";
 
-export default function Content({ setSelectedIndex, btnSound }) {
+export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
   return (
     <Routes>
       <Route
         path="/"
         element={
-          <Bio setSelectedIndex={setSelectedIndex} btnSound={btnSound} />
+          <Bio
+            setSelectedIndex={setSelectedIndex}
+            btnSound={btnSound}
+            MyLinks={MyLinks}
+          />
         }
       />
       <Route path="/projects" element={<Projects />} />

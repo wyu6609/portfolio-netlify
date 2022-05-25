@@ -15,7 +15,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArticleIcon from "@mui/icons-material/Article";
 import "./Paperbase.css";
-function Copyright() {
+function MyLinks() {
   return (
     <Typography
       variant="body2"
@@ -327,7 +327,7 @@ export default function Paperbase() {
             }}
             elevation={6}
           >
-            <Copyright />
+            <MyLinks />
           </Box>
         </Box>
       </Box>
