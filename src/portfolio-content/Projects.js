@@ -27,13 +27,6 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
   },
   {
-    title: "Bot.io 1.0",
-    description: "The first version of Bot.IO",
-    img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
-    link: "http://bot-market-io.herokuapp.com/",
-    git: "https://github.com/wyu6609/bot_heroku_Test",
-  },
-  {
     title: "WhatsUpp",
     description:
       "Chat app inspired by WhatsApp. Utilizes action cable and web sockets!",
@@ -42,6 +35,16 @@ const cards = [
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
+  {
+    title: "NYC HEALTH",
+    description:
+      "Search a NYC restaurant. Visualize the health stats on Google Maps",
+    img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
+    link: "https://nyc-health-inspection.netlify.app/",
+    git: "https://github.com/wyu6609/NYC-health-inspection",
+    demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
+  },
+
   {
     title: "UHungry?",
     description:
@@ -52,13 +55,11 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
   },
   {
-    title: "NYC HEALTH",
-    description:
-      "Search a NYC restaurant. Visualize the health stats on Google Maps",
-    img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project2.png?raw=true",
-    link: "https://nyc-health-inspection.netlify.app/",
-    git: "https://github.com/wyu6609/NYC-health-inspection",
-    demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
+    title: "Bot.io 1.0",
+    description: "The first version of Bot.IO",
+    img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
+    link: "http://bot-market-io.herokuapp.com/",
+    git: "https://github.com/wyu6609/bot_heroku_Test",
   },
   {
     title: "Minimalist Weather",
