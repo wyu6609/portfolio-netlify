@@ -39,7 +39,7 @@ const cards = [
       "Chat app inspired by WhatsApp. Utilizes action cable and web sockets!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project1.png?raw=true",
     link: "https://whats-upp-chat.netlify.app/",
-    git: "https://github.com/wyu6609/whats-app-clone-frontend",
+    git: "https://illustrious-longma-22a381.netlify.app/",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
   {
