@@ -50,7 +50,7 @@ const cards = [
     description:
       "Hungry? Search an ingredient and see a bunch of random recipes!",
     img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project3.png?raw=true",
-    link: "https://u-hungry.netlify.app/#/https://whats-upp-chat.netlify.app/",
+    link: "https://u-hungry.netlify.app/#",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
   },
