@@ -55,9 +55,9 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
   },
   {
-    title: "Dream Journal",
+    title: "Dream.",
     description: "Log your dreams. See what others are dreaming",
-    img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project4.png?raw=true",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
     link: "https://journal-da-dreams.herokuapp.com/",
     git: "https://github.com/wyu6609/Dream.",
   },
