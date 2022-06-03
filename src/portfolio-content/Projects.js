@@ -39,7 +39,7 @@ const cards = [
     title: "NYC HEALTH",
     description:
       "Search a NYC restaurant. Visualize the health stats on Google Maps",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/nychealth_mockup.png?raw=true",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/nyc_heath_mockup.png?raw=true",
     link: "https://nyc-health-inspection.netlify.app/",
     git: "https://github.com/wyu6609/NYC-health-inspection",
     demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
