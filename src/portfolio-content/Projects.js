@@ -21,7 +21,7 @@ const cards = [
     title: "Bot.io 2.0",
     description:
       "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
-    img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project4.png?raw=true",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/bot_io.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
     git: "https://github.com/wyu6609/bot_io_2.0",
     demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
