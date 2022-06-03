@@ -23,7 +23,7 @@ const Resume = () => {
         It appears you don't have a PDF plugin for this browser. No biggie...
         you can &nbsp;
         <a
-          href="https://willyu.netlify.app/assets/img/portfolio/Resume.pdf"
+          href="https://github.com/wyu6609/portfolio-netlify/blob/main/src/portfolio-content/Resume.pdf"
           target="_blank"
         >
           click here
