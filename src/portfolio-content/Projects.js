@@ -118,7 +118,7 @@ const Projects = () => {
                   display: "flex",
                   flexDirection: "column",
                   "&:hover": {
-                    backgroundColor: "#eeeeee",
+                    backgroundColor: "white",
                   },
                 }}
               >
