@@ -60,6 +60,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
     link: "https://journal-da-dreams.herokuapp.com/",
     git: "https://github.com/wyu6609/Dream.",
+    demo: "https://youtu.be/bSJZU5kbhbM",
   },
   {
     title: "Minimalist Weather",
