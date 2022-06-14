@@ -42,6 +42,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/pokedex_mockup.png?raw=true",
     link: "https://wills-pokedex.netlify.app/",
     git: "https://github.com/wyu6609/my_pokedex",
+    demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
   },
   {
     title: "NYC HEALTH",
