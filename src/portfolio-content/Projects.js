@@ -36,6 +36,14 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
   {
+    title: "My Pokedex",
+    description:
+      "A simple and fun Pokedex. Built with React, React-Bootstrap and Axios",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/pokedex_mockup.png?raw=true",
+    link: "https://wills-pokedex.netlify.app/",
+    git: "https://github.com/wyu6609/my_pokedex",
+  },
+  {
     title: "NYC HEALTH",
     description:
       "Search a NYC restaurant. Visualize the health stats on Google Maps",
@@ -69,13 +77,7 @@ const cards = [
     link: "https://minimalists-weather.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
   },
-  {
-    title: "Guess My Number",
-    description: "Guess a number between 1-20. Built with Vanilla JavaScript",
-    img: "https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/portfolio/project5.png?raw=true",
-    link: "https://number-guess-gaming.netlify.app/",
-    git: "https://github.com/wyu6609/NumberGuessingGame",
-  },
+
   {
     title: "To-Do App",
     description:
