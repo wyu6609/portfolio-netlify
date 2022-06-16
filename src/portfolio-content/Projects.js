@@ -130,8 +130,7 @@ const Projects = () => {
                   component="img"
                   sx={{
                     // 16:9
-                    p: 3,
-                    width: 280,
+                    mt: 1,
                   }}
                   image={card.img}
                   alt="random"
