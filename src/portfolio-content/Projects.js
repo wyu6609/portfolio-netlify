@@ -72,20 +72,19 @@ const cards = [
     demo: "https://youtu.be/bSJZU5kbhbM",
   },
   {
+    title: "Adopet",
+    description: "Find a pet companion in need around you!",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
+    link: "https://adopet-adopt.netlify.app/adopt",
+    git: "https://github.com/wyu6609/Adopet",
+  },
+
+  {
     title: "Minimalist Weather",
     description: "Simple and clean weather app. Built with Vanilla JavaScript",
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
     link: "https://minimalists-weather.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
-  },
-
-  {
-    title: "To-Do App",
-    description:
-      "Manage and track your daily to-do list with this web app. Built on Vanilla JavaScript.",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/todo%20mockup.png?raw=true",
-    link: "https://wills-todo.netlify.app/",
-    git: "https://github.com/wyu6609/ToDoList",
   },
 ];
 const stackCards = [1, 2, 3, 4];
