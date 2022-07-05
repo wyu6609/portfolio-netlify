@@ -324,10 +324,10 @@ export default function Paperbase() {
             sx={{
               p: 1,
               bgcolor: "primary.main",
-              position: "fixed",
+              position: "sticky",
               bottom: 0,
             }}
-            elevation={6}
+            elevation={2}
           >
             <MyLinks />
           </Box>
