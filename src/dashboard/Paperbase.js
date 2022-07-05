@@ -324,6 +324,8 @@ export default function Paperbase() {
             sx={{
               p: 1,
               bgcolor: "primary.main",
+              position: "fixed",
+              bottom: 0,
             }}
             elevation={6}
           >
