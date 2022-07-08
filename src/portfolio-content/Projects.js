@@ -53,6 +53,21 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
   },
   {
+    title: "Dream.",
+    description: "Log your dreams. See what others are dreaming",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
+    link: "https://journal-da-dreams.herokuapp.com/",
+    git: "https://github.com/wyu6609/Dream.",
+    demo: "https://youtu.be/bSJZU5kbhbM",
+  },
+  {
+    title: "Adopet",
+    description: "Find a pet companion in need around you!",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
+    link: "https://adopet-adopt.netlify.app/adopt",
+    git: "https://github.com/wyu6609/Adopet",
+  },
+  {
     title: "NYC HEALTH",
     description:
       "Search a NYC restaurant. Visualize the health stats on Google Maps",
@@ -70,21 +85,6 @@ const cards = [
     link: "https://u-hungry.netlify.app/#",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
-  },
-  {
-    title: "Dream.",
-    description: "Log your dreams. See what others are dreaming",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
-    link: "https://journal-da-dreams.herokuapp.com/",
-    git: "https://github.com/wyu6609/Dream.",
-    demo: "https://youtu.be/bSJZU5kbhbM",
-  },
-  {
-    title: "Adopet",
-    description: "Find a pet companion in need around you!",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
-    link: "https://adopet-adopt.netlify.app/adopt",
-    git: "https://github.com/wyu6609/Adopet",
   },
 
   {
@@ -113,9 +113,20 @@ const Projects = () => {
         color="#111827"
         fontWeight="bold"
         letterSpacing="1px"
-        sx={{ py: 3, alignItems: "center" }}
+        sx={{ py: 2, alignItems: "center" }}
       >
         PROJECTS
+      </Typography>
+      <Typography
+        align="center"
+        variant="body2"
+        color="#111827"
+        fontWeight="bold"
+        letterSpacing="1px"
+        sx={{ pb: 2, alignItems: "center" }}
+      >
+        Select and click on a card to demo my web app! Please allow for 20-30
+        seconds for some to load as they are hosted on Heroku
       </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
