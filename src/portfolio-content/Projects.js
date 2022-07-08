@@ -18,6 +18,14 @@ import "./Project.css";
 
 const cards = [
   {
+    title: "The Sneaker Vault",
+    description:
+      "A simple shoe directory for some of the rarest sneaker collections in hype beast fashion!",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/sneakervault_mockup.png?raw=true",
+    link: "https://the-sneaker-vault.herokuapp.com/",
+    git: "https://github.com/wyu6609/fire_kicks",
+  },
+  {
     title: "Bot.io 2.0",
     description:
       "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
