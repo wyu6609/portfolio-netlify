@@ -28,7 +28,7 @@ const cards = [
   {
     title: "Bot.io 2.0",
     description:
-      "A fictional NFT BOT market, built with RAILS, REACT and MATERIAL UI",
+      "A NFT BOT market directory, built with RAILS, REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/bot_io.png?raw=true",
     link: "http://buy-ya-bots.herokuapp.com/",
     git: "https://github.com/wyu6609/bot_io_2.0",
@@ -66,6 +66,14 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
     link: "https://adopet-adopt.netlify.app/adopt",
     git: "https://github.com/wyu6609/Adopet",
+  },
+  {
+    title: "Cat Stuff LLC",
+    description:
+      "A startup web site for cat stuff. Meow. Built with React and BootStrap.",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
+    link: "https://cat-stuff.netlify.app/",
+    git: "https://github.com/wyu6609/cat_startup",
   },
   {
     title: "NYC HEALTH",
