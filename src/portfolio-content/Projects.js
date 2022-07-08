@@ -126,7 +126,8 @@ const Projects = () => {
         sx={{ pb: 2, alignItems: "center" }}
       >
         Select and click on a card to demo my web app! Please allow for 20-30
-        seconds for some to load as they are hosted on Heroku
+        seconds for some to load as they are hosted on Heroku. Github Repo and
+        Youtube Demos included on some.
       </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
