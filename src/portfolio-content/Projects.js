@@ -68,7 +68,7 @@ const cards = [
     git: "https://github.com/wyu6609/Adopet",
   },
   {
-    title: "Cat Stuff LLC",
+    title: "Cat Startup",
     description:
       "A startup web site for cat stuff. Meow. Built with React and BootStrap.",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
@@ -146,6 +146,7 @@ const Projects = () => {
                 sx={{
                   alignItems: "center",
                   height: "100%",
+
                   display: "flex",
                   flexDirection: "column",
                   "&:hover": {
@@ -168,7 +169,7 @@ const Projects = () => {
                     gutterBottom
                     variant="h5"
                     component="h6"
-                    sx={{ mt: -2 }}
+                    sx={{ mt: 1 }}
                     color="primary.main"
                     fontWeight="bold"
                   >
@@ -177,7 +178,7 @@ const Projects = () => {
                   <Typography
                     align="center"
                     variant="body2"
-                    sx={{ mb: -2, fontSize: 12 }}
+                    sx={{ fontSize: 12 }}
                   >
                     {card.description}
                   </Typography>
