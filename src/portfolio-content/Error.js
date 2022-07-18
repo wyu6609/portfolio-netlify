@@ -1,7 +1,11 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import  {useNavigate } from "react-router-dom"
+
 
 const Error = () => (
+
+  
   <>
     <title>404 | Material Kit</title>
 
@@ -47,6 +51,8 @@ const Error = () => (
             startIcon={<ArrowBackIcon fontSize="small" />}
             sx={{ my: 3 }}
             variant="contained"
+            href = "/projects"
+   
           >
             Checkout my projects!
           </Button>
