@@ -62,7 +62,11 @@ export const AccountProfileDetails = (props) => {
           See My Projects!
         </Button>
 
-        <a href="https://github.com/wyu6609" target="_blank">
+        <a
+          style={{ textDecoration: "none" }}
+          href="https://github.com/wyu6609"
+          target="_blank"
+        >
           <Button
             className="fancy_card1"
             sx={{ mx: 3 }}
