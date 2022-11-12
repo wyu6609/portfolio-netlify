@@ -16,7 +16,7 @@ export const AccountProfileDetails = (props) => {
     <Card>
       <CardHeader
         sx={{ justifyContent: "center" }}
-        subheader="Chemical engineering graduate transitioning into software engineering"
+        subheader="Software Engineer"
         title="Fullstack Developer"
       />
       <Divider />
@@ -32,13 +32,9 @@ export const AccountProfileDetails = (props) => {
               <br></br>I graduated from New York University, where I received my
               bachelor’s degree in chemical engineering and immersed myself in
               mathematics, physics and engineering. I found my love for coding
-              after college and wish to become a seasoned and professional
-              software engineer!
+              after college. I am currently a software engineer at JP Morgan and
+              Chase.
               <br></br>
-              <br></br> I have recently graduated from Flatiron School's 15 week
-              immersive boot camp and would love to apply my problem solving and
-              programming and team-oriented skill set to help clients and
-              companies meet their goals.
             </Typography>
           </Grid>
         </Grid>
