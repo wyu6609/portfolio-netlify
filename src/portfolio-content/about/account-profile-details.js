@@ -10,7 +10,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-
+import GitHubIcon from "@mui/icons-material/GitHub";
 export const AccountProfileDetails = (props) => {
   return (
     <Card>
@@ -54,7 +54,7 @@ export const AccountProfileDetails = (props) => {
         <Button
           // component={Link}
           // to="/projects"
-
+          className="fancy_card1"
           color="primary"
           variant="contained"
           onClick={() => {
@@ -65,6 +65,23 @@ export const AccountProfileDetails = (props) => {
         >
           See My Projects!
         </Button>
+
+        <a href="https://github.com/wyu6609" target="_blank">
+          <Button
+            className="fancy_card1"
+            sx={{ mx: 3 }}
+            // component={Link}
+            // to="/projects"
+
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              props.btnSound();
+            }}
+          >
+            My GitHub <GitHubIcon fontSize="large" />
+          </Button>
+        </a>
       </Box>
     </Card>
   );
