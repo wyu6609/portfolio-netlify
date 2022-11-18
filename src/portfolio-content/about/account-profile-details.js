@@ -69,7 +69,7 @@ export const AccountProfileDetails = (props) => {
         >
           <Button
             className="fancy_card1"
-            sx={{ mx: 3 }}
+            sx={{ mx: 4 }}
             // component={Link}
             // to="/projects"
 
