@@ -32,8 +32,7 @@ export const AccountProfileDetails = (props) => {
               <br></br>I graduated from New York University, where I received my
               bachelor’s degree in chemical engineering and immersed myself in
               mathematics, physics and engineering. I found my love for coding
-              after college. I am currently a software engineer at JP Morgan and
-              Chase.
+              after college.
               <br></br>
             </Typography>
           </Grid>
