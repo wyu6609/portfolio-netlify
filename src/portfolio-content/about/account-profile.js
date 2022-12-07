@@ -16,7 +16,7 @@ import ArticleIcon from "@mui/icons-material/Article";
 const user = {
   avatar: "../../images/avatar.png",
   skills:
-    "Software Engineer | JavaScript | ReactJS | NodeJS | Ruby | Ruby on Rails | Git | Github | Version Control",
+    "Java | Spring | JavaScript | ReactJS | NodeJS | Ruby | Rails | Git | Github | Version Control",
   jobTitle: "Senior Developer",
   name: "William Yu",
   skills2: "Netlify | Heroku | BootStrap | Material-UI",

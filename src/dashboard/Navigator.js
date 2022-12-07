@@ -63,7 +63,7 @@ const itemCategory = {
   py: 1.5,
   px: 3,
 };
-
+const noPointer = { cursor: "default" };
 export default function Navigator(props) {
   let location = useLocation();
   const { ...other } = props;
@@ -75,6 +75,7 @@ export default function Navigator(props) {
     <Drawer elevation={10} variant="permanent" {...other}>
       <List sx={{ mt: 4 }} disablePadding>
         <ListItem
+          style={noPointer}
           onClick={() => {
             let url = "https://www.linkedin.com/in/will-yu-56b101a8/";
             window.open(url, "_blank");
