@@ -75,6 +75,10 @@ export default function Navigator(props) {
     <Drawer elevation={10} variant="permanent" {...other}>
       <List sx={{ mt: 4 }} disablePadding>
         <ListItem
+          onClick={() => {
+            let url = "https://www.linkedin.com/in/will-yu-56b101a8/";
+            window.open(url, "_blank");
+          }}
           sx={{
             ...item,
             ...itemCategory,
