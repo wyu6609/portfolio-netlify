@@ -134,9 +134,8 @@ const Projects = () => {
         letterSpacing="1px"
         sx={{ pb: 2, alignItems: "center" }}
       >
-        Select and click on a card to demo my web app! Please allow for 20-30
-        seconds for some to load as they are hosted on Heroku. Github Repo and
-        Youtube Demos included on some.
+        Heroku apps are currently down. In the process of migrating all Heroku
+        deployed apps to AWS.
       </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
@@ -231,7 +230,6 @@ const Projects = () => {
           </Grid>
         ))}
       </Grid>
-
     </Container>
   );
 };
