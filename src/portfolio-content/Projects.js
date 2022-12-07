@@ -129,7 +129,7 @@ const Projects = () => {
       <Typography
         align="center"
         variant="body2"
-        color="#111827"
+        color="#FF0000"
         fontWeight="bold"
         letterSpacing="1px"
         sx={{ pb: 2, alignItems: "center" }}
