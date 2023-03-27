@@ -27,7 +27,7 @@ export const AccountProfileDetails = (props) => {
               I am currently a software engineer I in fintech and supporting backend microservices at JP Morgan & Chase.
               <br></br><br></br>
               I am a passionate and highly motivated full stack developer with
-              experience using Java, Spring, JavaScript, NodeJs, ReactJS, Material-UI, Ruby, Rails
+              experience using Java, Spring, JavaScript, NodeJS, ReactJS, Material-UI, Ruby, Ruby on Rails
               and Git. I love to build new projects and debugging. I am also
               committed to writing clean, readable and scalable code!<br></br>
               <br></br>I graduated from New York University, where I received my
