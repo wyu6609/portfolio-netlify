@@ -16,10 +16,10 @@ import ArticleIcon from "@mui/icons-material/Article";
 const user = {
   avatar: "../../images/avatar.png",
   skills:
-    "Java | Spring | JavaScript | ReactJS | NodeJS | Ruby | Rails | Git | Github | Version Control",
-  jobTitle: "Senior Developer",
+    "Java | Spring | JavaScript | ReactJS | NodeJS | Ruby | Rails | Git | CICD",
+  jobTitle: "Software Engineer I",
   name: "William Yu",
-  skills2: "Netlify | Heroku | BootStrap | Material-UI",
+  skills2: "Material-UI | BootStrap | SQL | AWS",
 };
 
 export const AccountProfile = (props) => (

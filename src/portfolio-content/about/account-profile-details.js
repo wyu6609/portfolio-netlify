@@ -24,12 +24,11 @@ export const AccountProfileDetails = (props) => {
         <Grid container spacing={3}>
           <Grid item md={12} xs={12}>
             <Typography align="left" variant="body2">
-              I am currently a software engineer I in fintech supporting backend services at JP Morgan & Chase.
+              I am currently a software engineer I in fintech and supporting backend microservices at JP Morgan & Chase.
               <br></br><br></br>
               I am a passionate and highly motivated full stack developer with
-              experience using frontend and backend technologies such as
-              JavaScript, ReactJS, Bootstrap, Material-UI, Node, Ruby, Sinatra,
-              and Rails. I love to build new projects and debugging. I am also
+              experience using Java, Spring, JavaScript, NodeJs, ReactJS, Material-UI, Ruby, Rails
+              and Git. I love to build new projects and debugging. I am also
               committed to writing clean, readable and scalable code!<br></br>
               <br></br>I graduated from New York University, where I received my
               bachelor’s degree in chemical engineering and immersed myself in
