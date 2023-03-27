@@ -16,7 +16,7 @@ export const AccountProfileDetails = (props) => {
     <Card>
       <CardHeader
         sx={{ justifyContent: "center" }}
-        subheader="Software Engineer"
+        subheader="Backend Software Engineer @ JP Morgan & Chase"
         title="Fullstack Developer"
       />
       <Divider />
