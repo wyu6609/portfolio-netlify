@@ -24,8 +24,6 @@ export const AccountProfileDetails = (props) => {
         <Grid container spacing={3}>
           <Grid item md={12} xs={12}>
             <Typography align="left" variant="body2">
-              I am a software engineer I in financial technology. Currently, I am supporting backend microservices at JP Morgan & Chase.
-              <br></br><br></br>
               I am a passionate and highly motivated full stack developer with
               experience using Java, Spring, JavaScript, NodeJS, ReactJS, Material-UI, Ruby, Ruby on Rails
               and Git. I love to build new projects and debugging. I am also
