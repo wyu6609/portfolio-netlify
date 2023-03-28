@@ -25,7 +25,7 @@ const Hobbies = () => {
     }}
   >     <Typography color="textPrimary" gutterBottom variant="h1" sx= {{fontSize:12, fontWeight:'bold'}}>March 16 at 2:40 PM</Typography>
        
-           <Typography color="textSecondary" gutterBottom variant="p4" sx= {{fontSize:12}}>
+           <Typography color="textPrimary" gutterBottom variant="p4" sx= {{fontSize:12}}>
            I play Nocturne in C Sharp Minor by Chopin
         </Typography>
         <div className = "iframe-container" >
