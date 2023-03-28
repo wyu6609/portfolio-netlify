@@ -24,7 +24,7 @@ const Hobbies = () => {
   >     <h3>March 16 at 2:40 PM</h3>
         <p>I play Nocturne in C Sharp Minor by Chopin</p>
         
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?auto=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </Container>
   );
 };
