@@ -13,6 +13,7 @@ import CottageIcon from "@mui/icons-material/Cottage";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import Color from "./Color.js";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
 
 const categories = [
   {
@@ -38,11 +39,12 @@ const categories = [
         route: "/resume",
       },
       {
-        id: "CONTACT",
+        id: "my blog",
         menuIndex: 3,
-        icon: <ConnectWithoutContactIcon />,
-        route: "/contact",
-      },
+        icon: <MusicNoteIcon />,
+        route: "/hobbies",
+      }
+   
       // { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
       ,
     ],

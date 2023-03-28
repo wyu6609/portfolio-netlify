@@ -99,7 +99,7 @@ export default function Paperbase() {
       case "/contact":
         setSelectedIndex(3);
         break;
-      case "/login":
+      case "/hobbies":
         setSelectedIndex(4);
         break;
       default:
