@@ -53,7 +53,7 @@ const Hobbies = () => {
         </Typography>
         
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        How relatable.
+       😅
       
         </Typography>
         <div class="tenor-gif-embed" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="100%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></div> 
