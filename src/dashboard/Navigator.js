@@ -39,7 +39,7 @@ const categories = [
         route: "/resume",
       },
       {
-        id: "my blog",
+        id: "BLOG",
         menuIndex: 3,
         icon: <MusicNoteIcon />,
         route: "/hobbies",
