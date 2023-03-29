@@ -3,19 +3,18 @@ import Button from "@mui/material/Button";
 import Paperbase from "./dashboard/Paperbase";
 import { ThemeProvider } from "@mui/material/styles";
 function App() {
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("/me").then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((user) => {
-  //         setUser(user);
-  //       });
-  //     }
-  //   });
-  // }, []);
-
-  // if (!user) return <div>not logged in</div>;
+  useEffect(() => {
+    const script = document.createElement('script');
+  
+    script.src = "https://tenor.com/embed.js";
+    script.async = true;
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    }
+  }, []);
 
   return (
     <div className="App">
