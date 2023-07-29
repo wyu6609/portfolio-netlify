@@ -19,6 +19,30 @@ import Glasscard from "./Glasscard.js";
 
 const cards = [
   {
+    title: "My Pokedex",
+    description:
+      "A simple and fun Pokedex. Built with React, React-Bootstrap and Axios",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/pokedex_mockup.png?raw=true",
+    link: "https://wills-pokedex.netlify.app/",
+    git: "https://github.com/wyu6609/my_pokedex",
+    demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
+  },
+  {
+    title: "Adopet",
+    description: "Find a pet companion in need around you!",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
+    link: "https://adopet-adopt.netlify.app/adopt",
+    git: "https://github.com/wyu6609/Adopet",
+  },
+  {
+    title: "Cat Startup",
+    description:
+      "A startup web site for cat stuff. Meow. Built with React and BootStrap.",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
+    link: "https://cat-stuff.netlify.app/",
+    git: "https://github.com/wyu6609/cat_startup",
+  },
+  {
     title: "The Sneaker Vault",
     description:
       "A simple shoe directory for some of the rarest sneaker collections in hype beast fashion!",
@@ -45,15 +69,6 @@ const cards = [
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
   {
-    title: "My Pokedex",
-    description:
-      "A simple and fun Pokedex. Built with React, React-Bootstrap and Axios",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/pokedex_mockup.png?raw=true",
-    link: "https://wills-pokedex.netlify.app/",
-    git: "https://github.com/wyu6609/my_pokedex",
-    demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
-  },
-  {
     title: "Dream.",
     description: "Log your dreams. See what others are dreaming",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
@@ -61,21 +76,7 @@ const cards = [
     git: "https://github.com/wyu6609/Dream.",
     demo: "https://youtu.be/bSJZU5kbhbM",
   },
-  {
-    title: "Adopet",
-    description: "Find a pet companion in need around you!",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
-    link: "https://adopet-adopt.netlify.app/adopt",
-    git: "https://github.com/wyu6609/Adopet",
-  },
-  {
-    title: "Cat Startup",
-    description:
-      "A startup web site for cat stuff. Meow. Built with React and BootStrap.",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
-    link: "https://cat-stuff.netlify.app/",
-    git: "https://github.com/wyu6609/cat_startup",
-  },
+  
   {
     title: "NYC HEALTH",
     description:
