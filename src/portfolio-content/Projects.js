@@ -19,6 +19,31 @@ import Glasscard from "./Glasscard.js";
 
 const cards = [
   {
+    title: "Bot.io 2.0",
+    description:
+      "A NFT BOT market directory, built with RAILS, REACT and MATERIAL UI",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/bot_io.png?raw=true",
+    link: "http://buy-ya-bots.herokuapp.com/",
+    git: "https://github.com/wyu6609/bot_io_2.0",
+    demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
+  },
+  {
+    title: "Dream.",
+    description: "Log your dreams. See what others are dreaming",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
+    link: "https://journal-da-dreams.herokuapp.com/",
+    git: "https://github.com/wyu6609/Dream.",
+    demo: "https://youtu.be/bSJZU5kbhbM",
+  },
+  {
+    title: "The Sneaker Vault",
+    description:
+      "A simple shoe directory for some of the rarest sneaker collections in hype beast fashion!",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/sneakervault_mockup.png?raw=true",
+    link: "https://the-sneaker-vault.herokuapp.com/",
+    git: "https://github.com/wyu6609/fire_kicks",
+  },
+  {
     title: "My Pokedex",
     description:
       "A simple and fun Pokedex. Built with React, React-Bootstrap and Axios",
@@ -43,23 +68,6 @@ const cards = [
     git: "https://github.com/wyu6609/cat_startup",
   },
   {
-    title: "The Sneaker Vault",
-    description:
-      "A simple shoe directory for some of the rarest sneaker collections in hype beast fashion!",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/sneakervault_mockup.png?raw=true",
-    link: "https://the-sneaker-vault.herokuapp.com/",
-    git: "https://github.com/wyu6609/fire_kicks",
-  },
-  {
-    title: "Bot.io 2.0",
-    description:
-      "A NFT BOT market directory, built with RAILS, REACT and MATERIAL UI",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/bot_io.png?raw=true",
-    link: "http://buy-ya-bots.herokuapp.com/",
-    git: "https://github.com/wyu6609/bot_io_2.0",
-    demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
-  },
-  {
     title: "WhatsUpp",
     description:
       "Chat app inspired by WhatsApp. Utilizes action cable and web sockets!",
@@ -68,15 +76,6 @@ const cards = [
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
   },
-  {
-    title: "Dream.",
-    description: "Log your dreams. See what others are dreaming",
-    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/dream_mockup.png?raw=true",
-    link: "https://journal-da-dreams.herokuapp.com/",
-    git: "https://github.com/wyu6609/Dream.",
-    demo: "https://youtu.be/bSJZU5kbhbM",
-  },
-  
   {
     title: "NYC HEALTH",
     description:
@@ -134,10 +133,7 @@ const Projects = () => {
         fontWeight="bold"
         letterSpacing="1px"
         sx={{ pb: 2, alignItems: "center" }}
-      >
-        Heroku apps are currently down. In the process of migrating all Heroku
-        deployed apps to AWS.
-      </Typography>
+      ></Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
