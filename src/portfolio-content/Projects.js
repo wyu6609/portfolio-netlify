@@ -133,7 +133,9 @@ const Projects = () => {
         fontWeight="bold"
         letterSpacing="1px"
         sx={{ pb: 2, alignItems: "center" }}
-      ></Typography>
+      >
+        *heroku apps require ~30 sec initial bootup*
+      </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
