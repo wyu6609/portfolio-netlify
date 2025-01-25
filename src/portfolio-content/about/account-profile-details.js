@@ -23,7 +23,7 @@ export const AccountProfileDetails = (props) => {
       <CardContent>
         <Grid container spacing={3}>
           <Grid item md={12} xs={12}>
-            <Typography align="left" variant="body2">
+            <Typography align="middle" variant="body">
               I am a passionate and highly motivated full stack developer with
               experience using Java, Spring, JavaScript, NodeJS, ReactJS, Material-UI, Ruby, Ruby on Rails
               and Git. I love to build new projects and debugging. I am also
