@@ -144,9 +144,24 @@ const Projects = () => {
         color="#111827"
         fontWeight="bold"
         letterSpacing="1px"
-        sx={{ py: 2, alignItems: "center" }}
-      >
+ 
+        sx={{ py: 2, alignItems: "center",color: "#111827",
+          fontWeight: "bold",
+          letterSpacing: "1px",
+          textDecoration: "none", // Remove underline by default
+          transition: "transform 0.3s ease, color 0.3s ease", // Smooth transition for hover effects
+          "&:hover": {
+            color: "primary.main", // Change text color on hover
+            textDecoration: "underline", // Add underline on hover
+            cursor: "pointer", // Show pointer cursor
+            transform: "scale(1.1)", // Slightly grow the text
+          }, }}
+      > <Link
+              href="https://github.com/wyu6609?tab=repositories"
+              target="_blank"
+            >
         PROJECTS
+        </Link>
       </Typography>
       <Typography
         align="center"
@@ -157,7 +172,6 @@ const Projects = () => {
         sx={{ pb: 2, alignItems: "center", 
           animation: `${bounceAnimation} 0.5s ease-in-out infinite`, // Infinite bounce
         }}
-
       >
         *HEROKU APPS ARE CURRENTLY DOWN*
       </Typography>
@@ -175,7 +189,6 @@ const Projects = () => {
                   backgroundColor: card.disabled ? "red" : "inherit",
                   display: "flex",
                   flexDirection: "column",
-                  
                   pointerEvents: card.disabled ? "none" : "auto", // Disable pointer events when the card is disabled
                   "&:hover": {
                     backgroundColor: card.disabled ? "red" : "white", // Prevent hover effect if disabled
@@ -199,7 +212,7 @@ const Projects = () => {
                     variant="h5"
                     component="h6"
                     sx={{ mt: 1 }}
-                    color="primary.main"
+                    color= {card.disabled ? "grey":"primary.main"}
                     fontWeight="bold"
                   >
                     {card.title}
@@ -227,7 +240,7 @@ const Projects = () => {
                     >
                       <YouTubeIcon
                         sx={{
-                          color: "primary.main",
+                          color: card.disabled ? "grey":"primary.main",
                           fontSize: 30,
                         }}
                       />
@@ -248,7 +261,7 @@ const Projects = () => {
                   >
                     <GitHubIcon
                       sx={{
-                        color: "primary.main",
+                        color: card.disabled ? "grey":"primary.main",
                         fontSize: 30,
                       }}
                     />
