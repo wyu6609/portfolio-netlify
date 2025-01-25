@@ -1,4 +1,5 @@
 import React from "react";
+import { keyframes } from "@emotion/react"; 
 import {
   Link,
   Container,
@@ -17,6 +18,17 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import "./Project.css";
 import Glasscard from "./Glasscard.js";
 
+// Define a bounce animation
+const bounceAnimation = keyframes`
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+`;
+
+
 const cards = [
   {
     title: "Bot.io 2.0",
@@ -26,6 +38,7 @@ const cards = [
     link: "http://buy-ya-bots.herokuapp.com/",
     git: "https://github.com/wyu6609/bot_io_2.0",
     demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
+    disabled: true
   },
   {
     title: "Dream.",
@@ -34,6 +47,7 @@ const cards = [
     link: "https://journal-da-dreams.herokuapp.com/",
     git: "https://github.com/wyu6609/Dream.",
     demo: "https://youtu.be/bSJZU5kbhbM",
+    disabled: true
   },
   {
     title: "The Sneaker Vault",
@@ -42,6 +56,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/sneakervault_mockup.png?raw=true",
     link: "https://the-sneaker-vault.herokuapp.com/",
     git: "https://github.com/wyu6609/fire_kicks",
+    disabled: true
   },
   {
     title: "My Pokedex",
@@ -51,6 +66,7 @@ const cards = [
     link: "https://wills-pokedex.netlify.app/",
     git: "https://github.com/wyu6609/my_pokedex",
     demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
+    disabled: false
   },
   {
     title: "Adopet",
@@ -58,6 +74,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
     link: "https://adopet-adopt.netlify.app/adopt",
     git: "https://github.com/wyu6609/Adopet",
+    disabled: false
   },
   {
     title: "Cat Startup",
@@ -66,6 +83,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
     link: "https://cat-stuff.netlify.app/",
     git: "https://github.com/wyu6609/cat_startup",
+    disabled: false
   },
   {
     title: "WhatsUpp",
@@ -75,6 +93,7 @@ const cards = [
     link: "https://illustrious-longma-22a381.netlify.app/",
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
+    disabled: true
   },
   {
     title: "NYC HEALTH",
@@ -84,6 +103,7 @@ const cards = [
     link: "https://nyc-health-inspection.netlify.app/",
     git: "https://github.com/wyu6609/NYC-health-inspection",
     demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
+    disabled: false
   },
 
   {
@@ -94,6 +114,7 @@ const cards = [
     link: "https://u-hungry.netlify.app/#",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
+    disabled: false
   },
 
   {
@@ -102,6 +123,7 @@ const cards = [
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
     link: "https://minimalists-weather.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
+    
   },
 ];
 const stackCards = [1, 2, 3, 4];
@@ -132,24 +154,32 @@ const Projects = () => {
         color="#FF0000"
         fontWeight="bold"
         letterSpacing="1px"
-        sx={{ pb: 2, alignItems: "center" }}
+        sx={{ pb: 2, alignItems: "center", 
+          animation: `${bounceAnimation} 0.5s ease-in-out infinite`, // Infinite bounce
+        }}
+
       >
-        *heroku apps require ~30 sec initial bootup*
+        *HEROKU APPS ARE CURRENTLY DOWN*
       </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
-            <Link href={card.link} underline="none" target="_blank">
+            <Link href={!card.disabled ? card.link : undefined} // Disable the link if the card is disabled
+              underline="none"
+              target={!card.disabled ? "_blank" : undefined}>
               <Card
                 className="fancy_card"
                 sx={{
                   alignItems: "center",
                   height: "100%",
-
+                  backgroundColor: card.disabled ? "red" : "inherit",
                   display: "flex",
                   flexDirection: "column",
+                  
+                  pointerEvents: card.disabled ? "none" : "auto", // Disable pointer events when the card is disabled
                   "&:hover": {
-                    backgroundColor: "white",
+                    backgroundColor: card.disabled ? "red" : "white", // Prevent hover effect if disabled
+                    
                   },
                 }}
               >
