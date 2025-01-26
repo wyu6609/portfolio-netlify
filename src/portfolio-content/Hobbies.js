@@ -73,37 +73,12 @@ const Hobbies = () => {
        😅
       
         </Typography>
-        <div class="tenor-gif-embed" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="100%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></div> 
+        <div class="tenor-gif-embed" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></div> 
       </CardContent>
       <CardActions>
 
       </CardActions>
     </Card>  
-
-    <Card sx={{ minWidth: 275, mt: 2 }}>
-      <CardContent>
-        <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
-        September 09 2022 at 2:20 PM
-        </Typography>
-        
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Lorem ipsum is placeholder text.
-        </Typography>
-        <div  >
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </div>
-      </CardContent>
-      <CardActions>
-
-      </CardActions>
-    </Card>  
-
-   
-
-
-
-    
-     
     </Container>
   );
 };

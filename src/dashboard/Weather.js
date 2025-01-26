@@ -100,19 +100,40 @@ const Weather = ({ selectedIndex }) => {
         <>
           <Grid>
             <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
-              {cityName}
+              <a
+                href="https://openweathermap.org/api"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                {cityName}
+              </a>
             </Typography>
           </Grid>
           <Grid>
+          <a
+                href="https://openweathermap.org/api"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
             <Avatar
               sx={{ width: 25, height: 25 }}
               alt="weather-icon"
               src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
             />
+             </a>
           </Grid>
           <Grid>
             <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+            <a
+              href="https://openweathermap.org/api"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
               {temp}°F
+              </a>
             </Typography>
           </Grid>
         </>
