@@ -53,6 +53,7 @@ export const AccountProfileDetails = (props) => {
           variant="contained"
           onClick={() => {
             props.navigate("/projects");
+            window.scrollTo(0, 0);
             props.btnSound();
             props.setSelectedIndex(1);
           }}
