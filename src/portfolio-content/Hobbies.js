@@ -31,7 +31,7 @@ const Hobbies = () => {
   <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
-        January 20 2024 at 4:40 PM
+        January 20 2024 at 1:15 PM
         </Typography>
         
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
