@@ -38,7 +38,7 @@ const Hobbies = () => {
         Algorithms and Muscle memory
         </Typography>
         <div className = "iframe-container" >
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
         style={{
           borderRadius: '15px', // Add rounded corners
           border: '2px solid #000' // Optional: Add a border for visibility
@@ -60,7 +60,7 @@ const Hobbies = () => {
         
         </Typography>
         <div className = "iframe-container" >
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
         style={{
           borderRadius: '15px', // Add rounded corners
           border: '2px solid #000' // Optional: Add a border for visibility
