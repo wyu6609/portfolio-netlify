@@ -15,7 +15,6 @@ import {
   } from "@mui/material"
 
 import "./Resume.css";
-
 const Hobbies = () => {
 
   return (
@@ -83,8 +82,7 @@ const Hobbies = () => {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
        😅
         </Typography>
-        <Box component="img" src="https://media1.tenor.com/m/fJAoBHWymY4AAAAd/do-not-touch-it-programmer.gif" width="560" height="315" borderRadius= "8px" // Optional styling
-        boxShadow = "1px" alt="a drawing of a cow that says if your code works fine don t touch it + my code"  />
+        <div class="tenor-gif-embed" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></div> 
       </CardContent>
       <CardActions>
 
