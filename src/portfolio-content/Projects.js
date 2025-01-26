@@ -186,12 +186,12 @@ const Projects = () => {
                 sx={{
                   alignItems: "center",
                   height: "100%",
-                  backgroundColor: card.disabled ? "red" : "inherit",
+                  backgroundColor: card.disabled ? "grey" : "inherit",
                   display: "flex",
                   flexDirection: "column",
                   pointerEvents: card.disabled ? "none" : "auto", // Disable pointer events when the card is disabled
                   "&:hover": {
-                    backgroundColor: card.disabled ? "red" : "white", // Prevent hover effect if disabled
+                    backgroundColor: card.disabled ? "grey" : "white", // Prevent hover effect if disabled
                     
                   },
                 }}
@@ -212,7 +212,7 @@ const Projects = () => {
                     variant="h5"
                     component="h6"
                     sx={{ mt: 1 }}
-                    color= {card.disabled ? "grey":"primary.main"}
+                    color= "primary.main"
                     fontWeight="bold"
                   >
                     {card.title}
@@ -240,7 +240,7 @@ const Projects = () => {
                     >
                       <YouTubeIcon
                         sx={{
-                          color: card.disabled ? "grey":"primary.main",
+                          color: "primary.main",
                           fontSize: 30,
                         }}
                       />
@@ -261,7 +261,7 @@ const Projects = () => {
                   >
                     <GitHubIcon
                       sx={{
-                        color: card.disabled ? "grey":"primary.main",
+                        color: "primary.main",
                         fontSize: 30,
                       }}
                     />

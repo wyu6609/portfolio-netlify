@@ -31,11 +31,28 @@ const Hobbies = () => {
   <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
-        March 6 2023 at 4:40 PM
+        January 20 2024 at 4:40 PM
         </Typography>
         
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        Algorithms and Muscle memory
+        </Typography>
+        <div className = "iframe-container" >
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </CardContent>
+      <CardActions>
+
+      </CardActions>
+    </Card>  
+    <Card sx={{ minWidth: 275, mt: 2  }}>
+      <CardContent>
+        <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
+        March 6 2023 at 4:40 PM
+        </Typography>
         I play Nocturne in C Sharp Minor by Chopin
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        
         </Typography>
         <div className = "iframe-container" >
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
