@@ -35,7 +35,7 @@ const Hobbies = () => {
         </Typography>
         
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Algorithms and Muscle memory
+        Algorithms
         </Typography>
         <div className = "iframe-container" >
         <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen
@@ -55,7 +55,7 @@ const Hobbies = () => {
         <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         March 6 2023 at 4:40 PM
         </Typography>
-        I play Nocturne in C Sharp Minor by Chopin
+        Nocturne
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
         
         </Typography>
@@ -82,7 +82,7 @@ const Hobbies = () => {
         <Typography sx={{ mb: 1.5 }} color="text.secondary">
        😅
         </Typography>
-        <div class="tenor-gif-embed" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></div> 
+        <Box class="tenor-gif-embed" src = "https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></Box> 
       </CardContent>
       <CardActions>
 
