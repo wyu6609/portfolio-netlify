@@ -78,11 +78,7 @@ const Hobbies = () => {
         <Typography sx={{ fontSize: 14, fontWeight: 'bold' }} color="text.secondary" gutterBottom>
         August 20 2022 at 5:20 PM
         </Typography>
-        
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-       😅
-        </Typography>
-        <Box class="tenor-gif-embed" src = "https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It Programmer GIF</a>from <a href="https://tenor.com/search/do+not+touch+it-gifs">Do Not Touch It GIFs</a></Box> 
+        <Box   width="560" height="315" class="tenor-gif-embed" src = "https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607" data-postid="17252607" data-share-method="host" data-aspect-ratio="1.15942" data-width="50%"><a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">Do Not Touch It </a></Box> 
       </CardContent>
       <CardActions>
 
