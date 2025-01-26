@@ -38,7 +38,7 @@ const Hobbies = () => {
         Algorithms and Muscle memory
         </Typography>
         <div className = "iframe-container" >
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </CardContent>
       <CardActions>
@@ -55,7 +55,7 @@ const Hobbies = () => {
         
         </Typography>
         <div className = "iframe-container" >
-        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
       </CardContent>
       <CardActions>
