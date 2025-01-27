@@ -64,15 +64,13 @@ const Hobbies = () => {
           >
             July 15 2023 at 12:55 PM
           </Typography>
-
-          <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            Iphone 16 Pro Cam Zoom📷
-          </Typography>
+          Nocturne
+          <Typography sx={{ mb: 1.5 }} color="text.secondary"></Typography>
           <div className="iframe-container">
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube-nocookie.com/embed/siD0tIxZfq0?rel=0&autoplay=1"
+              src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?rel=0&autoplay=1"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -96,13 +94,14 @@ const Hobbies = () => {
           >
             March 6 2023 at 4:40 PM
           </Typography>
-          Nocturne
-          <Typography sx={{ mb: 1.5 }} color="text.secondary"></Typography>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            Iphone 16 Pro Cam Zoom📷
+          </Typography>
           <div className="iframe-container">
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube-nocookie.com/embed/DBpKZhytozs?rel=0&autoplay=1"
+              src="https://www.youtube-nocookie.com/embed/siD0tIxZfq0?rel=0&autoplay=1"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
