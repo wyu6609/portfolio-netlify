@@ -141,7 +141,10 @@ const Hobbies = () => {
               border: "2px solid #ccc", // Optional: adds a border for better visibility
             }}
           >
-            <a href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607">
+            <a
+              href="https://tenor.com/view/do-not-touch-it-programmer-walking-cow-coding-gif-17252607"
+              target="_blank"
+            >
               Do Not Touch It
             </a>
           </Box>
