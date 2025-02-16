@@ -13,7 +13,7 @@ import CottageIcon from "@mui/icons-material/Cottage";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import Color from "./Color.js";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
 
 const categories = [
   {
@@ -42,11 +42,10 @@ const categories = [
         id: "BLOG",
         menuIndex: 3,
         icon: <MusicNoteIcon />,
-        route: "/hobbies",
-      }
-   
+        route: "/blog",
+      },
+
       // { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
-      ,
     ],
   },
 ];
@@ -71,6 +70,7 @@ export default function Navigator(props) {
   const { ...other } = props;
 
   const handleListItemClick = (event, index) => {
+    console.log("selected index: " + index);
     props.setSelectedIndex(index);
   };
   return (

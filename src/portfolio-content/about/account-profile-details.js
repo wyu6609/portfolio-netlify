@@ -25,9 +25,10 @@ export const AccountProfileDetails = (props) => {
           <Grid item md={12} xs={12}>
             <Typography align="middle" variant="body">
               I am a passionate and highly motivated full stack developer with
-              experience using Java, Spring, JavaScript, NodeJS, ReactJS, Material-UI, Ruby, Ruby on Rails
-              and Git. I love to build new projects and debugging. I am also
-              committed to writing clean, readable and scalable code!<br></br>
+              experience using Java, Spring, JavaScript, NodeJS, ReactJS,
+              Material-UI, Ruby, Ruby on Rails and Git. I love to build new
+              projects and debugging. I am also committed to writing clean,
+              readable and scalable code!<br></br>
               <br></br>I graduated from New York University, where I received my
               bachelor’s degree in chemical engineering and immersed myself in
               mathematics, physics and engineering. I found my love for coding
@@ -58,7 +59,7 @@ export const AccountProfileDetails = (props) => {
             props.setSelectedIndex(1);
           }}
         >
-          See My Projects!
+          PROJECTS 💻
         </Button>
 
         <a
@@ -78,9 +79,26 @@ export const AccountProfileDetails = (props) => {
               props.btnSound();
             }}
           >
-            My GitHub <GitHubIcon fontSize="large" />
+            GITHUB 🖥
+            <span style={{ marginLeft: "8px" }} />
+            <GitHubIcon fontSize="large" />
           </Button>
         </a>
+
+        <Button
+          // component={Link}
+          // to="/projects"
+          className="fancy_card1"
+          color="primary"
+          variant="contained"
+          onClick={() => {
+            props.navigate("/blog");
+            props.btnSound();
+            props.setSelectedIndex(3);
+          }}
+        >
+          BLOG 📹
+        </Button>
       </Box>
     </Card>
   );

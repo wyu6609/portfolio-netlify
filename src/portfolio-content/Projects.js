@@ -1,5 +1,5 @@
 import React from "react";
-import { keyframes } from "@emotion/react"; 
+import { keyframes } from "@emotion/react";
 import {
   Link,
   Container,
@@ -28,8 +28,15 @@ const bounceAnimation = keyframes`
   }
 `;
 
-
 const cards = [
+  {
+    title: "Todo",
+    description: "Todo app, built with REACT and MATERIAL UI",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/todo_app.png?raw=true",
+    link: "https://wyu6609.github.io/todo/",
+    git: "https://github.com/wyu6609/todo",
+    disabled: false,
+  },
   {
     title: "Bot.io 2.0",
     description:
@@ -38,7 +45,7 @@ const cards = [
     link: "http://buy-ya-bots.herokuapp.com/",
     git: "https://github.com/wyu6609/bot_io_2.0",
     demo: "https://www.youtube.com/watch?v=IaJeeMGrXWA",
-    disabled: true
+    disabled: true,
   },
   {
     title: "Dream.",
@@ -47,7 +54,7 @@ const cards = [
     link: "https://journal-da-dreams.herokuapp.com/",
     git: "https://github.com/wyu6609/Dream.",
     demo: "https://youtu.be/bSJZU5kbhbM",
-    disabled: true
+    disabled: true,
   },
   {
     title: "The Sneaker Vault",
@@ -56,7 +63,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/sneakervault_mockup.png?raw=true",
     link: "https://the-sneaker-vault.herokuapp.com/",
     git: "https://github.com/wyu6609/fire_kicks",
-    disabled: true
+    disabled: true,
   },
   {
     title: "My Pokedex",
@@ -66,7 +73,7 @@ const cards = [
     link: "https://wills-pokedex.netlify.app/",
     git: "https://github.com/wyu6609/my_pokedex",
     demo: "https://www.youtube.com/watch?v=uKP_ogX1fjE",
-    disabled: false
+    disabled: false,
   },
   {
     title: "Adopet",
@@ -74,7 +81,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/adopet_mockup.png?raw=true",
     link: "https://adopet-adopt.netlify.app/adopt",
     git: "https://github.com/wyu6609/Adopet",
-    disabled: false
+    disabled: false,
   },
   {
     title: "Cat Startup",
@@ -83,7 +90,7 @@ const cards = [
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/catstartup_mockup.png?raw=true",
     link: "https://cat-stuff.netlify.app/",
     git: "https://github.com/wyu6609/cat_startup",
-    disabled: false
+    disabled: false,
   },
   {
     title: "WhatsUpp",
@@ -93,7 +100,7 @@ const cards = [
     link: "https://illustrious-longma-22a381.netlify.app/",
     git: "https://github.com/wyu6609/whats-app-clone-frontend",
     demo: "https://www.youtube.com/watch?v=mZKe-pdVhlc",
-    disabled: true
+    disabled: true,
   },
   {
     title: "NYC HEALTH",
@@ -103,7 +110,7 @@ const cards = [
     link: "https://nyc-health-inspection.netlify.app/",
     git: "https://github.com/wyu6609/NYC-health-inspection",
     demo: "https://www.youtube.com/watch?v=cagxhY3IvwE",
-    disabled: false
+    disabled: false,
   },
 
   {
@@ -114,7 +121,7 @@ const cards = [
     link: "https://u-hungry.netlify.app/#",
     git: "https://github.com/wyu6609/Phase-2-project-Uhungry",
     demo: "https://www.youtube.com/watch?v=e5IwFGlZJQc&t=1s",
-    disabled: false
+    disabled: false,
   },
 
   {
@@ -123,7 +130,6 @@ const cards = [
     img: "https://github.com/wyu6609/wyu6609.github.io/blob/main/assets/img/portfolio/project6.png?raw=true",
     link: "https://minimalists-weather.netlify.app/",
     git: "https://github.com/wyu6609/Weather-app",
-    
   },
 ];
 const stackCards = [1, 2, 3, 4];
@@ -144,8 +150,10 @@ const Projects = () => {
         color="#111827"
         fontWeight="bold"
         letterSpacing="1px"
- 
-        sx={{ py: 2, alignItems: "center",color: "#111827",
+        sx={{
+          py: 2,
+          alignItems: "center",
+          color: "#111827",
           fontWeight: "bold",
           letterSpacing: "1px",
           textDecoration: "none", // Remove underline by default
@@ -155,12 +163,15 @@ const Projects = () => {
             textDecoration: "underline", // Add underline on hover
             cursor: "pointer", // Show pointer cursor
             transform: "scale(1.1)", // Slightly grow the text
-          }, }}
-      > <Link
-              href="https://github.com/wyu6609?tab=repositories"
-              target="_blank"
-            >
-        PROJECTS
+          },
+        }}
+      >
+        {" "}
+        <Link
+          href="https://github.com/wyu6609?tab=repositories"
+          target="_blank"
+        >
+          PROJECTS
         </Link>
       </Typography>
       <Typography
@@ -169,7 +180,9 @@ const Projects = () => {
         color="#FF0000"
         fontWeight="bold"
         letterSpacing="1px"
-        sx={{ pb: 2, alignItems: "center", 
+        sx={{
+          pb: 2,
+          alignItems: "center",
           animation: `${bounceAnimation} 0.5s ease-in-out infinite`, // Infinite bounce
         }}
       >
@@ -178,9 +191,11 @@ const Projects = () => {
       <Grid container spacing={4}>
         {cards.map((card) => (
           <Grid item key={card} xs={12} sm={6} md={3}>
-            <Link href={!card.disabled ? card.link : undefined} // Disable the link if the card is disabled
+            <Link
+              href={!card.disabled ? card.link : undefined} // Disable the link if the card is disabled
               underline="none"
-              target={!card.disabled ? "_blank" : undefined}>
+              target={!card.disabled ? "_blank" : undefined}
+            >
               <Card
                 className="fancy_card"
                 sx={{
@@ -192,7 +207,6 @@ const Projects = () => {
                   pointerEvents: card.disabled ? "none" : "auto", // Disable pointer events when the card is disabled
                   "&:hover": {
                     backgroundColor: card.disabled ? "grey" : "white", // Prevent hover effect if disabled
-                    
                   },
                 }}
               >
@@ -212,7 +226,7 @@ const Projects = () => {
                     variant="h5"
                     component="h6"
                     sx={{ mt: 1 }}
-                    color= "primary.main"
+                    color="primary.main"
                     fontWeight="bold"
                   >
                     {card.title}

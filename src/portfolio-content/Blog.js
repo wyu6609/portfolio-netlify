@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Hobbies.css";
+import "./Blog.css";
 import { Document, Page } from "react-pdf";
 import resume from "./Resume.pdf";
 import resumePDF from "./Resume.pdf";
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 
 import "./Resume.css";
-const Hobbies = () => {
+const Blog = () => {
   return (
     <Container
       sx={{
@@ -43,7 +43,6 @@ const Hobbies = () => {
               height="315"
               src="https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0&autoplay=1"
               title="YouTube video player"
-              frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
               style={{
@@ -155,4 +154,4 @@ const Hobbies = () => {
   );
 };
 
-export default Hobbies;
+export default Blog;
