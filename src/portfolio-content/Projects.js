@@ -30,6 +30,14 @@ const bounceAnimation = keyframes`
 
 const cards = [
   {
+    title: "2048",
+    description: "Classic 2048, built with REACT and MATERIAL UI",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/2048_app.png?raw=true",
+    link: "https://wyu6609.github.io/2048/",
+    git: "https://github.com/wyu6609/2048",
+    disabled: false,
+  },
+  {
     title: "Todo",
     description: "Todo app, built with REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/todo_app.png?raw=true",
