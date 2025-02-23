@@ -7,6 +7,7 @@ import Contact from "../portfolio-content/Contact";
 import Blog from "../portfolio-content/Blog";
 import Resume from "../portfolio-content/Resume";
 import Error from "../portfolio-content/Error";
+import GameApp from "../2048/src/Game";
 
 export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
   return (
@@ -25,6 +26,7 @@ export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
       <Route path="/resume" element={<Resume />} />
       <Route path="/blog" exact element={<Blog />} />
       <Route path="/contact" element={<Contact btnSound />} />
+      <Route path="/2048" element={<GameApp btnSound />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );
