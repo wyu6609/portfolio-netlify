@@ -29,7 +29,7 @@ export const AccountProfileDetails = (props) => {
           <Grid item md={12} xs={12}>
             <Typography align="inherit" variant="body2">
               I am a passionate and results-driven backend software engineer
-              over 2 years of experience at JPMorgan Chase, specializing in
+              with over 2 years of experience at JPMorgan Chase, specializing in
               developing scalable, high-performance systems. My technical
               expertise includes Java and Spring Boot, complemented by strong
               proficiency in JavaScript, Node.js, React.js, Material-UI, Ruby,
