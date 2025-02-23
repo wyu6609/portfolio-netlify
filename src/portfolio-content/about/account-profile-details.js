@@ -27,7 +27,7 @@ export const AccountProfileDetails = (props) => {
           sx={{ maxWidth: "100%", overflow: "hidden" }}
         >
           <Grid item md={12} xs={12}>
-            <Typography align="justify" variant="body2">
+            <Typography align="inherit" variant="body2">
               I am a passionate and results-driven backend software engineer
               over 2 years of experience at JPMorgan Chase, specializing in
               developing scalable, high-performance systems. My technical
