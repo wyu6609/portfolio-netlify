@@ -28,13 +28,14 @@ export const AccountProfileDetails = (props) => {
         >
           <Grid item md={12} xs={12}>
             <Typography align="inherit" variant="body2">
-              I am a passionate and results-driven backend software engineer
-              with over 2 years of experience at JPMorgan Chase, specializing in
-              developing scalable, high-performance systems. My technical
-              expertise includes Java and Spring Boot, complemented by strong
-              proficiency in JavaScript, Node.js, React.js, Material-UI, Ruby,
-              and Ruby on Rails. I thrive on solving complex challenges,
-              debugging effectively, and writing clean, maintainable code.
+              I am a passionate, results-driven backend software engineer
+              specializing in building scalable, high-performance systems. My
+              technical expertise centers on Java and Spring Boot, complemented
+              by strong proficiency in JavaScript, Node.js, React.js,
+              Material-UI, Ruby, and Ruby on Rails. I excel at solving complex
+              challenges, debugging with precision, and writing clean,
+              maintainable code. Currently, I work as a software engineer at
+              JPMorgan Chase, focusing on backend Java development and AWS.
               <br></br>
             </Typography>
           </Grid>
@@ -43,7 +44,7 @@ export const AccountProfileDetails = (props) => {
           sx={{ mt: 2 }}
           variant="body2"
           color="primary.main"
-          align="center"
+          align="left"
         >
           <Button
             // component={Link}
@@ -56,6 +57,19 @@ export const AccountProfileDetails = (props) => {
             }}
           >
             projects 💻
+          </Button>
+          <Button
+            // component={Link}
+            // to="/projects"
+            className="fancy_card1"
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              window.location.href = "/blog";
+            }}
+            sx={{ ml: 1 }}
+          >
+            blog 📹
           </Button>
         </Typography>
       </CardContent>
