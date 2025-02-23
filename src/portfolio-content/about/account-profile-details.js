@@ -21,18 +21,20 @@ export const AccountProfileDetails = (props) => {
       />
       <Divider />
       <CardContent>
-        <Grid container spacing={3}>
+        <Grid
+          container
+          spacing={3}
+          sx={{ maxWidth: "100%", overflow: "hidden" }}
+        >
           <Grid item md={12} xs={12}>
             <Typography align="middle" variant="body">
-              I am a passionate and highly motivated full stack developer with
-              experience using Java, Spring, JavaScript, NodeJS, ReactJS,
-              Material-UI, Ruby, Ruby on Rails and Git. I love to build new
-              projects and debugging. I am also committed to writing clean,
-              readable and scalable code!<br></br>
-              <br></br>I graduated from New York University, where I received my
-              bachelor’s degree in chemical engineering and immersed myself in
-              mathematics, physics and engineering. I found my love for coding
-              after college.
+              I am a passionate and results-driven backend software engineer
+              over 2 years of experience at JPMorgan Chase, specializing in
+              developing scalable, high-performance systems. My technical
+              expertise includes Java and Spring Boot, complemented by strong
+              proficiency in JavaScript, Node.js, React.js, Material-UI, Ruby,
+              and Ruby on Rails. I thrive on solving complex challenges,
+              debugging effectively, and writing clean, maintainable code.
               <br></br>
             </Typography>
           </Grid>
