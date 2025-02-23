@@ -13,7 +13,7 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 export const AccountProfileDetails = (props) => {
   return (
-    <Card>
+    <Card {...props}>
       <CardHeader
         sx={{ justifyContent: "center" }}
         subheader="Backend Software Engineer @ JP Morgan & Chase"
@@ -27,7 +27,7 @@ export const AccountProfileDetails = (props) => {
           sx={{ maxWidth: "100%", overflow: "hidden" }}
         >
           <Grid item md={12} xs={12}>
-            <Typography align="middle" variant="body">
+            <Typography align="justify" variant="body2">
               I am a passionate and results-driven backend software engineer
               over 2 years of experience at JPMorgan Chase, specializing in
               developing scalable, high-performance systems. My technical
@@ -39,11 +39,32 @@ export const AccountProfileDetails = (props) => {
             </Typography>
           </Grid>
         </Grid>
+        <Typography
+          sx={{ mt: 2 }}
+          variant="body2"
+          color="primary.main"
+          align="center"
+        >
+          <Button
+            // component={Link}
+            // to="/projects"
+            className="fancy_card1"
+            color="primary"
+            variant="contained"
+            onClick={() => {
+              window.location.href = "/projects";
+            }}
+          >
+            projects 💻
+          </Button>
+        </Typography>
       </CardContent>
 
-      <Box
+      {/* <Box
         sx={{
           display: "flex",
+          flexWrap: "wrap",
+          flexDirection: "row",
           justifyContent: { xs: "center", sm: "flex-start" },
           p: 2,
         }}
@@ -101,7 +122,7 @@ export const AccountProfileDetails = (props) => {
         >
           BLOG 📹
         </Button>
-      </Box>
+      </Box> */}
     </Card>
   );
 };
