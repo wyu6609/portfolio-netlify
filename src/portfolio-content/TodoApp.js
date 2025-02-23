@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Game from "../2048/src/Game";
+import App from "../todo/src/App";
 import { Box } from "@mui/material";
 
 // Functional Component
@@ -13,7 +13,7 @@ const GameApp = ({ initialName }) => {
       overflow: "hidden", // Disable scrolling for this container
     }}
   >
-    <Game />
+    <App />
   </Box>;
 };
 

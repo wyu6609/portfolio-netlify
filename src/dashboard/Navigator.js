@@ -11,6 +11,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ArticleIcon from "@mui/icons-material/Article";
 import CottageIcon from "@mui/icons-material/Cottage";
 import ExtensionIcon from "@mui/icons-material/Extension";
+import PlaylistAddCheckIcon from "@mui/icons-material/PlaylistAddCheck";
 import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact";
 import Color from "./Color.js";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
@@ -50,6 +51,12 @@ const categories = [
         menuIndex: 4,
         icon: <ExtensionIcon />,
         route: "/2048",
+      },
+      {
+        id: "Todo",
+        menuIndex: 5,
+        icon: <PlaylistAddCheckIcon />,
+        route: "/Todo",
       },
 
       // { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
