@@ -108,7 +108,7 @@ export default function Navigator(props) {
         </ListItem>
 
         {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: "#101F33", mt: 1 }}>
+          <Box key={id} sx={{ bgcolor: "#101F33", pt: 1 }}>
             {children.map(({ id: childId, icon, route }, index) => (
               <ListItem disablePadding key={childId}>
                 <ListItemButton
@@ -127,7 +127,7 @@ export default function Navigator(props) {
               </ListItem>
             ))}
 
-            <Divider sx={{ mt: 2 }} />
+            <Divider sx={{ mt: 1 }} />
           </Box>
         ))}
         <ListItem edge="end">
