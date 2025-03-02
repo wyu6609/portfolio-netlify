@@ -108,10 +108,7 @@ export default function Navigator(props) {
         </ListItem>
 
         {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: "#101F33" }}>
-            <ListItem sx={{ py: 2, px: 3 }}>
-              <ListItemText sx={{ color: "#fff" }}>{id}</ListItemText>
-            </ListItem>
+          <Box key={id} sx={{ bgcolor: "#101F33", mt: 1 }}>
             {children.map(({ id: childId, icon, route }, index) => (
               <ListItem disablePadding key={childId}>
                 <ListItemButton
