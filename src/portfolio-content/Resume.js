@@ -20,15 +20,14 @@ const Resume = () => {
       height="1200px"
     >
       <p className="pdf-paragraph">
-        It appears you don't have a PDF plugin for this browser. No biggie...
-        you can &nbsp;
+        It appears you don't have a PDF plugin for this browser. you can&nbsp;
         <a
-          href="https://github.com/wyu6609/portfolio-netlify/blob/main/src/portfolio-content/Resume.pdf"
+          href="https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing"
           target="_blank"
         >
           click here
         </a>
-        &nbsp; to download the PDF file!
+        &nbsp;to view my resume instead!
       </p>
     </object>
   );
