@@ -194,7 +194,7 @@ const Projects = () => {
           animation: `${bounceAnimation} 0.5s ease-in-out infinite`, // Infinite bounce
         }}
       >
-        *HEROKU APPS ARE CURRENTLY DOWN*
+        *HEROKU APPS ARE CURRENTLY UNAVAILABLE*
       </Typography>
       <Grid container spacing={4}>
         {cards.map((card) => (
