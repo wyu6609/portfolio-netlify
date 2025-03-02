@@ -1,35 +1,59 @@
 import React, { useState } from "react";
-import { Document, Page } from "react-pdf";
-import resume from "./Resume.pdf";
+
 import resumePDF from "./Resume.pdf";
-import { Grid, Paper } from "@mui/material";
+import { Grid, Paper, Button, Box } from "@mui/material";
 
 import "./Resume.css";
 const Resume = () => {
+  const resumeLink =
+    "https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing";
   const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
   return (
-    <object
-      className="pdf-container"
-      data={resumePDF}
-      type="application/pdf"
-      width="100%"
-      height="1200px"
-    >
-      <p className="pdf-paragraph">
-        It appears you don't have a PDF plugin for this browser. you can&nbsp;
-        <a
-          href="https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing"
-          target="_blank"
+    <div>
+      {/* PDF Viewer */}
+      <object
+        className="pdf-container"
+        data={resumePDF + "#toolbar=0&navpanes=0&#view=FitH"}
+        type="application/pdf"
+        width="100%"
+        height="1200px"
+        onError={() => {
+          // Handle unsupported browsers
+          window.location.href = resumeLink;
+        }}
+      >
+        <p className="pdf-paragraph">
+          It appears you don't have a PDF plugin for this browser.
+        </p>
+        {/* Button to open the resume in a new tab */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center", // Center horizontally
+            alignItems: "center", // Center vertically
+            mb: 2, // Add margin below the button
+          }}
         >
-          click here
-        </a>
-        &nbsp;to view my resume instead!
-      </p>
-    </object>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{
+              padding: "4px 12px", // Even smaller padding
+              fontSize: "0.75rem", // Even smaller font size
+              borderRadius: "4px", // Rounded corners
+              textTransform: "none", // Disable uppercase transformation
+            }}
+            onClick={() => window.open(resumeLink, "_blank")}
+          >
+            Open Resume in New Tab
+          </Button>
+        </Box>
+      </object>
+    </div>
   );
 };
 
