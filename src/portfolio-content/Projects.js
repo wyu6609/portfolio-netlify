@@ -242,7 +242,7 @@ const Projects = () => {
                   <Typography
                     align="center"
                     variant="body2"
-                    sx={{ fontSize: 12 }}
+                    sx={{ fontSize: 10 }}
                   >
                     {card.description}
                   </Typography>
