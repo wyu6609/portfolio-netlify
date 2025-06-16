@@ -131,7 +131,7 @@ const Blog = () => {
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube-nocookie.com/embed/D_pAULvztFI?rel=0&autoplay=1"
+              src="https://www.youtube-nocookie.com/embed/dH8WjfOkmZo?rel=0&autoplay=1"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
