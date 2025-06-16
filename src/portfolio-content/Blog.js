@@ -122,6 +122,36 @@ const Blog = () => {
             color="text.secondary"
             gutterBottom
           >
+            February 12 2023 at 11:15 PM
+          </Typography>
+          <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            Cruising down to NY
+          </Typography>{" "}
+          <div className="iframe-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube-nocookie.com/embed/D_pAULvztFI?rel=0&autoplay=1"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              style={{
+                borderRadius: "15px", // Add rounded corners
+                border: "2px solid #000", // Optional: Add a border for visibility
+              }}
+            ></iframe>
+          </div>
+        </CardContent>
+        <CardActions></CardActions>
+      </Card>
+      <Card sx={{ minWidth: 275, mt: 2 }}>
+        <CardContent>
+          <Typography
+            sx={{ fontSize: 14, fontWeight: "bold" }}
+            color="text.secondary"
+            gutterBottom
+          >
             August 20 2022 at 5:20 PM
           </Typography>
           <Box
