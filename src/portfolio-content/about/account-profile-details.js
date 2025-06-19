@@ -1,28 +1,26 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import {
   Box,
   Button,
   Card,
   CardContent,
   CardHeader,
-  Grid,
   Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
-// Color palette matching AccountProfile social buttons
-const CARD_BORDER_COLOR = "#e0e0e0"; // matches MUI default card border
+const CARD_BORDER_COLOR = "#e0e0e0";
 const LINKEDIN_COLOR = "#0a66c2";
 const GITHUB_COLOR = "#24292f";
 const ARTICLE_COLOR = "#d2691e";
 
-export const AccountProfileDetails = (props) => {
+export const AccountProfileDetails = () => {
   const [expanded, setExpanded] = useState(false);
+
   return (
     <Card
-      {...props}
       sx={{
         backgroundColor: "rgba(245, 247, 250, 0.85)",
         borderRadius: 2,
@@ -49,7 +47,7 @@ export const AccountProfileDetails = (props) => {
             <Typography
               variant="subtitle1"
               align="center"
-              sx={{ color: GITHUB_COLOR, fontWeight: 500, textAlign: "center" }}
+              sx={{ color: GITHUB_COLOR, fontWeight: 500 }}
             >
               Backend Software Engineer @ JP Morgan & Chase
             </Typography>
@@ -60,20 +58,15 @@ export const AccountProfileDetails = (props) => {
                 alignItems: "center",
                 gap: 2,
                 mt: 1,
-                mb: 0,
               }}
             >
               <Button
-                className="fancy_card1"
+                aria-label="Projects"
                 color="primary"
                 variant="contained"
-                onClick={() => {
-                  window.location.href = "/projects";
-                }}
+                onClick={() => (window.location.href = "/projects")}
                 sx={{
                   minWidth: 56,
-                  minHeight: 56,
-                  width: 56,
                   height: 56,
                   borderRadius: "50%",
                   color: LINKEDIN_COLOR,
@@ -92,16 +85,12 @@ export const AccountProfileDetails = (props) => {
                 💻
               </Button>
               <Button
-                className="fancy_card1"
+                aria-label="Blog"
                 color="primary"
                 variant="contained"
-                onClick={() => {
-                  window.location.href = "/blog";
-                }}
+                onClick={() => (window.location.href = "/blog")}
                 sx={{
                   minWidth: 56,
-                  minHeight: 56,
-                  width: 56,
                   height: 56,
                   borderRadius: "50%",
                   color: ARTICLE_COLOR,
@@ -119,6 +108,35 @@ export const AccountProfileDetails = (props) => {
               >
                 📝
               </Button>
+              <Button
+                aria-label="LinkedIn"
+                color="primary"
+                variant="contained"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/will-yu-56b101a8/",
+                    "_blank"
+                  )
+                }
+                sx={{
+                  minWidth: 56,
+                  height: 56,
+                  borderRadius: "50%",
+                  color: LINKEDIN_COLOR,
+                  background: "#eaf4fc",
+                  boxShadow: 1,
+                  fontWeight: 600,
+                  fontSize: 24,
+                  p: 0,
+                  "&:hover": { bgcolor: "#d0e8fa", color: "#004182" },
+                  transition: "all 0.2s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <LinkedInIcon fontSize="large" />
+              </Button>
             </Box>
           </>
         }
@@ -130,8 +148,6 @@ export const AccountProfileDetails = (props) => {
               justifyContent: "center",
               width: "100%",
               position: "relative",
-              mb: 0,
-              mt: 0,
             }}
           >
             <Typography
@@ -142,7 +158,6 @@ export const AccountProfileDetails = (props) => {
                 fontWeight: 700,
                 letterSpacing: 1,
                 flex: 1,
-                mb: 0,
               }}
             >
               Fullstack Developer
@@ -171,7 +186,9 @@ export const AccountProfileDetails = (props) => {
         }}
       >
         {expanded && (
-          <Box sx={{ maxWidth: 480, mx: "auto", width: "100%", mb: 2, mt: 0 }}>
+          <Box
+            sx={{ maxWidth: 480, mx: "auto", width: "100%", mb: 2 }}
+          >
             <Typography
               align="inherit"
               variant="body2"
@@ -199,3 +216,5 @@ export const AccountProfileDetails = (props) => {
     </Card>
   );
 };
+
+export default AccountProfileDetails;
