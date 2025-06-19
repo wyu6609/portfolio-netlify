@@ -4,17 +4,21 @@ import {
   Box,
   Button,
   Card,
-  CardActions,
   CardContent,
-  Divider,
+  CardHeader,
   Typography,
   Link,
+  Modal,
 } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArticleIcon from "@mui/icons-material/Article";
-import { AccountProfileDetails } from "./account-profile-details";
-import Modal from "@mui/material/Modal";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+const CARD_BORDER_COLOR = "#e0e0e0";
+const LINKEDIN_COLOR = "#0a66c2";
+const GITHUB_COLOR = "#24292f";
+const ARTICLE_COLOR = "#d2691e";
 
 const user = {
   avatar: "../../images/avatar.png",
@@ -26,48 +30,8 @@ const user = {
 };
 
 export const AccountProfile = (props) => {
-  const detailsRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          } else {
-            setIsVisible(false);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (detailsRef.current) {
-      observer.observe(detailsRef.current);
-    }
-
-    return () => {
-      if (detailsRef.current) {
-        observer.unobserve(detailsRef.current);
-      }
-    };
-  }, []);
-
-  // Load LinkedIn badge script when modal opens
-  useEffect(() => {
-    if (open) {
-      const script = document.createElement("script");
-      script.src = "https://platform.linkedin.com/badges/js/profile.js";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-      return () => {
-        document.body.removeChild(script);
-      };
-    }
-  }, [open]);
 
   // Utility to detect mobile devices
   const isMobile = () => {
@@ -78,107 +42,86 @@ export const AccountProfile = (props) => {
   };
 
   return (
-    <Card {...props} sx={{ backgroundColor: "#ffffff" }}>
-      <CardContent>
-        <Card>
-          <Box
-            sx={{
-              alignItems: "center",
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <Avatar
-              src="https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/avatar.png?raw=true"
-              sx={{
-                height: 240,
-                mt: 1,
-                mb: 4.4,
-                width: 240,
-                backgroundColor: "#ccc",
-              }}
-            />
-            <Typography color="primary.main" gutterBottom variant="h4">
-              {user.name}
-            </Typography>
-            <Typography color="textSecondary" align="center" variant="body2">
-              {`${user.skills} `}
-            </Typography>
+    <Card
+      sx={{
+        backgroundColor: "#fff",
+        borderRadius: 3,
+        boxShadow: 3,
+        border: `1px solid ${CARD_BORDER_COLOR}`,
+        maxWidth: 480,
+        mx: "auto",
+        mt: 4,
+        p: 2,
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          mb: 2,
+        }}
+      >
+        <Avatar
+          src="https://github.com/wyu6609/personal-website/blob/main/dist/assets/img/avatar.png?raw=true"
+          sx={{
+            height: 240,
+            mt: 1,
+            mb: 4.4,
+            width: 240,
+            backgroundColor: "#ccc",
+          }}
+        />
+        <Typography
+          color="primary.main"
+          gutterBottom
+          variant="h4"
+          fontWeight={700}
+          align="center"
+          sx={{ background: "#fff", px: 1, borderRadius: 1 }}
+        >
+          {user.name}
+        </Typography>
+        <Typography color="textSecondary" align="center" variant="body2">
+          {user.skills}
+        </Typography>
+        <Typography align="center" color="textSecondary" variant="body2">
+          {user.skills2}
+        </Typography>
+      </Box>
+      <CardHeader
+        sx={{
+          justifyContent: "center",
+          background: "rgba(245, 247, 250, 0.85)",
+          borderTopLeftRadius: 8,
+          borderTopRightRadius: 8,
+          mb: 1,
+          px: 2,
+          position: "relative",
+        }}
+        subheader={
+          <>
             <Typography
+              variant="subtitle1"
               align="center"
-              justifyContent="center"
-              color="textSecondary"
-              variant="body2"
+              sx={{ color: GITHUB_COLOR, fontWeight: 500, textAlign: "center" }}
             >
-              {user.skills2}
+              Backend Software Engineer @ JP Morgan & Chase
             </Typography>
-            {/* Modal for LinkedIn Badge now triggered by LinkedIn icon button */}
-            <Modal
-              open={open}
-              onClose={() => setOpen(false)}
-              aria-labelledby="linkedin-badge-modal"
-              aria-describedby="linkedin-badge-modal-description"
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  bgcolor: "background.paper",
-                  boxShadow: 24,
-                  p: 4,
-                  borderRadius: 2,
-                  outline: "none",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  width: { xs: "90vw", sm: 400 },
-                  maxWidth: 400,
-                  minHeight: 180,
-                  justifyContent: "center",
-                }}
-              >
-                {/* TEMP: Test with static message to debug mobile modal rendering */}
-                {/*
-                <Typography variant="h6" color="primary" align="center">
-                  If you see this message, the modal is rendering correctly.
-                </Typography>
-                */}
-                {/* LinkedIn badge embed */}
-                <div
-                  className="badge-base LI-profile-badge"
-                  data-locale="en_US"
-                  data-size="large"
-                  data-theme="light"
-                  data-type="HORIZONTAL"
-                  data-vanity="will-yu-56b101a8"
-                  data-version="v1"
-                ></div>
-              </Box>
-            </Modal>
-            {/* End LinkedIn Badge Modal */}
-            {/* Social Buttons Row */}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                gap: 3,
-                mt: 3,
-                mb: 2,
-                px: 0,
-                py: 0,
-                background: "none",
-                borderRadius: 0,
-                boxShadow: "none",
                 alignItems: "center",
-                width: { xs: "100%", sm: "auto" },
-                maxWidth: 340,
-                alignSelf: "center",
+                gap: 2,
+                mt: 1,
+                mb: 0,
               }}
             >
               <Button
+                className="fancy_card1"
+                color="primary"
+                variant="contained"
                 onClick={() => {
                   if (isMobile()) {
                     window.open(
@@ -190,73 +133,134 @@ export const AccountProfile = (props) => {
                   }
                 }}
                 sx={{
-                  minWidth: 56,
-                  minHeight: 56,
+                  minWidth: 0,
+                  p: 1.2,
                   borderRadius: "50%",
-                  color: "#0a66c2",
                   background: "#eaf4fc",
-                  boxShadow: 1,
-                  "&:hover": { bgcolor: "#d0e8fa", color: "#004182" },
-                  transition: "all 0.2s",
+                  color: "#0a66c2",
                 }}
               >
                 <LinkedInIcon fontSize="large" />
               </Button>
               <Button
-                component={Link}
-                href="https://github.com/wyu6609"
-                target="_blank"
+                className="fancy_card1"
+                color="primary"
+                variant="contained"
+                onClick={() => window.open("https://github.com/wyu6609", "_blank")}
                 sx={{
-                  minWidth: 56,
-                  minHeight: 56,
+                  minWidth: 0,
+                  p: 1.2,
                   borderRadius: "50%",
+                  background: "#f5f5f5",
                   color: "#24292f",
-                  background: "#f6f8fa",
-                  boxShadow: 1,
-                  "&:hover": { bgcolor: "#e1e4e8", color: "#000" },
-                  transition: "all 0.2s",
                 }}
               >
                 <GitHubIcon fontSize="large" />
               </Button>
               <Button
-                component={Link}
-                href="https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing"
-                target="_blank"
+                className="fancy_card1"
+                color="primary"
+                variant="contained"
+                onClick={() => window.open("/resume", "_self")}
                 sx={{
-                  minWidth: 56,
-                  minHeight: 56,
+                  minWidth: 0,
+                  p: 1.2,
                   borderRadius: "50%",
-                  color: "#d2691e",
                   background: "#fff3e0",
-                  boxShadow: 1,
-                  "&:hover": { bgcolor: "#ffe0b2", color: "#a0522d" },
-                  transition: "all 0.2s",
+                  color: "#d2691e",
                 }}
               >
                 <ArticleIcon fontSize="large" />
               </Button>
             </Box>
+          </>
+        }
+        title={
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              position: "relative",
+              mb: 0,
+              mt: 0,
+            }}
+          >
+            <Typography
+              variant="h5"
+              align="center"
+              sx={{
+                color: "primary.main",
+                fontWeight: 700,
+                letterSpacing: 1,
+                flex: 1,
+                mb: 0,
+                background: "rgba(245, 247, 250, 0.85)",
+                px: 1,
+                borderRadius: 1,
+              }}
+            >
+              Fullstack Developer
+            </Typography>
+            <ExpandMoreIcon
+              sx={{
+                ml: 1,
+                transition: "transform 0.2s",
+                transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+                color: "primary.main",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpanded((prev) => !prev);
+              }}
+            />
           </Box>
-          <Typography
-            sx={{ mt: 2 }}
-            variant="body2"
-            color="primary.main"
-            align="center"
-          ></Typography>
-        </Card>
-        <Divider sx={{ m: 2 }} />
-        <div
-          ref={detailsRef}
-          style={{
-            opacity: isVisible ? 1 : 0.5,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-        >
-          <AccountProfileDetails {...props} />
-        </div>
+        }
+      />
+      <CardContent
+        sx={{ pt: 1, backgroundColor: "#fff", textAlign: "center" }}
+      >
+        {expanded && (
+          <Box
+            sx={{
+              maxWidth: 480,
+              mx: "auto",
+              width: "100%",
+              mb: 2,
+              mt: 0,
+              background: "rgba(245, 247, 250, 0.85)",
+              borderRadius: 2,
+              p: 2,
+            }}
+          >
+            <Typography
+              align="inherit"
+              variant="body2"
+              sx={{
+                fontSize: 18,
+                color: "#333",
+                mb: 2,
+                wordBreak: "break-word",
+                whiteSpace: "pre-line",
+                textAlign: "left",
+              }}
+            >
+              I am a passionate, results-driven backend software engineer
+              specializing in building scalable, high-performance systems. My
+              technical expertise centers on Java and Spring Boot, complemented
+              by strong proficiency in JavaScript, Node.js, React.js,
+              Material-UI, Ruby, and Ruby on Rails. I excel at solving complex
+              challenges, debugging with precision, and writing clean,
+              maintainable code. Currently, I work as a software engineer at
+              JPMorgan Chase, focusing on backend Java development and AWS.
+            </Typography>
+          </Box>
+        )}
       </CardContent>
-      <Divider />
     </Card>
   );
 };
+
+export default AccountProfile;
