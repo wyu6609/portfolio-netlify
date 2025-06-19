@@ -230,24 +230,21 @@ const Projects = () => {
               sx={{
                 alignItems: "center",
                 height: "100%",
-                background: card.disabled
-                  ? "linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)"
-                  : "rgba(255,255,255,0.95)",
+                background: "rgba(255,255,255,0.95)",
                 borderRadius: 4,
                 boxShadow: card.disabled ? 0 : 4,
                 display: "flex",
                 flexDirection: "column",
                 pointerEvents: card.disabled ? "none" : "auto",
-                opacity: card.disabled ? 0.7 : 1,
-                transition: "box-shadow 0.2s, transform 0.2s",
+                opacity: card.disabled ? 0.8 : 1,
+                filter: card.disabled ? "grayscale(0.1)" : "none",
+                transition: "box-shadow 0.2s, transform 0.2s, opacity 0.2s, filter 0.2s",
                 cursor: card.disabled ? "default" : "pointer",
                 position: "relative",
-                "&:hover": {
+                '&:hover': {
                   boxShadow: card.disabled ? 0 : 8,
                   transform: card.disabled ? "none" : "scale(1.03)",
-                  background: card.disabled
-                    ? "linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)"
-                    : "#fff",
+                  background: "#fff",
                 },
               }}
               onClick={(e) => {
@@ -265,14 +262,41 @@ const Projects = () => {
               aria-disabled={card.disabled}
               role="button"
             >
+              {card.disabled && (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    bgcolor: "rgba(255,255,255,0.7)",
+                    zIndex: 2,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 4,
+                  }}
+                >
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e53935" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="13" width="18" height="8" rx="2"/><rect x="7" y="9" width="10" height="4" rx="1"/><circle cx="12" cy="17" r="1.5" fill="#e53935"/></svg>
+                  <Typography variant="subtitle1" sx={{ color: '#e53935', fontWeight: 700, mt: 1 }}>
+                    Server Down
+                  </Typography>
+                </Box>
+              )}
               <Box
                 sx={{
                   width: "100%",
-                  px: { xs: 2, sm: 3 }, // Add horizontal padding for margin
+                  px: { xs: 2, sm: 3 },
                   boxSizing: "border-box",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  background: "#fff", // Solid white background
+                  borderRadius: 3,
+                  boxShadow: 0,
+                  transition: "background 0.3s",
                 }}
               >
                 <CardMedia
@@ -285,7 +309,7 @@ const Projects = () => {
                     height: { xs: 160, sm: 180, md: 140 },
                     objectFit: "contain",
                     objectPosition: "center",
-                    background: "#f5f5f5",
+                    background: "transparent",
                     display: "block",
                     maxWidth: { xs: "100%", sm: "90%" },
                     maxHeight: { xs: 180, sm: 200, md: 140 },
