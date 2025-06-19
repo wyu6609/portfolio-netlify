@@ -238,10 +238,11 @@ const Projects = () => {
                 pointerEvents: card.disabled ? "none" : "auto",
                 opacity: card.disabled ? 0.8 : 1,
                 filter: card.disabled ? "grayscale(0.1)" : "none",
-                transition: "box-shadow 0.2s, transform 0.2s, opacity 0.2s, filter 0.2s",
+                transition:
+                  "box-shadow 0.2s, transform 0.2s, opacity 0.2s, filter 0.2s",
                 cursor: card.disabled ? "default" : "pointer",
                 position: "relative",
-                '&:hover': {
+                "&:hover": {
                   boxShadow: card.disabled ? 0 : 8,
                   transform: card.disabled ? "none" : "scale(1.03)",
                   background: "#fff",
@@ -279,8 +280,24 @@ const Projects = () => {
                     borderRadius: 4,
                   }}
                 >
-                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#e53935" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="13" width="18" height="8" rx="2"/><rect x="7" y="9" width="10" height="4" rx="1"/><circle cx="12" cy="17" r="1.5" fill="#e53935"/></svg>
-                  <Typography variant="subtitle1" sx={{ color: '#e53935', fontWeight: 700, mt: 1 }}>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#e53935"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect x="3" y="13" width="18" height="8" rx="2" />
+                    <rect x="7" y="9" width="10" height="4" rx="1" />
+                    <circle cx="12" cy="17" r="1.5" fill="#e53935" />
+                  </svg>
+                  <Typography
+                    variant="subtitle1"
+                    sx={{ color: "#e53935", fontWeight: 700, mt: 1 }}
+                  >
                     Server Down
                   </Typography>
                 </Box>

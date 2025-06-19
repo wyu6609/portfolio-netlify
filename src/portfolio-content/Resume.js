@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-
 import resumePDF from "./Resume.pdf";
 import { Grid, Paper, Button, Box } from "@mui/material";
-
 import "./Resume.css";
+
 const Resume = () => {
   const resumeLink =
     "https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing";
@@ -17,7 +16,7 @@ const Resume = () => {
       {/* PDF Viewer */}
       <object
         className="pdf-container"
-        data={resumePDF + "#toolbar=0&navpanes=0&#view=FitH"}
+        data={resumePDF + "#toolbar=0&navpanes=0&view=FitH"}
         type="application/pdf"
         width="100%"
         height="1200px"

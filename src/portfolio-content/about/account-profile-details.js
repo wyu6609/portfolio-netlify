@@ -66,16 +66,21 @@ export const AccountProfileDetails = (props) => {
       />
       <Divider />
       <CardContent>
-        <Accordion sx={{ mb: 2 }}>
+        <Accordion sx={{ mb: 2, width: "fit-content", mx: "auto" }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
-            sx={{ justifyContent: "center" }}
+            sx={{ justifyContent: "center", minWidth: 0, px: 2 }}
           >
             <Typography
               variant="subtitle1"
-              sx={{ fontWeight: 600, width: "100%", textAlign: "center" }}
+              sx={{
+                fontWeight: 600,
+                px: 2,
+                textAlign: "center",
+                whiteSpace: "nowrap",
+              }}
             >
-              About Me
+              Bio
             </Typography>
           </AccordionSummary>
           <AccordionDetails sx={{ maxWidth: 480, mx: "auto", width: "100%" }}>
