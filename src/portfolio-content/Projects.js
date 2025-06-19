@@ -266,20 +266,35 @@ const Projects = () => {
               aria-disabled={card.disabled}
               role="button"
             >
-              <CardMedia
-                component="img"
+              <Box
                 sx={{
-                  mt: 2,
-                  borderRadius: 3,
-                  boxShadow: 2,
-                  width: "90%",
-                  maxHeight: 140,
-                  objectFit: "cover",
-                  mx: "auto",
+                  width: "100%",
+                  px: { xs: 2, sm: 3 }, // Add horizontal padding for margin
+                  boxSizing: "border-box",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
                 }}
-                image={card.img}
-                alt={card.title}
-              />
+              >
+                <CardMedia
+                  component="img"
+                  sx={{
+                    mt: 2,
+                    borderRadius: 3,
+                    boxShadow: 2,
+                    width: "100%",
+                    height: { xs: 160, sm: 180, md: 140 },
+                    objectFit: "contain",
+                    objectPosition: "center",
+                    background: "#f5f5f5",
+                    display: "block",
+                    maxWidth: { xs: '100%', sm: '90%' },
+                    maxHeight: { xs: 180, sm: 200, md: 140 },
+                  }}
+                  image={card.img}
+                  alt={card.title}
+                />
+              </Box>
               <CardContent
                 sx={{
                   flexGrow: 1,
