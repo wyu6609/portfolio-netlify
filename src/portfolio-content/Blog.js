@@ -85,26 +85,33 @@ const Blog = () => {
             <Box
               className="iframe-container"
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
+                display: "block",
                 width: "100%",
+                aspectRatio: { xs: '16/9', sm: '16/9' },
+                maxWidth: 560,
+                mx: "auto",
+                my: 2,
+                position: "relative",
+                background: "#000",
+                borderRadius: 3,
+                overflow: "hidden",
               }}
             >
               <Box
                 component="iframe"
-                width="100%"
-                height="340"
                 src={item.src}
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
                 sx={{
-                  borderRadius: 3,
-                  border: "2px solid #e3e9f3",
-                  boxShadow: 2,
-                  maxWidth: 560,
-                  minHeight: 200,
+                  border: 0,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  minHeight: 180,
+                  maxHeight: 340,
                   background: "#000",
                 }}
               />
