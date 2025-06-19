@@ -205,7 +205,6 @@ const Projects = () => {
           maxWidth: 420,
           mx: "auto",
           boxShadow: 1,
-          animation: `${bounceAnimation} 1.2s ease-in-out infinite`,
         }}
       >
         <WarningAmberIcon sx={{ color: "#ff9800", mr: 1, fontSize: 28 }} />
@@ -288,7 +287,7 @@ const Projects = () => {
                     objectPosition: "center",
                     background: "#f5f5f5",
                     display: "block",
-                    maxWidth: { xs: '100%', sm: '90%' },
+                    maxWidth: { xs: "100%", sm: "90%" },
                     maxHeight: { xs: 180, sm: 200, md: 140 },
                   }}
                   image={card.img}
