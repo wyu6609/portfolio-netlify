@@ -220,7 +220,7 @@ const Projects = () => {
             userSelect: "none",
           }}
         >
-          Heroku-hosted apps may be temporarily unavailable
+          Heroku-hosted applications are currently down.
         </Typography>
       </Box>
       <Grid container spacing={4} justifyContent="center">
@@ -243,7 +243,7 @@ const Projects = () => {
                 transition: "box-shadow 0.2s, transform 0.2s",
                 cursor: card.disabled ? "default" : "pointer",
                 position: "relative",
-                '&:hover': {
+                "&:hover": {
                   boxShadow: card.disabled ? 0 : 8,
                   transform: card.disabled ? "none" : "scale(1.03)",
                   background: card.disabled
@@ -254,13 +254,13 @@ const Projects = () => {
               onClick={(e) => {
                 // Prevent card click if clicking on an action button
                 if (
-                  e.target.closest('.MuiIconButton-root') ||
+                  e.target.closest(".MuiIconButton-root") ||
                   card.disabled ||
                   !card.link
                 ) {
                   return;
                 }
-                window.open(card.link, '_blank');
+                window.open(card.link, "_blank");
               }}
               tabIndex={card.disabled ? -1 : 0}
               aria-disabled={card.disabled}

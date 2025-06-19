@@ -71,8 +71,10 @@ export const AccountProfile = (props) => {
 
   // Utility to detect mobile devices
   const isMobile = () => {
-    if (typeof navigator === 'undefined') return false;
-    return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+    if (typeof navigator === "undefined") return false;
+    return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+      navigator.userAgent
+    );
   };
 
   return (
@@ -132,10 +134,10 @@ export const AccountProfile = (props) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  width: { xs: '90vw', sm: 400 },
+                  width: { xs: "90vw", sm: 400 },
                   maxWidth: 400,
                   minHeight: 180,
-                  justifyContent: 'center',
+                  justifyContent: "center",
                 }}
               >
                 {/* TEMP: Test with static message to debug mobile modal rendering */}
@@ -179,7 +181,10 @@ export const AccountProfile = (props) => {
               <Button
                 onClick={() => {
                   if (isMobile()) {
-                    window.open("https://www.linkedin.com/in/will-yu-56b101a8/", "_blank");
+                    window.open(
+                      "https://www.linkedin.com/in/will-yu-56b101a8/",
+                      "_blank"
+                    );
                   } else {
                     setOpen(true);
                   }
