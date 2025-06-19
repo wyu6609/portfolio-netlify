@@ -12,9 +12,11 @@ import {
   CardMedia,
   Divider,
   Typography,
+  Box,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import "./Project.css";
 import Glasscard from "./Glasscard.js";
 
@@ -147,8 +149,12 @@ const Projects = () => {
       sx={{
         pb: 3,
         alignItems: "center",
-        backgroundColor: "#eaeff1",
+        background: "linear-gradient(135deg, #f8fafc 0%, #e3e9f3 100%)",
         border: "none",
+        borderRadius: 5,
+        boxShadow: 6,
+        minWidth: { xs: "100%", sm: 0 },
+        pt: 4,
       }}
     >
       <Typography
@@ -164,133 +170,183 @@ const Projects = () => {
           color: "#111827",
           fontWeight: "bold",
           letterSpacing: "1px",
-          textDecoration: "none", // Remove underline by default
-          transition: "transform 0.3s ease, color 0.3s ease", // Smooth transition for hover effects
+          textDecoration: "none",
+          transition: "transform 0.3s ease, color 0.3s ease",
           "&:hover": {
-            color: "primary.main", // Change text color on hover
-            textDecoration: "underline", // Add underline on hover
-            cursor: "pointer", // Show pointer cursor
-            transform: "scale(1.1)", // Slightly grow the text
+            color: "primary.main",
+            textDecoration: "underline",
+            cursor: "pointer",
+            transform: "scale(1.1)",
           },
         }}
       >
-        {" "}
         <Link
           href="https://github.com/wyu6609?tab=repositories"
           target="_blank"
+          underline="none"
+          sx={{
+            color: "inherit",
+            "&:hover": { color: "primary.main" },
+          }}
         >
           PROJECTS
         </Link>
       </Typography>
-      <Typography
-        align="center"
-        variant="body2"
-        color="#FF0000"
-        fontWeight="bold"
-        letterSpacing="1px"
+      <Box
         sx={{
-          pb: 2,
+          display: "flex",
+          justifyContent: "center",
           alignItems: "center",
-          animation: `${bounceAnimation} 0.5s ease-in-out infinite`, // Infinite bounce
+          background: "rgba(255, 213, 128, 0.25)",
+          borderRadius: 3,
+          px: 3,
+          py: 1.5,
+          mb: 3,
+          maxWidth: 420,
+          mx: "auto",
+          boxShadow: 1,
+          animation: `${bounceAnimation} 1.2s ease-in-out infinite`,
         }}
       >
-        *HEROKU APPS ARE CURRENTLY UNAVAILABLE*
-      </Typography>
-      <Grid container spacing={4}>
+        <WarningAmberIcon sx={{ color: "#ff9800", mr: 1, fontSize: 28 }} />
+        <Typography
+          align="center"
+          variant="body1"
+          sx={{
+            color: "#b26a00",
+            fontWeight: 600,
+            letterSpacing: "0.5px",
+            fontSize: 16,
+            userSelect: "none",
+          }}
+        >
+          Heroku-hosted apps may be temporarily unavailable
+        </Typography>
+      </Box>
+      <Grid container spacing={4} justifyContent="center">
         {cards.map((card) => (
-          <Grid item key={card} xs={12} sm={6} md={3}>
-            <Link
-              href={!card.disabled ? card.link : undefined} // Disable the link if the card is disabled
-              underline="none"
-              target={!card.disabled ? "_blank" : undefined}
+          <Grid item key={card.title} xs={12} sm={6} md={3}>
+            <Card
+              className="fancy_card"
+              sx={{
+                alignItems: "center",
+                height: "100%",
+                background: card.disabled
+                  ? "linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)"
+                  : "rgba(255,255,255,0.95)",
+                borderRadius: 4,
+                boxShadow: card.disabled ? 0 : 4,
+                display: "flex",
+                flexDirection: "column",
+                pointerEvents: card.disabled ? "none" : "auto",
+                opacity: card.disabled ? 0.7 : 1,
+                transition: "box-shadow 0.2s, transform 0.2s",
+                "&:hover": {
+                  boxShadow: card.disabled ? 0 : 8,
+                  transform: card.disabled ? "none" : "scale(1.03)",
+                  background: card.disabled
+                    ? "linear-gradient(135deg, #e0e0e0 0%, #bdbdbd 100%)"
+                    : "#fff",
+                },
+              }}
             >
-              <Card
-                className="fancy_card"
+              <CardMedia
+                component="img"
                 sx={{
-                  alignItems: "center",
-                  height: "100%",
-                  backgroundColor: card.disabled ? "grey" : "inherit",
-                  display: "flex",
-                  flexDirection: "column",
-                  pointerEvents: card.disabled ? "none" : "auto", // Disable pointer events when the card is disabled
-                  "&:hover": {
-                    backgroundColor: card.disabled ? "grey" : "white", // Prevent hover effect if disabled
-                  },
+                  mt: 2,
+                  borderRadius: 3,
+                  boxShadow: 2,
+                  width: "90%",
+                  maxHeight: 140,
+                  objectFit: "cover",
+                  mx: "auto",
+                }}
+                image={card.img}
+                alt={card.title}
+              />
+              <CardContent
+                sx={{
+                  flexGrow: 1,
+                  width: "100%",
+                  px: 2,
+                  pt: 2,
+                  pb: 1,
                 }}
               >
-                <CardMedia
-                  component="img"
+                <Typography
+                  align="center"
+                  gutterBottom
+                  variant="h6"
+                  component="h6"
                   sx={{
-                    // 16:9
                     mt: 1,
+                    fontWeight: 700,
+                    color: "primary.main",
+                    letterSpacing: 1,
                   }}
-                  image={card.img}
-                  alt="random"
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography
-                    align="center"
-                    gutterBottom
-                    variant="h5"
-                    component="h6"
-                    sx={{ mt: 1 }}
-                    color="primary.main"
-                    fontWeight="bold"
-                  >
-                    {card.title}
-                  </Typography>
-                  <Typography
-                    align="center"
-                    variant="body2"
-                    sx={{ fontSize: 10 }}
-                  >
-                    {card.description}
-                  </Typography>
-                </CardContent>
-                <Divider />
-                <CardActions>
-                  {card.demo ? (
-                    <IconButton
-                      sx={{
-                        "&:hover": {
-                          backgroundColor: "#cccccc",
-                        },
-                      }}
-                      onClick={() => {
-                        window.open(card.demo, "_blank");
-                      }}
-                    >
-                      <YouTubeIcon
-                        sx={{
-                          color: "primary.main",
-                          fontSize: 30,
-                        }}
-                      />
-                    </IconButton>
-                  ) : (
-                    <></>
-                  )}
-
+                >
+                  {card.title}
+                </Typography>
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{ fontSize: 12, color: "#444", mb: 1 }}
+                >
+                  {card.description}
+                </Typography>
+              </CardContent>
+              <Divider sx={{ width: "80%", mx: "auto", mb: 1 }} />
+              <CardActions sx={{ justifyContent: "center", pb: 2 }}>
+                {card.demo && (
                   <IconButton
                     sx={{
+                      background: "#eaf4fc",
+                      borderRadius: "50%",
+                      mx: 1,
+                      boxShadow: 1,
                       "&:hover": {
-                        backgroundColor: "#cccccc",
+                        backgroundColor: "#d0e8fa",
+                        transform: "scale(1.1)",
                       },
+                      transition: "all 0.2s",
                     }}
                     onClick={() => {
-                      window.open(card.git, "_blank");
+                      window.open(card.demo, "_blank");
                     }}
                   >
-                    <GitHubIcon
+                    <YouTubeIcon
                       sx={{
-                        color: "primary.main",
+                        color: "#e53935",
                         fontSize: 30,
                       }}
                     />
                   </IconButton>
-                </CardActions>
-              </Card>
-            </Link>
+                )}
+                <IconButton
+                  sx={{
+                    background: "#f6f8fa",
+                    borderRadius: "50%",
+                    mx: 1,
+                    boxShadow: 1,
+                    "&:hover": {
+                      backgroundColor: "#e1e4e8",
+                      transform: "scale(1.1)",
+                    },
+                    transition: "all 0.2s",
+                  }}
+                  onClick={() => {
+                    window.open(card.git, "_blank");
+                  }}
+                >
+                  <GitHubIcon
+                    sx={{
+                      color: "#24292f",
+                      fontSize: 30,
+                    }}
+                  />
+                </IconButton>
+              </CardActions>
+            </Card>
           </Grid>
         ))}
       </Grid>

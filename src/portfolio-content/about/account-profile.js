@@ -90,35 +90,21 @@ export const AccountProfile = (props) => {
                 backgroundColor: "#ccc",
               }}
             />
-            <Typography color="textPrimary" gutterBottom variant="h4">
+            <Typography color="primary.main" gutterBottom variant="h4">
               {user.name}
             </Typography>
-            {/* LinkedIn Badge Button */}
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                mt: 1,
-                mb: 2,
-                alignSelf: "center",
-                px: 4,
-                py: 1.2,
-                fontWeight: 600,
-                fontSize: "1rem",
-                borderRadius: 3,
-                boxShadow: 2,
-                letterSpacing: 1,
-                transition: "background 0.2s, transform 0.2s",
-                "&:hover": {
-                  backgroundColor: "#1976d2",
-                  transform: "scale(1.05)",
-                },
-              }}
-              onClick={() => setOpen(true)}
+            <Typography color="textSecondary" align="center" variant="body2">
+              {`${user.skills} `}
+            </Typography>
+            <Typography
+              align="center"
+              justifyContent="center"
+              color="textSecondary"
+              variant="body2"
             >
-              View LinkedIn Badge
-            </Button>
-            {/* Modal for LinkedIn Badge */}
+              {user.skills2}
+            </Typography>
+            {/* Modal for LinkedIn Badge now triggered by LinkedIn icon button */}
             <Modal
               open={open}
               onClose={() => setOpen(false)}
@@ -154,35 +140,36 @@ export const AccountProfile = (props) => {
               </Box>
             </Modal>
             {/* End LinkedIn Badge Modal */}
-            <Typography color="textSecondary" align="center" variant="body2">
-              {`${user.skills} `}
-            </Typography>
-            <Typography
-              align="center"
-              justifyContent="center"
-              color="textSecondary"
-              variant="body2"
-            >
-              {user.skills2}
-            </Typography>
             {/* Social Buttons Row */}
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                gap: 2,
-                mt: 2,
-                mb: 1,
+                gap: 3,
+                mt: 3,
+                mb: 2,
+                px: 2,
+                py: 1.5,
+                background: "rgba(245, 247, 250, 0.85)",
+                borderRadius: 3,
+                boxShadow: 1,
+                alignItems: "center",
+                width: { xs: "100%", sm: "auto" },
+                maxWidth: 340,
+                alignSelf: "center",
               }}
             >
               <Button
-                component={Link}
-                href="https://www.linkedin.com/in/will-yu-56b101a8?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B3IFmW0pcQTeRea%2FmutKVsw%3D%3D"
-                target="_blank"
+                onClick={() => setOpen(true)}
                 sx={{
-                  minWidth: 48,
+                  minWidth: 56,
+                  minHeight: 56,
+                  borderRadius: "50%",
                   color: "#0a66c2",
-                  "&:hover": { bgcolor: "#eaf4fc" },
+                  background: "#eaf4fc",
+                  boxShadow: 1,
+                  "&:hover": { bgcolor: "#d0e8fa", color: "#004182" },
+                  transition: "all 0.2s",
                 }}
               >
                 <LinkedInIcon fontSize="large" />
@@ -192,9 +179,14 @@ export const AccountProfile = (props) => {
                 href="https://github.com/wyu6609"
                 target="_blank"
                 sx={{
-                  minWidth: 48,
+                  minWidth: 56,
+                  minHeight: 56,
+                  borderRadius: "50%",
                   color: "#24292f",
-                  "&:hover": { bgcolor: "#f6f8fa" },
+                  background: "#f6f8fa",
+                  boxShadow: 1,
+                  "&:hover": { bgcolor: "#e1e4e8", color: "#000" },
+                  transition: "all 0.2s",
                 }}
               >
                 <GitHubIcon fontSize="large" />
@@ -204,9 +196,14 @@ export const AccountProfile = (props) => {
                 href="https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing"
                 target="_blank"
                 sx={{
-                  minWidth: 48,
+                  minWidth: 56,
+                  minHeight: 56,
+                  borderRadius: "50%",
                   color: "#d2691e",
-                  "&:hover": { bgcolor: "#fff3e0" },
+                  background: "#fff3e0",
+                  boxShadow: 1,
+                  "&:hover": { bgcolor: "#ffe0b2", color: "#a0522d" },
+                  transition: "all 0.2s",
                 }}
               >
                 <ArticleIcon fontSize="large" />
