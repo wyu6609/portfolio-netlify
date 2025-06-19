@@ -87,7 +87,7 @@ const Blog = () => {
               sx={{
                 display: "block",
                 width: "100%",
-                aspectRatio: { xs: '16/9', sm: '16/9' },
+                aspectRatio: { xs: "16/9", sm: "16/9" },
                 maxWidth: 560,
                 mx: "auto",
                 my: 2,
