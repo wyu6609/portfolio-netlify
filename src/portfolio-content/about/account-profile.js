@@ -69,6 +69,12 @@ export const AccountProfile = (props) => {
     }
   }, [open]);
 
+  // Utility to detect mobile devices
+  const isMobile = () => {
+    if (typeof navigator === 'undefined') return false;
+    return /Mobi|Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+  };
+
   return (
     <Card {...props} sx={{ backgroundColor: "#ffffff" }}>
       <CardContent>
@@ -133,11 +139,12 @@ export const AccountProfile = (props) => {
                 }}
               >
                 {/* TEMP: Test with static message to debug mobile modal rendering */}
+                {/*
                 <Typography variant="h6" color="primary" align="center">
                   If you see this message, the modal is rendering correctly.
                 </Typography>
-                {/* Uncomment the LinkedIn badge below after confirming modal works on mobile */}
-                {/*
+                */}
+                {/* LinkedIn badge embed */}
                 <div
                   className="badge-base LI-profile-badge"
                   data-locale="en_US"
@@ -147,7 +154,6 @@ export const AccountProfile = (props) => {
                   data-vanity="will-yu-56b101a8"
                   data-version="v1"
                 ></div>
-                */}
               </Box>
             </Modal>
             {/* End LinkedIn Badge Modal */}
@@ -171,7 +177,13 @@ export const AccountProfile = (props) => {
               }}
             >
               <Button
-                onClick={() => setOpen(true)}
+                onClick={() => {
+                  if (isMobile()) {
+                    window.open("https://www.linkedin.com/in/will-yu-56b101a8/", "_blank");
+                  } else {
+                    setOpen(true);
+                  }
+                }}
                 sx={{
                   minWidth: 56,
                   minHeight: 56,
