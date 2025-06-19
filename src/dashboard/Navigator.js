@@ -16,6 +16,10 @@ import ConnectWithoutContactIcon from "@mui/icons-material/ConnectWithoutContact
 import Color from "./Color.js";
 import SettingsEthernetIcon from "@mui/icons-material/SettingsEthernet";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import Collapse from "@mui/material/Collapse";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
+import GamesIcon from "@mui/icons-material/Games";
 
 const categories = [
   {
@@ -83,6 +87,12 @@ export default function Navigator(props) {
   let location = useLocation();
   const { ...other } = props;
 
+  const [openGames, setOpenGames] = React.useState(false);
+
+  const handleGamesClick = () => {
+    setOpenGames((prev) => !prev);
+  };
+
   const handleListItemClick = (event, index) => {
     console.log("selected index: " + index);
     props.setSelectedIndex(index);
@@ -109,24 +119,72 @@ export default function Navigator(props) {
 
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33", pt: 1 }}>
-            {children.map(({ id: childId, icon, route }, index) => (
-              <ListItem disablePadding key={childId}>
-                <ListItemButton
-                  component={Link}
-                  to={route}
-                  selected={props.selectedIndex === index}
-                  onClick={(event) => {
-                    handleListItemClick(event, index);
-                    props.btnSound();
-                  }}
-                  sx={item}
-                >
-                  <ListItemIcon>{icon}</ListItemIcon>
-                  <ListItemText>{childId}</ListItemText>
-                </ListItemButton>
-              </ListItem>
-            ))}
-
+            {children.map(({ id: childId, icon, route }, index) => {
+              if (childId === "2048" || childId === "Todo") return null;
+              return (
+                <ListItem disablePadding key={childId}>
+                  <ListItemButton
+                    component={Link}
+                    to={route}
+                    selected={props.selectedIndex === index}
+                    onClick={(event) => {
+                      handleListItemClick(event, index);
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>{icon}</ListItemIcon>
+                    <ListItemText>{childId}</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+            {/* Apps submenu */}
+            <ListItem disablePadding>
+              <ListItemButton onClick={handleGamesClick} sx={item}>
+                <ListItemIcon>
+                  <GamesIcon />
+                </ListItemIcon>
+                <ListItemText>Apps</ListItemText>
+                {openGames ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+            </ListItem>
+            <Collapse in={openGames} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component={Link}
+                    to="/2048"
+                    onClick={() => {
+                      props.setSelectedIndex(100); // Use a unique index
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <ExtensionIcon />
+                    </ListItemIcon>
+                    <ListItemText>2048</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component={Link}
+                    to="/Todo"
+                    onClick={() => {
+                      props.setSelectedIndex(101); // Use a unique index
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <PlaylistAddCheckIcon />
+                    </ListItemIcon>
+                    <ListItemText>Todo Application</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Collapse>
             <Divider sx={{ mt: 1 }} />
           </Box>
         ))}
