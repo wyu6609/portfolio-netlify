@@ -126,8 +126,18 @@ export const AccountProfile = (props) => {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
+                  width: { xs: '90vw', sm: 400 },
+                  maxWidth: 400,
+                  minHeight: 180,
+                  justifyContent: 'center',
                 }}
               >
+                {/* TEMP: Test with static message to debug mobile modal rendering */}
+                <Typography variant="h6" color="primary" align="center">
+                  If you see this message, the modal is rendering correctly.
+                </Typography>
+                {/* Uncomment the LinkedIn badge below after confirming modal works on mobile */}
+                {/*
                 <div
                   className="badge-base LI-profile-badge"
                   data-locale="en_US"
@@ -137,6 +147,7 @@ export const AccountProfile = (props) => {
                   data-vanity="will-yu-56b101a8"
                   data-version="v1"
                 ></div>
+                */}
               </Box>
             </Modal>
             {/* End LinkedIn Badge Modal */}
