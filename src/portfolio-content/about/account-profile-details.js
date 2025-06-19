@@ -6,12 +6,8 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Divider,
   Grid,
   Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import GitHubIcon from "@mui/icons-material/GitHub";
@@ -23,11 +19,12 @@ const GITHUB_COLOR = "#24292f";
 const ARTICLE_COLOR = "#d2691e";
 
 export const AccountProfileDetails = (props) => {
+  const [expanded, setExpanded] = useState(false);
   return (
     <Card
       {...props}
       sx={{
-        backgroundColor: "#fff",
+        backgroundColor: "rgba(245, 247, 250, 0.85)",
         borderRadius: 2,
         boxShadow: 1,
         border: `1px solid ${CARD_BORDER_COLOR}`,
@@ -44,46 +41,106 @@ export const AccountProfileDetails = (props) => {
           borderTopRightRadius: 8,
           mb: 1,
           px: 2,
+          position: "relative",
         }}
+        onClick={() => setExpanded((prev) => !prev)}
         subheader={
-          <Typography
-            variant="subtitle1"
-            align="center"
-            sx={{ color: GITHUB_COLOR, fontWeight: 500 }}
-          >
-            Backend Software Engineer @ JP Morgan & Chase
-          </Typography>
-        }
-        title={
-          <Typography
-            variant="h5"
-            align="center"
-            sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 1 }}
-          >
-            Fullstack Developer
-          </Typography>
-        }
-      />
-      <Divider />
-      <CardContent>
-        <Accordion sx={{ mb: 2, width: "fit-content", mx: "auto" }}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            sx={{ justifyContent: "center", minWidth: 0, px: 2 }}
-          >
+          <>
             <Typography
               variant="subtitle1"
-              sx={{
-                fontWeight: 600,
-                px: 2,
-                textAlign: "center",
-                whiteSpace: "nowrap",
-              }}
+              align="center"
+              sx={{ color: GITHUB_COLOR, fontWeight: 500, textAlign: 'center' }}
             >
-              Bio
+              Backend Software Engineer @ JP Morgan & Chase
             </Typography>
-          </AccordionSummary>
-          <AccordionDetails sx={{ maxWidth: 480, mx: "auto", width: "100%" }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, mt: 1, mb: 0 }}>
+              <Button
+                className="fancy_card1"
+                color="primary"
+                variant="contained"
+                onClick={() => {
+                  window.location.href = "/projects";
+                }}
+                sx={{
+                  minWidth: 56,
+                  minHeight: 56,
+                  width: 56,
+                  height: 56,
+                  borderRadius: "50%",
+                  color: LINKEDIN_COLOR,
+                  background: "#eaf4fc",
+                  boxShadow: 1,
+                  fontWeight: 600,
+                  fontSize: 24,
+                  p: 0,
+                  "&:hover": { bgcolor: "#d0e8fa", color: "#004182" },
+                  transition: "all 0.2s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                💻
+              </Button>
+              <Button
+                className="fancy_card1"
+                color="primary"
+                variant="contained"
+                onClick={() => {
+                  window.location.href = "/blog";
+                }}
+                sx={{
+                  minWidth: 56,
+                  minHeight: 56,
+                  width: 56,
+                  height: 56,
+                  borderRadius: "50%",
+                  color: ARTICLE_COLOR,
+                  background: "#fff3e0",
+                  boxShadow: 1,
+                  fontWeight: 600,
+                  fontSize: 24,
+                  p: 0,
+                  "&:hover": { bgcolor: "#ffe0b2", color: "#b26a00" },
+                  transition: "all 0.2s",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                📝
+              </Button>
+            </Box>
+          </>
+        }
+        title={
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', position: 'relative', mb: 0, mt: 0 }}>
+            <Typography
+              variant="h5"
+              align="center"
+              sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 1, flex: 1, mb: 0 }}
+            >
+              Fullstack Developer
+            </Typography>
+            <ExpandMoreIcon
+              sx={{
+                ml: 1,
+                transition: 'transform 0.2s',
+                transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+                color: 'primary.main',
+                cursor: 'pointer',
+              }}
+              onClick={e => {
+                e.stopPropagation();
+                setExpanded(prev => !prev);
+              }}
+            />
+          </Box>
+        }
+      />
+      <CardContent sx={{ pt: 1, backgroundColor: 'rgba(245, 247, 250, 0.85)', textAlign: 'center' }}>
+        {expanded && (
+          <Box sx={{ maxWidth: 480, mx: 'auto', width: '100%', mb: 2, mt: 0 }}>
             <Typography
               align="inherit"
               variant="body2"
@@ -105,85 +162,8 @@ export const AccountProfileDetails = (props) => {
               maintainable code. Currently, I work as a software engineer at
               JPMorgan Chase, focusing on backend Java development and AWS.
             </Typography>
-          </AccordionDetails>
-        </Accordion>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 3,
-            mt: 3,
-            mb: 2,
-            px: 0,
-            py: 0,
-            background: "none",
-            borderRadius: 0,
-            boxShadow: "none",
-            alignItems: "center",
-            width: "100%",
-            maxWidth: 340,
-            alignSelf: "center",
-            mx: "auto",
-          }}
-        >
-          <Button
-            className="fancy_card1"
-            color="primary"
-            variant="contained"
-            onClick={() => {
-              window.location.href = "/projects";
-            }}
-            sx={{
-              minWidth: 56,
-              minHeight: 56,
-              width: 56,
-              height: 56,
-              borderRadius: "50%",
-              color: LINKEDIN_COLOR,
-              background: "#eaf4fc",
-              boxShadow: 1,
-              fontWeight: 600,
-              fontSize: 24,
-              p: 0,
-              "&:hover": { bgcolor: "#d0e8fa", color: "#004182" },
-              transition: "all 0.2s",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            💻
-          </Button>
-          <Button
-            className="fancy_card1"
-            color="primary"
-            variant="contained"
-            onClick={() => {
-              window.location.href = "/blog";
-            }}
-            sx={{
-              minWidth: 56,
-              minHeight: 56,
-              width: 56,
-              height: 56,
-              borderRadius: "50%",
-              color: ARTICLE_COLOR,
-              background: "#fff3e0",
-              boxShadow: 1,
-              fontWeight: 600,
-              fontSize: 24,
-              p: 0,
-              ml: 1,
-              "&:hover": { bgcolor: "#ffe0b2", color: "#a0522d" },
-              transition: "all 0.2s",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            📹
-          </Button>
-        </Box>
+          </Box>
+        )}
       </CardContent>
     </Card>
   );
