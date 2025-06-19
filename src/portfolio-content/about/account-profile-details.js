@@ -49,11 +49,20 @@ export const AccountProfileDetails = (props) => {
             <Typography
               variant="subtitle1"
               align="center"
-              sx={{ color: GITHUB_COLOR, fontWeight: 500, textAlign: 'center' }}
+              sx={{ color: GITHUB_COLOR, fontWeight: 500, textAlign: "center" }}
             >
               Backend Software Engineer @ JP Morgan & Chase
             </Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, mt: 1, mb: 0 }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                gap: 2,
+                mt: 1,
+                mb: 0,
+              }}
+            >
               <Button
                 className="fancy_card1"
                 color="primary"
@@ -114,33 +123,55 @@ export const AccountProfileDetails = (props) => {
           </>
         }
         title={
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', position: 'relative', mb: 0, mt: 0 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "100%",
+              position: "relative",
+              mb: 0,
+              mt: 0,
+            }}
+          >
             <Typography
               variant="h5"
               align="center"
-              sx={{ color: "primary.main", fontWeight: 700, letterSpacing: 1, flex: 1, mb: 0 }}
+              sx={{
+                color: "primary.main",
+                fontWeight: 700,
+                letterSpacing: 1,
+                flex: 1,
+                mb: 0,
+              }}
             >
               Fullstack Developer
             </Typography>
             <ExpandMoreIcon
               sx={{
                 ml: 1,
-                transition: 'transform 0.2s',
-                transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                color: 'primary.main',
-                cursor: 'pointer',
+                transition: "transform 0.2s",
+                transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+                color: "primary.main",
+                cursor: "pointer",
               }}
-              onClick={e => {
+              onClick={(e) => {
                 e.stopPropagation();
-                setExpanded(prev => !prev);
+                setExpanded((prev) => !prev);
               }}
             />
           </Box>
         }
       />
-      <CardContent sx={{ pt: 1, backgroundColor: 'rgba(245, 247, 250, 0.85)', textAlign: 'center' }}>
+      <CardContent
+        sx={{
+          pt: 1,
+          backgroundColor: "rgba(245, 247, 250, 0.85)",
+          textAlign: "center",
+        }}
+      >
         {expanded && (
-          <Box sx={{ maxWidth: 480, mx: 'auto', width: '100%', mb: 2, mt: 0 }}>
+          <Box sx={{ maxWidth: 480, mx: "auto", width: "100%", mb: 2, mt: 0 }}>
             <Typography
               align="inherit"
               variant="body2"

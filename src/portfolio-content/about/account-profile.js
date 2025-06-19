@@ -146,7 +146,9 @@ export const AccountProfile = (props) => {
                 className="fancy_card1"
                 color="primary"
                 variant="contained"
-                onClick={() => window.open("https://github.com/wyu6609", "_blank")}
+                onClick={() =>
+                  window.open("https://github.com/wyu6609", "_blank")
+                }
                 sx={{
                   minWidth: 0,
                   p: 1.2,
@@ -219,9 +221,7 @@ export const AccountProfile = (props) => {
           </Box>
         }
       />
-      <CardContent
-        sx={{ pt: 1, backgroundColor: "#fff", textAlign: "center" }}
-      >
+      <CardContent sx={{ pt: 1, backgroundColor: "#fff", textAlign: "center" }}>
         {expanded && (
           <Box
             sx={{

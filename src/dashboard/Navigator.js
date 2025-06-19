@@ -189,7 +189,8 @@ export default function Navigator(props) {
           </Box>
         ))}
         <ListItem edge="end">
-          <Color sx={{ borderColor: "primary.main" }}
+          <Color
+            sx={{ borderColor: "primary.main" }}
             setColorMain={props.setColorMain}
             setColorSecondary={props.setColorSecondary}
           />

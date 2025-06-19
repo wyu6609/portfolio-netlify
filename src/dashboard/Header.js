@@ -21,20 +21,25 @@ import Clock from "./Clock.js";
 import CloudIcon from "@mui/icons-material/Cloud";
 import Weather from "./Weather.js";
 import Box from "@mui/material/Box";
-import DescriptionIcon from '@mui/icons-material/Description';
+import DescriptionIcon from "@mui/icons-material/Description";
 
 const lightColor = "rgba(255, 255, 255, 0.7)";
 
 function Header(props) {
   const { onDrawerToggle, btnSound } = props;
-  const resumeLink = "https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing";
+  const resumeLink =
+    "https://docs.google.com/document/d/1yT5g5qLfffm5N2rtVY4ryuQgEpu9_L9wLoU5pW948E8/edit?usp=sharing";
   const location = useLocation();
 
   return (
     <React.Fragment>
       <AppBar component="div" color="primary" position="sticky" elevation={6}>
-        <Toolbar sx={{ minHeight: 64, px: 2, position: 'relative' }}>
-          <Grid container spacing={1} sx={{ display: "flex", alignItems: "center" }}>
+        <Toolbar sx={{ minHeight: 64, px: 2, position: "relative" }}>
+          <Grid
+            container
+            spacing={1}
+            sx={{ display: "flex", alignItems: "center" }}
+          >
             <Grid sx={{ display: { sm: "none", xs: "block" } }} item>
               <IconButton
                 color="inherit"
@@ -48,7 +53,11 @@ function Header(props) {
                 <MenuIcon sx={{ color: "white" }} />
               </IconButton>
             </Grid>
-            <Grid sx={{ mt: 1.5, display: 'flex', alignItems: 'center' }} item xs>
+            <Grid
+              sx={{ mt: 1.5, display: "flex", alignItems: "center" }}
+              item
+              xs
+            >
               <Clock />
             </Grid>
             <Grid
@@ -61,18 +70,18 @@ function Header(props) {
           {location.pathname === "/resume" && (
             <Box
               sx={{
-                position: 'absolute',
+                position: "absolute",
                 left: 0,
                 right: 0,
                 top: 0,
                 bottom: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                pointerEvents: 'none', // allow header controls to remain clickable
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                pointerEvents: "none", // allow header controls to remain clickable
               }}
             >
-              <Box sx={{ pointerEvents: 'auto' }}>
+              <Box sx={{ pointerEvents: "auto" }}>
                 <Button
                   variant="contained"
                   color="secondary"
@@ -82,32 +91,32 @@ function Header(props) {
                     textTransform: "none",
                     fontWeight: 600,
                     boxShadow: 2,
-                    background: '#fff',
-                    color: 'primary.main',
-                    '&:hover': { background: '#f5f5f5' },
+                    background: "#fff",
+                    color: "primary.main",
+                    "&:hover": { background: "#f5f5f5" },
                     minWidth: 120,
                     height: 36,
-                    display: { xs: 'none', sm: 'inline-flex' },
+                    display: { xs: "none", sm: "inline-flex" },
                   }}
-                  onClick={() => window.open(resumeLink, '_blank')}
+                  onClick={() => window.open(resumeLink, "_blank")}
                 >
                   View Resume
                 </Button>
                 <IconButton
                   sx={{
-                    background: '#fff',
-                    color: 'primary.main',
+                    background: "#fff",
+                    color: "primary.main",
                     borderRadius: 2,
                     boxShadow: 2,
                     height: 36,
                     width: 36,
-                    display: { xs: 'inline-flex', sm: 'none' },
+                    display: { xs: "inline-flex", sm: "none" },
                     ml: 0,
-                    '@media (max-width:315px)': {
-                      display: 'none',
+                    "@media (max-width:315px)": {
+                      display: "none",
                     },
                   }}
-                  onClick={() => window.open(resumeLink, '_blank')}
+                  onClick={() => window.open(resumeLink, "_blank")}
                   aria-label="Open Resume"
                 >
                   <DescriptionIcon fontSize="medium" />
