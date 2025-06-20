@@ -62,7 +62,8 @@ const categories = [
         menuIndex: 5,
         icon: <ExtensionIcon />,
         route: "/2048",
-      },      {
+      },
+      {
         id: "Todo",
         menuIndex: 6,
         icon: <PlaylistAddCheckIcon />,

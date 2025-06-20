@@ -85,7 +85,8 @@ export default function Paperbase() {
     const data_secondary_color = window.localStorage.getItem("SECONDARY_COLOR");
     if (data_main_color !== null) {
       setColorSecondary(JSON.parse(data_secondary_color));
-    }    switch (location.pathname) {
+    }
+    switch (location.pathname) {
       case "/":
         setSelectedIndex(0);
         break;
@@ -261,7 +262,8 @@ export default function Paperbase() {
         styleOverrides: {
           root: {
             width: 32,
-            height: 32,          },
+            height: 32,
+          },
         },
       },
     },

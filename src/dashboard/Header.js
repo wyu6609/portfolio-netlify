@@ -81,7 +81,9 @@ function Header(props) {
                 pointerEvents: "none", // allow header controls to remain clickable
               }}
             >
-              <Box sx={{ pointerEvents: "auto" }}>                <Button
+              <Box sx={{ pointerEvents: "auto" }}>
+                {" "}
+                <Button
                   variant="contained"
                   color="secondary"
                   size="small"
