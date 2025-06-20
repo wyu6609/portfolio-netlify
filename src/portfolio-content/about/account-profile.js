@@ -123,14 +123,10 @@ export const AccountProfile = (props) => {
                 color="primary"
                 variant="contained"
                 onClick={() => {
-                  if (isMobile()) {
-                    window.open(
-                      "https://www.linkedin.com/in/will-yu-56b101a8/",
-                      "_blank"
-                    );
-                  } else {
-                    setOpen(true);
-                  }
+                  window.open(
+                    "https://www.linkedin.com/in/will-yu-56b101a8/",
+                    "_blank"
+                  );
                 }}
                 sx={{
                   minWidth: 0,
