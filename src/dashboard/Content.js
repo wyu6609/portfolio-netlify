@@ -9,6 +9,7 @@ import Resume from "../portfolio-content/Resume";
 import Error from "../portfolio-content/Error";
 import GameApp from "../2048/src/Game";
 import App from "../todo/src/App";
+import UserLogin from "../portfolio-content/UserLogin";
 export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
   return (
     <Routes>
@@ -24,10 +25,10 @@ export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
       />
       <Route path="/projects" element={<Projects />} />
       <Route path="/resume" element={<Resume />} />
-      <Route path="/blog" exact element={<Blog />} />
-      <Route path="/contact" element={<Contact btnSound />} />
+      <Route path="/blog" exact element={<Blog />} />      <Route path="/contact" element={<Contact btnSound />} />
       <Route path="/2048" element={<GameApp btnSound />} />
       <Route path="/Todo" element={<App btnSound />} />
+      <Route path="/login" element={<UserLogin />} />
       <Route path="*" element={<Error />} />
     </Routes>
   );

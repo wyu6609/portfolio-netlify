@@ -71,6 +71,7 @@ const drawerWidth = 256;
 
 export default function Paperbase() {
   //color palette state
+  let location = useLocation();
 
   const [colorMain, setColorMain] = React.useState("#1976d2");
   const [colorSecondary, setColorSecondary] = React.useState("#84baf0");
@@ -84,23 +85,30 @@ export default function Paperbase() {
     const data_secondary_color = window.localStorage.getItem("SECONDARY_COLOR");
     if (data_main_color !== null) {
       setColorSecondary(JSON.parse(data_secondary_color));
-    }
-
-    switch (location.pathname) {
+    }    switch (location.pathname) {
       case "/":
         setSelectedIndex(0);
         break;
-      case "/projects":
+      case "/login":
         setSelectedIndex(1);
         break;
-      case "/resume":
+      case "/projects":
         setSelectedIndex(2);
+        break;
+      case "/resume":
+        setSelectedIndex(3);
         break;
       case "/contact":
         setSelectedIndex(3);
         break;
       case "/blog":
         setSelectedIndex(4);
+        break;
+      case "/2048":
+        setSelectedIndex(5);
+        break;
+      case "/Todo":
+        setSelectedIndex(6);
         break;
       default:
         setSelectedIndex(false);
@@ -253,14 +261,12 @@ export default function Paperbase() {
         styleOverrides: {
           root: {
             width: 32,
-            height: 32,
-          },
+            height: 32,          },
         },
       },
     },
   };
 
-  const location = useLocation();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const isSmUp = useMediaQuery(theme.breakpoints.up("sm"));
 

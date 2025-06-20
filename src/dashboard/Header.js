@@ -34,7 +34,7 @@ function Header(props) {
   return (
     <React.Fragment>
       <AppBar component="div" color="primary" position="sticky" elevation={6}>
-        <Toolbar sx={{ minHeight: 64, px: 2, position: "relative" }}>
+        <Toolbar sx={{ minHeight: 48, px: 2, position: "relative" }}>
           <Grid
             container
             spacing={1}
@@ -81,8 +81,7 @@ function Header(props) {
                 pointerEvents: "none", // allow header controls to remain clickable
               }}
             >
-              <Box sx={{ pointerEvents: "auto" }}>
-                <Button
+              <Box sx={{ pointerEvents: "auto" }}>                <Button
                   variant="contained"
                   color="secondary"
                   size="small"
@@ -95,7 +94,9 @@ function Header(props) {
                     color: "primary.main",
                     "&:hover": { background: "#f5f5f5" },
                     minWidth: 120,
-                    height: 36,
+                    height: 28,
+                    fontSize: "0.75rem",
+                    py: 0.5,
                     display: { xs: "none", sm: "inline-flex" },
                   }}
                   onClick={() => window.open(resumeLink, "_blank")}
@@ -108,8 +109,8 @@ function Header(props) {
                     color: "primary.main",
                     borderRadius: 2,
                     boxShadow: 2,
-                    height: 36,
-                    width: 36,
+                    height: 28,
+                    width: 28,
                     display: { xs: "inline-flex", sm: "none" },
                     ml: 0,
                     "@media (max-width:315px)": {
@@ -119,7 +120,7 @@ function Header(props) {
                   onClick={() => window.open(resumeLink, "_blank")}
                   aria-label="Open Resume"
                 >
-                  <DescriptionIcon fontSize="medium" />
+                  <DescriptionIcon fontSize="small" />
                 </IconButton>
               </Box>
             </Box>

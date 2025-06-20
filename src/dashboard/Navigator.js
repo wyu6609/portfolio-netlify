@@ -20,6 +20,7 @@ import Collapse from "@mui/material/Collapse";
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import GamesIcon from "@mui/icons-material/Games";
+import LoginIcon from "@mui/icons-material/Login";
 
 const categories = [
   {
@@ -32,33 +33,38 @@ const categories = [
         route: "/",
       },
       {
-        id: "PROJECTS",
+        id: "USER LOGIN",
         menuIndex: 1,
+        icon: <LoginIcon />,
+        route: "/login",
+      },
+      {
+        id: "PROJECTS",
+        menuIndex: 2,
         icon: <SettingsEthernetIcon />,
         route: "/projects",
       },
 
       {
         id: "RESUME",
-        menuIndex: 2,
+        menuIndex: 3,
         icon: <ArticleIcon />,
         route: "/resume",
       },
       {
         id: "BLOG",
-        menuIndex: 3,
+        menuIndex: 4,
         icon: <MusicNoteIcon />,
         route: "/blog",
       },
       {
         id: "2048",
-        menuIndex: 4,
+        menuIndex: 5,
         icon: <ExtensionIcon />,
         route: "/2048",
-      },
-      {
+      },      {
         id: "Todo",
-        menuIndex: 5,
+        menuIndex: 6,
         icon: <PlaylistAddCheckIcon />,
         route: "/Todo",
       },
