@@ -8,6 +8,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import ChatIcon from "@mui/icons-material/Chat";
 import ArticleIcon from "@mui/icons-material/Article";
 import CottageIcon from "@mui/icons-material/Cottage";
 import ExtensionIcon from "@mui/icons-material/Extension";
@@ -56,6 +57,12 @@ const categories = [
         menuIndex: 4,
         icon: <MusicNoteIcon />,
         route: "/blog",
+      },
+      {
+        id: "FRAGMENTS",
+        menuIndex: 5,
+        icon: <ChatIcon />,
+        route: "/fragments",
       },
       {
         id: "2048",
