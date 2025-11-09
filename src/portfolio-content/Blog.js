@@ -31,6 +31,11 @@ const Blog = () => {
       {/* Blog Cards */}
       {[
         {
+          date: "November 1 2025 at 4:50 PM",
+          tag: "Upgrade",
+          src: "https://www.youtube-nocookie.com/embed/3xJFgELHOFU?rel=0&autoplay=1",
+        },
+        {
           date: "January 20 2024 at 1:15 PM",
           tag: "Algorithms",
           src: "https://www.youtube-nocookie.com/embed/mRS7GluvBLo?rel=0&autoplay=1",
