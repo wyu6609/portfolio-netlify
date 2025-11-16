@@ -141,7 +141,13 @@ export default function Navigator(props) {
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33", pt: 1 }}>
             {children.map(({ id: childId, icon, route }, index) => {
-              if (childId === "2048" || childId === "Todo" || childId === "FRAGMENTS" || childId === "QR CODE GENERATOR") return null;
+              if (
+                childId === "2048" ||
+                childId === "Todo" ||
+                childId === "FRAGMENTS" ||
+                childId === "QR CODE GENERATOR"
+              )
+                return null;
               return (
                 <ListItem disablePadding key={childId}>
                   <ListItemButton

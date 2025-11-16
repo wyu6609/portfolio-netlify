@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import {
-  Container,
   TextField,
   Button,
   Modal,
@@ -10,6 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
+import { toast } from "react-toastify";
 import "./QRCodeGenerator.css";
 
 const QRCodeGenerator = () => {
@@ -18,10 +18,18 @@ const QRCodeGenerator = () => {
   const [qrImageUrl, setQrImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const canvasRef = useRef(null);
+  const toastShownRef = useRef(false);
 
   const generateQRCode = async () => {
     if (!input.trim()) {
-      alert("Please enter a string to generate QR code");
+      if (!toastShownRef.current) {
+        toastShownRef.current = true;
+        toast.error("Please enter a string to generate QR code", {
+          onClose: () => {
+            toastShownRef.current = false;
+          },
+        });
+      }
       return;
     }
 
@@ -41,7 +49,14 @@ const QRCodeGenerator = () => {
       setOpen(true);
     } catch (error) {
       console.error("Error generating QR code:", error);
-      alert("Failed to generate QR code. Please try again.");
+      if (!toastShownRef.current) {
+        toastShownRef.current = true;
+        toast.error("Failed to generate QR code. Please try again.", {
+          onClose: () => {
+            toastShownRef.current = false;
+          },
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -73,47 +88,41 @@ const QRCodeGenerator = () => {
   };
 
   return (
-    <Container
+    <Paper
       sx={{
-        pb: 3,
-        alignItems: "center",
+        p: 3,
+        maxWidth: 500,
+        mx: "auto",
+        borderRadius: 4,
+        boxShadow: 4,
         background: "linear-gradient(135deg, #f8fafc 0%, #e3e9f3 100%)",
-        border: "none",
-        borderRadius: 5,
-        boxShadow: 6,
-        minWidth: { xs: "100%", sm: 0 },
-        pt: 4,
-        minHeight: "60vh",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
+        gap: 2,
       }}
     >
-      <Paper
-        sx={{
-          p: 4,
-          maxWidth: 600,
-          mx: "auto",
-          borderRadius: 4,
-          boxShadow: 4,
-          background: "rgba(255,255,255,0.95)",
-        }}
-      >
-        <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
+        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
           <QrCode2Icon sx={{ fontSize: 40, mr: 2, color: "primary.main" }} />
-          <Typography variant="h4" sx={{ fontWeight: 700, color: "black" }}>
+          <Typography variant="h5" sx={{ fontWeight: 700, color: "black" }}>
             QR Code Generator
           </Typography>
         </Box>
 
         <Typography
-          variant="body1"
-          sx={{ mb: 3, color: "text.secondary", fontSize: 15 }}
+          variant="body2"
+          sx={{ mb: 2, color: "text.secondary", fontSize: 14 }}
         >
           Enter any text or URL to generate a QR code
         </Typography>
 
-        <Box sx={{ display: "flex", gap: 1, flexDirection: { xs: "column", sm: "row" } }}>
+        <Box
+          sx={{
+            display: "flex",
+            gap: 1,
+            flexDirection: { xs: "column", sm: "row" },
+          }}
+        >
           <TextField
             fullWidth
             placeholder="Enter text or URL..."
@@ -147,15 +156,13 @@ const QRCodeGenerator = () => {
         <Typography
           variant="caption"
           sx={{
-            mt: 2,
             display: "block",
             color: "text.secondary",
-            fontSize: 13,
+            fontSize: 12,
           }}
         >
           💡 Tip: Press Enter to generate QR code
         </Typography>
-      </Paper>
 
       {/* Modal for displaying QR Code */}
       <Modal
@@ -228,7 +235,7 @@ const QRCodeGenerator = () => {
           </Box>
         </Box>
       </Modal>
-    </Container>
+    </Paper>
   );
 };
 

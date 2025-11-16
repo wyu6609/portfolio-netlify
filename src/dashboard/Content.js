@@ -28,7 +28,7 @@ export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
       <Route path="/projects" element={<Projects />} />
       <Route path="/resume" element={<Resume />} />
       <Route path="/blog" exact element={<Blog />} />{" "}
-  <Route path="/fragments" element={<Fragments />} />
+      <Route path="/fragments" element={<Fragments />} />
       <Route path="/qr-code" element={<QRCodeGenerator />} />
       <Route path="/contact" element={<Contact btnSound />} />
       <Route path="/2048" element={<GameApp btnSound />} />
