@@ -11,6 +11,7 @@ import Error from "../portfolio-content/Error";
 import GameApp from "../2048/src/Game";
 import App from "../todo/src/App";
 import UserLogin from "../portfolio-content/UserLogin";
+import QRCodeGenerator from "../portfolio-content/QRCodeGenerator";
 export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
   return (
     <Routes>
@@ -28,6 +29,7 @@ export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
       <Route path="/resume" element={<Resume />} />
       <Route path="/blog" exact element={<Blog />} />{" "}
   <Route path="/fragments" element={<Fragments />} />
+      <Route path="/qr-code" element={<QRCodeGenerator />} />
       <Route path="/contact" element={<Contact btnSound />} />
       <Route path="/2048" element={<GameApp btnSound />} />
       <Route path="/Todo" element={<App btnSound />} />

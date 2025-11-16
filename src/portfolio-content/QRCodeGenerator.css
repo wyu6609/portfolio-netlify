@@ -1,0 +1,83 @@
+/* QR Code Generator Styles */
+
+.qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  min-height: 60vh;
+}
+
+.qr-input-section {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.qr-input-wrapper {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.qr-input-wrapper input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.qr-input-wrapper button {
+  white-space: nowrap;
+}
+
+/* Modal Styles */
+.qr-modal-content {
+  background: white;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+}
+
+.qr-image-container {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.qr-image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  border: 2px solid #e0e0e0;
+}
+
+.qr-button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .qr-input-wrapper {
+    flex-direction: column;
+  }
+
+  .qr-modal-content {
+    padding: 1.5rem;
+  }
+
+  .qr-button-group {
+    flex-direction: column;
+  }
+
+  .qr-button-group button {
+    width: 100%;
+  }
+}

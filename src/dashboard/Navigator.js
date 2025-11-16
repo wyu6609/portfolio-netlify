@@ -22,6 +22,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import GamesIcon from "@mui/icons-material/Games";
 import LoginIcon from "@mui/icons-material/Login";
+import QrCode2Icon from "@mui/icons-material/QrCode2";
 
 const categories = [
   {
@@ -59,12 +60,6 @@ const categories = [
         route: "/blog",
       },
       {
-        id: "FRAGMENTS",
-        menuIndex: 5,
-        icon: <ChatIcon />,
-        route: "/fragments",
-      },
-      {
         id: "2048",
         menuIndex: 5,
         icon: <ExtensionIcon />,
@@ -75,6 +70,18 @@ const categories = [
         menuIndex: 6,
         icon: <PlaylistAddCheckIcon />,
         route: "/Todo",
+      },
+      {
+        id: "FRAGMENTS",
+        menuIndex: 7,
+        icon: <ChatIcon />,
+        route: "/fragments",
+      },
+      {
+        id: "QR CODE GENERATOR",
+        menuIndex: 8,
+        icon: <QrCode2Icon />,
+        route: "/qr-code",
       },
 
       // { id: "LOGIN", menuIndex: 4, icon: <PublicIcon />, route: "/login" },
@@ -134,7 +141,7 @@ export default function Navigator(props) {
         {categories.map(({ id, children }) => (
           <Box key={id} sx={{ bgcolor: "#101F33", pt: 1 }}>
             {children.map(({ id: childId, icon, route }, index) => {
-              if (childId === "2048" || childId === "Todo") return null;
+              if (childId === "2048" || childId === "Todo" || childId === "FRAGMENTS" || childId === "QR CODE GENERATOR") return null;
               return (
                 <ListItem disablePadding key={childId}>
                   <ListItemButton
@@ -195,6 +202,38 @@ export default function Navigator(props) {
                       <PlaylistAddCheckIcon />
                     </ListItemIcon>
                     <ListItemText>Todo Application</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component={Link}
+                    to="/fragments"
+                    onClick={() => {
+                      props.setSelectedIndex(102); // Use a unique index
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <ChatIcon />
+                    </ListItemIcon>
+                    <ListItemText>Fragments</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component={Link}
+                    to="/qr-code"
+                    onClick={() => {
+                      props.setSelectedIndex(103); // Use a unique index
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <QrCode2Icon />
+                    </ListItemIcon>
+                    <ListItemText>QR Code Generator</ListItemText>
                   </ListItemButton>
                 </ListItem>
               </List>

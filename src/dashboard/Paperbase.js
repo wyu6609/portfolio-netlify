@@ -108,6 +108,9 @@ export default function Paperbase() {
       case "/fragments":
         setSelectedIndex(5);
         break;
+      case "/qr-code":
+        setSelectedIndex(6);
+        break;
       case "/2048":
         setSelectedIndex(5);
         break;
