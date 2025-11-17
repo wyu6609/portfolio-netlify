@@ -42,13 +42,14 @@ const GameBoard = () => {
       };
       if (keyMap[event.key]) {
         event.preventDefault(); // ✅ Prevent default scrolling
+        event.stopPropagation(); // ✅ Stop propagation
         handleMove(keyMap[event.key]);
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown, true); // Use capture phase
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown, true);
     };
   }, [board]);
 
