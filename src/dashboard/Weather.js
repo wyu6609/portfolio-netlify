@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import Grid from "@mui/material/Grid";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
@@ -77,7 +78,6 @@ const Weather = ({ selectedIndex }) => {
           `Geolocation success! Your coordinates are ${position.coords.latitude}, ${position.coords.longitude}`,
           {
             theme: "colored",
-
             position: "bottom-center",
             autoClose: 1000,
             hideProgressBar: false,
@@ -87,6 +87,15 @@ const Weather = ({ selectedIndex }) => {
             progress: undefined,
           }
         );
+        toast.info("🔊 Turn on sounds for menu buttons!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          toastId: "sound-toast",
+        });
       },
       () => {
         handleLocationError(true);
@@ -111,28 +120,28 @@ const Weather = ({ selectedIndex }) => {
             </Typography>
           </Grid>
           <Grid>
-          <a
-                href="https://openweathermap.org/api"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "inherit", textDecoration: "none" }}
-              >
-            <Avatar
-              sx={{ width: 25, height: 25 }}
-              alt="weather-icon"
-              src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
-            />
-             </a>
-          </Grid>
-          <Grid>
-            <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
             <a
               href="https://openweathermap.org/api"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "inherit", textDecoration: "none" }}
             >
-              {temp}°F
+              <Avatar
+                sx={{ width: 25, height: 25 }}
+                alt="weather-icon"
+                src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
+              />
+            </a>
+          </Grid>
+          <Grid>
+            <Typography sx={{ fontSize: 12, mt: 0.5, color: "white" }}>
+              <a
+                href="https://openweathermap.org/api"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                {temp}°F
               </a>
             </Typography>
           </Grid>
