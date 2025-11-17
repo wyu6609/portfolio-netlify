@@ -89,11 +89,12 @@ const Weather = ({ selectedIndex }) => {
         );
         toast.info("🔊 Turn on sounds for menu buttons!", {
           position: "top-center",
-          autoClose: 3000,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
+          pauseOnHover: false,
+          draggable: false,
+          progress: undefined,
           toastId: "sound-toast",
         });
       },
