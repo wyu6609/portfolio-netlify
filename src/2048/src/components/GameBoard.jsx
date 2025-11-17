@@ -40,7 +40,10 @@ const GameBoard = () => {
         ArrowLeft: "left",
         ArrowRight: "right",
       };
-      if (keyMap[event.key]) handleMove(keyMap[event.key]);
+      if (keyMap[event.key]) {
+        event.preventDefault(); // ✅ Prevent default scrolling
+        handleMove(keyMap[event.key]);
+      }
     };
     window.addEventListener("keydown", handleKeyDown);
 

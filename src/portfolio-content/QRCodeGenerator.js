@@ -102,67 +102,67 @@ const QRCodeGenerator = () => {
         gap: 2,
       }}
     >
-        <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
-          <QrCode2Icon sx={{ fontSize: 40, mr: 2, color: "primary.main" }} />
-          <Typography variant="h5" sx={{ fontWeight: 700, color: "black" }}>
-            QR Code Generator
-          </Typography>
-        </Box>
-
-        <Typography
-          variant="body2"
-          sx={{ mb: 2, color: "text.secondary", fontSize: 14 }}
-        >
-          Enter any text or URL to generate a QR code
+      <Box sx={{ display: "flex", alignItems: "center", mb: 2 }}>
+        <QrCode2Icon sx={{ fontSize: 40, mr: 2, color: "primary.main" }} />
+        <Typography variant="h5" sx={{ fontWeight: 700, color: "black" }}>
+          QR Code Generator
         </Typography>
+      </Box>
 
-        <Box
+      <Typography
+        variant="body2"
+        sx={{ mb: 2, color: "text.secondary", fontSize: 14 }}
+      >
+        Enter any text or URL to generate a QR code
+      </Typography>
+
+      <Box
+        sx={{
+          display: "flex",
+          gap: 1,
+          flexDirection: { xs: "column", sm: "row" },
+        }}
+      >
+        <TextField
+          fullWidth
+          placeholder="Enter text or URL..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={handleKeyPress}
+          variant="outlined"
           sx={{
-            display: "flex",
-            gap: 1,
-            flexDirection: { xs: "column", sm: "row" },
-          }}
-        >
-          <TextField
-            fullWidth
-            placeholder="Enter text or URL..."
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress}
-            variant="outlined"
-            sx={{
-              "& .MuiOutlinedInput-root": {
-                borderRadius: 2,
-              },
-            }}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={generateQRCode}
-            disabled={loading}
-            sx={{
-              px: 3,
+            "& .MuiOutlinedInput-root": {
               borderRadius: 2,
-              fontWeight: 600,
-              height: "56px",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {loading ? <CircularProgress size={24} /> : "Generate"}
-          </Button>
-        </Box>
-
-        <Typography
-          variant="caption"
+            },
+          }}
+        />
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={generateQRCode}
+          disabled={loading}
           sx={{
-            display: "block",
-            color: "text.secondary",
-            fontSize: 12,
+            px: 3,
+            borderRadius: 2,
+            fontWeight: 600,
+            height: "56px",
+            whiteSpace: "nowrap",
           }}
         >
-          💡 Tip: Press Enter to generate QR code
-        </Typography>
+          {loading ? <CircularProgress size={24} /> : "Generate"}
+        </Button>
+      </Box>
+
+      <Typography
+        variant="caption"
+        sx={{
+          display: "block",
+          color: "text.secondary",
+          fontSize: 12,
+        }}
+      >
+        💡 Tip: Press Enter to generate QR code
+      </Typography>
 
       {/* Modal for displaying QR Code */}
       <Modal

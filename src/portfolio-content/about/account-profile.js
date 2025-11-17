@@ -13,7 +13,7 @@ import {
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import ArticleIcon from "@mui/icons-material/Article";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import InfoIcon from "@mui/icons-material/Info";
 
 const CARD_BORDER_COLOR = "#e0e0e0";
 const LINKEDIN_COLOR = "#0a66c2";
@@ -30,7 +30,6 @@ const user = {
 };
 
 export const AccountProfile = (props) => {
-  const [expanded, setExpanded] = useState(false);
   const [open, setOpen] = useState(false);
 
   // Utility to detect mobile devices
@@ -183,6 +182,7 @@ export const AccountProfile = (props) => {
               position: "relative",
               mb: 0,
               mt: 0,
+              gap: 1,
             }}
           >
             <Typography
@@ -192,69 +192,101 @@ export const AccountProfile = (props) => {
                 color: "primary.main",
                 fontWeight: 700,
                 letterSpacing: 1,
-                flex: 1,
-                mb: 0,
                 background: "rgba(245, 247, 250, 0.85)",
                 px: 1,
                 borderRadius: 1,
+                mb: 0,
               }}
             >
               Fullstack Developer
             </Typography>
-            <ExpandMoreIcon
+            <Button
+              onClick={() => setOpen(true)}
               sx={{
-                ml: 1,
-                transition: "transform 0.2s",
-                transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+                minWidth: 0,
+                p: 0.5,
                 color: "primary.main",
-                cursor: "pointer",
+                transition: "all 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                  color: "primary.dark",
+                },
               }}
-              onClick={(e) => {
-                e.stopPropagation();
-                setExpanded((prev) => !prev);
-              }}
-            />
+            >
+              <InfoIcon />
+            </Button>
           </Box>
         }
       />
-      <CardContent sx={{ pt: 1, backgroundColor: "#fff", textAlign: "center" }}>
-        {expanded && (
-          <Box
+      <CardContent
+        sx={{ pt: 1, backgroundColor: "#fff", textAlign: "center" }}
+      ></CardContent>
+
+      {/* About Me Modal */}
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Box
+          sx={{
+            background: "white",
+            borderRadius: 3,
+            boxShadow: 10,
+            p: 4,
+            maxWidth: 600,
+            width: "90%",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="h5"
             sx={{
-              maxWidth: 480,
-              mx: "auto",
-              width: "100%",
-              mb: 2,
-              mt: 0,
-              background: "rgba(245, 247, 250, 0.85)",
-              borderRadius: 2,
-              p: 2,
+              fontWeight: 700,
+              color: "primary.main",
+              mb: 3,
             }}
           >
-            <Typography
-              align="inherit"
-              variant="body2"
-              sx={{
-                fontSize: 18,
-                color: "#333",
-                mb: 2,
-                wordBreak: "break-word",
-                whiteSpace: "pre-line",
-                textAlign: "left",
-              }}
-            >
-              I am a passionate, results-driven backend software engineer
-              specializing in building scalable, high-performance systems. My
-              technical expertise centers on Java and Spring Boot, complemented
-              by strong proficiency in JavaScript, Node.js, React.js,
-              Material-UI, Ruby, and Ruby on Rails. I excel at solving complex
-              challenges, debugging with precision, and writing clean,
-              maintainable code. Currently, I work as a software engineer at
-              JPMorgan Chase, focusing on backend Java development and AWS.
-            </Typography>
-          </Box>
-        )}
-      </CardContent>
+            About Me
+          </Typography>
+          <Typography
+            align="left"
+            variant="body2"
+            sx={{
+              fontSize: 16,
+              color: "#333",
+              lineHeight: 1.8,
+              wordBreak: "break-word",
+              whiteSpace: "pre-line",
+            }}
+          >
+            I am a passionate, results-driven backend software engineer
+            specializing in building scalable, high-performance systems. My
+            technical expertise centers on Java and Spring Boot, complemented by
+            strong proficiency in JavaScript, Node.js, React.js, Material-UI,
+            Ruby, and Ruby on Rails. I excel at solving complex challenges,
+            debugging with precision, and writing clean, maintainable code.
+            Currently, I work as a software engineer at JPMorgan Chase, focusing
+            on backend Java development and AWS.
+          </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setOpen(false)}
+            sx={{
+              mt: 3,
+              borderRadius: 2,
+              fontWeight: 600,
+            }}
+          >
+            Close
+          </Button>
+        </Box>
+      </Modal>
     </Card>
   );
 };
