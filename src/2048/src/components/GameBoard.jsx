@@ -31,6 +31,13 @@ const GameBoard = () => {
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
 
+  // ✅ Track Active Toasts to Prevent Duplicates
+  const toastShownRef = React.useRef({
+    gameOver: false,
+    newHighScore: false,
+    scoreInfo: false,
+  });
+
   useEffect(() => {
     // ✅ Listen for Arrow Key Presses
     const handleKeyDown = (event) => {
@@ -121,40 +128,60 @@ const GameBoard = () => {
     }
 
     saveHighScore();
-    toast.error("Game Over! No moves left. 😢", {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  };
 
-  const saveHighScore = () => {
-    if (score > highScore) {
-      setHighScore(score);
-      localStorage.setItem("highScore", score);
-      toast.success(`New High Score! 🎉 ${score} points!`, {
+    if (!toastShownRef.current.gameOver) {
+      toastShownRef.current.gameOver = true;
+      toast.error("Game Over! No moves left. 😢", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
+        onClose: () => {
+          toastShownRef.current.gameOver = false;
+        },
       });
-    } else {
-      toast.info(
-        `You scored ${score} points. Try again to beat ${highScore}!`,
-        {
+    }
+  };
+
+  const saveHighScore = () => {
+    if (score > highScore) {
+      setHighScore(score);
+      localStorage.setItem("highScore", JSON.stringify(score));
+
+      if (!toastShownRef.current.newHighScore) {
+        toastShownRef.current.newHighScore = true;
+        toast.success(`New High Score! 🎉 ${score} points!`, {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
-        }
-      );
+          onClose: () => {
+            toastShownRef.current.newHighScore = false;
+          },
+        });
+      }
+    } else {
+      if (!toastShownRef.current.scoreInfo) {
+        toastShownRef.current.scoreInfo = true;
+        toast.info(
+          `You scored ${score} points. Try again to beat ${highScore}!`,
+          {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            onClose: () => {
+              toastShownRef.current.scoreInfo = false;
+            },
+          }
+        );
+      }
     }
   };
 
