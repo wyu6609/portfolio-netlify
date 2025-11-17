@@ -6,12 +6,14 @@ const App = () => {
   const [score, setScore] = useState(0);
 
   useEffect(() => {
-    // Prevent scrolling on the body while game is active
-    const originalOverflow = document.body.style.overflow;
+    // Lock scroll when game is active
+    document.documentElement.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.body.style.overflow = originalOverflow;
+      // Unlock scroll when game is unmounted
+      document.documentElement.style.overflow = "auto";
+      document.body.style.overflow = "auto";
     };
   }, []);
 
