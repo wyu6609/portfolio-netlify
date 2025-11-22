@@ -21,6 +21,11 @@ import StorageIcon from "@mui/icons-material/Storage";
 import AspectRatioIcon from "@mui/icons-material/AspectRatio";
 import PaletteIcon from "@mui/icons-material/Palette";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
+import ComputerIcon from "@mui/icons-material/Computer";
 
 // Helper component for detail items
 const DetailItem = ({ icon: Icon, label, value }) => (
@@ -332,22 +337,22 @@ const NetworkDetails = () => {
                       value={ipData.ipv4 || ipData.ip}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={FavoriteBorderIcon}
                       label="ISP"
                       value={ipData.org}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={SignalCellularAltIcon}
                       label="Connection Type"
                       value={ipData.postal}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={AccessTimeIcon}
                       label="Timezone"
                       value={ipData.timezone}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={AttachMoneyIcon}
                       label="Currency"
                       value={ipData.currency}
                     />
@@ -373,12 +378,12 @@ const NetworkDetails = () => {
                 {ipData ? (
                   <>
                     <DetailItem
-                      icon={LocationOnIcon}
+                      icon={FlagIcon}
                       label="Country"
                       value={ipData.country_name}
                     />
                     <DetailItem
-                      icon={LocationOnIcon}
+                      icon={HomeIcon}
                       label="City (from IP)"
                       value={ipData.city}
                     />
@@ -388,7 +393,7 @@ const NetworkDetails = () => {
                       value={cityName || "Loading..."}
                     />
                     <DetailItem
-                      icon={LocationOnIcon}
+                      icon={LanguageIcon}
                       label="Region"
                       value={ipData.region}
                     />
@@ -410,7 +415,7 @@ const NetworkDetails = () => {
                     />
                     {geoData && (
                       <DetailItem
-                        icon={LocationOnIcon}
+                        icon={SignalCellularAltIcon}
                         label="Location Accuracy"
                         value={`${geoData.accuracy?.toFixed(2)} meters`}
                       />
@@ -440,12 +445,12 @@ const NetworkDetails = () => {
                       value={`${getISPName(ipData.asn)} (${ipData.asn})`}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={PhoneIphoneIcon}
                       label="Browser"
                       value={browserName}
                     />
                     <DetailItem
-                      icon={PublicIcon}
+                      icon={ComputerIcon}
                       label="Operating System"
                       value={osName}
                     />
