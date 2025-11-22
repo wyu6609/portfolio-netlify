@@ -23,6 +23,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import GamesIcon from "@mui/icons-material/Games";
 import LoginIcon from "@mui/icons-material/Login";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
+import PublicIcon from "@mui/icons-material/Public";
 
 const categories = [
   {
@@ -240,6 +241,22 @@ export default function Navigator(props) {
                       <QrCode2Icon />
                     </ListItemIcon>
                     <ListItemText>QR Code Generator</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component={Link}
+                    to="/device-diagnostics"
+                    onClick={() => {
+                      props.setSelectedIndex(104); // Use a unique index
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <PublicIcon />
+                    </ListItemIcon>
+                    <ListItemText>Device Diagnostics</ListItemText>
                   </ListItemButton>
                 </ListItem>
               </List>

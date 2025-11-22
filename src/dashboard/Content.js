@@ -12,6 +12,7 @@ import GameApp from "../2048/src/Game";
 import App from "../todo/src/App";
 import UserLogin from "../portfolio-content/UserLogin";
 import QRCodeGenerator from "../portfolio-content/QRCodeGenerator";
+import NetworkDetails from "../portfolio-content/NetworkDetails";
 export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
   return (
     <Routes>
@@ -30,6 +31,7 @@ export default function Content({ setSelectedIndex, btnSound, MyLinks }) {
       <Route path="/blog" exact element={<Blog />} />{" "}
       <Route path="/fragments" element={<Fragments />} />
       <Route path="/qr-code" element={<QRCodeGenerator />} />
+      <Route path="/device-diagnostics" element={<NetworkDetails />} />
       <Route path="/contact" element={<Contact btnSound />} />
       <Route path="/2048" element={<GameApp btnSound />} />
       <Route path="/Todo" element={<App btnSound />} />
