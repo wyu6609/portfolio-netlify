@@ -47,6 +47,46 @@ const DetailItem = ({ icon: Icon, label, value }) => (
   </Box>
 );
 
+// ASN to ISP name mapping for popular ISPs
+const asnToISPMap = {
+  AS15169: "Google",
+  AS8075: "Microsoft",
+  AS16509: "Amazon AWS",
+  AS3352: "Telefónica",
+  AS701: "Verizon Communications",
+  AS1239: "Sprint",
+  AS7018: "AT&T",
+  AS20115: "Charter Communications",
+  AS33288: "Vodafone",
+  AS6453: "Tata Communications",
+  AS174: "Cogent Communications",
+  AS209: "Qwest Communications",
+  AS1273: "Vodafone UK",
+  AS3591: "Telecom Italia",
+  AS1299: "Telenor",
+  AS6830: "Liberty Global",
+  AS12389: "Rostelecom",
+  AS4134: "China Telecom",
+  AS9808: "China Mobile",
+  AS9929: "China Unicom",
+  AS1221: "Telstra",
+  AS1828: "Telecom NZ",
+  AS3786: "PCCW Global",
+  AS2914: "NTT Communications",
+  AS1273: "Vodafone",
+  AS680: "Deutsche Telekom",
+  AS3320: "Deutsche Telekom",
+  AS3549: "Level 3",
+  AS8452: "TeData",
+};
+
+// Function to get ISP name from ASN
+const getISPName = (asn) => {
+  if (!asn) return "N/A";
+  const asnWithPrefix = asn.startsWith("AS") ? asn : `AS${asn}`;
+  return asnToISPMap[asnWithPrefix] || asn; // Return ASN if not found in map
+};
+
 const NetworkDetails = () => {
   const [ipData, setIpData] = useState(null);
   const [geoData, setGeoData] = useState(null);
@@ -62,6 +102,7 @@ const NetworkDetails = () => {
     screenColorDepth: "N/A",
     gpu: "N/A",
     renderer: "N/A",
+    connectionType: "N/A",
   });
 
   const apiKey = "2efac6464a3c82a53742c450a59a383d";
@@ -97,6 +138,7 @@ const NetworkDetails = () => {
     const screenHeight = window.screen.height;
     const screenColorDepth = window.screen.colorDepth;
     const gpuInfo = getGPUInfo();
+    const connectionType = navigator.connection?.effectiveType || "N/A";
 
     setHardwareInfo({
       cores: cores !== "N/A" ? `${cores} cores` : "N/A",
@@ -106,6 +148,7 @@ const NetworkDetails = () => {
       screenColorDepth: `${screenColorDepth}-bit`,
       gpu: gpuInfo.gpu,
       renderer: gpuInfo.vendor,
+      connectionType: connectionType,
     });
   };
 
@@ -393,8 +436,8 @@ const NetworkDetails = () => {
                   <>
                     <DetailItem
                       icon={LanguageIcon}
-                      label="ASN"
-                      value={ipData.asn}
+                      label="Internet Service Provider"
+                      value={`${getISPName(ipData.asn)} (${ipData.asn})`}
                     />
                     <DetailItem
                       icon={PublicIcon}
@@ -405,6 +448,11 @@ const NetworkDetails = () => {
                       icon={PublicIcon}
                       label="Operating System"
                       value={osName}
+                    />
+                    <DetailItem
+                      icon={SignalCellularAltIcon}
+                      label="Connection Type (Effective)"
+                      value={hardwareInfo.connectionType}
                     />
                     <Box
                       sx={{ display: "flex", alignItems: "center", py: 1.5 }}
@@ -417,7 +465,7 @@ const NetworkDetails = () => {
                           variant="caption"
                           sx={{ color: "textSecondary" }}
                         >
-                          Connection Type
+                          VPN Status
                         </Typography>
                         <Typography variant="body1" sx={{ fontWeight: 500 }}>
                           {ipData.is_vpn ? "VPN Detected" : "Direct Connection"}
