@@ -922,21 +922,6 @@ const NetworkDetails = () => {
                     label="Audio Output Devices"
                     value={hardwareInfo.audioOutput}
                   />
-                  <DetailItem
-                    icon={StorageOutlinedIcon}
-                    label="Browser Cache Used"
-                    value={hardwareInfo.cacheUsed}
-                  />
-                  <DetailItem
-                    icon={StorageIcon}
-                    label="Browser Cache Quota"
-                    value={hardwareInfo.cacheQuota}
-                  />
-                  <DetailItem
-                    icon={StorageIcon}
-                    label="Browser Cache Available"
-                    value={hardwareInfo.cacheAvailable}
-                  />
                 </>
               </CardContent>
             </Card>
