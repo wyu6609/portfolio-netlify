@@ -26,6 +26,9 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import ComputerIcon from "@mui/icons-material/Computer";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import MicIcon from "@mui/icons-material/Mic";
+import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
 
 // Helper component for detail items
 const DetailItem = ({ icon: Icon, label, value }) => (
@@ -136,7 +139,50 @@ const NetworkDetails = () => {
   };
 
   // Function to get hardware and display information
-  const getHardwareInfo = () => {
+  const getAudioDevices = async () => {
+    try {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const audioInputDevices = devices.filter(d => d.kind === 'audioinput');
+      const audioOutputDevices = devices.filter(d => d.kind === 'audiooutput');
+      
+      // Extract device names, fallback to count if names not available
+      const audioInputLabels = audioInputDevices
+        .map(d => d.label || `Microphone ${audioInputDevices.indexOf(d) + 1}`)
+        .join(", ");
+      
+      const audioOutputLabels = audioOutputDevices
+        .map(d => d.label || `Speaker ${audioOutputDevices.indexOf(d) + 1}`)
+        .join(", ");
+      
+      return { 
+        audioInput: audioInputLabels || `${audioInputDevices.length} device(s)`,
+        audioOutput: audioOutputLabels || `${audioOutputDevices.length} device(s)`,
+      };
+    } catch (err) {
+      return { audioInput: "N/A", audioOutput: "N/A" };
+    }
+  };
+
+  const getBrowserCacheStorage = async () => {
+    try {
+      if (navigator.storage && navigator.storage.estimate) {
+        const estimate = await navigator.storage.estimate();
+        const usedGB = (estimate.usage / (1024 * 1024 * 1024)).toFixed(2);
+        const quotaGB = (estimate.quota / (1024 * 1024 * 1024)).toFixed(2);
+        const availableGB = (quotaGB - usedGB).toFixed(2);
+        return {
+          used: `${usedGB} GB`,
+          quota: `${quotaGB} GB`,
+          available: `${availableGB} GB`,
+        };
+      }
+      return { used: "N/A", quota: "N/A", available: "N/A" };
+    } catch (err) {
+      return { used: "N/A", quota: "N/A", available: "N/A" };
+    }
+  };
+
+  const getHardwareInfo = async () => {
     const cores = navigator.hardwareConcurrency || "N/A";
     const memory = navigator.deviceMemory || "N/A";
     const screenWidth = window.screen.width;
@@ -144,6 +190,8 @@ const NetworkDetails = () => {
     const screenColorDepth = window.screen.colorDepth;
     const gpuInfo = getGPUInfo();
     const connectionType = navigator.connection?.effectiveType || "N/A";
+    const audioDevices = await getAudioDevices();
+    const cacheStorage = await getBrowserCacheStorage();
 
     setHardwareInfo({
       cores: cores !== "N/A" ? `${cores} cores` : "N/A",
@@ -154,6 +202,11 @@ const NetworkDetails = () => {
       gpu: gpuInfo.gpu,
       renderer: gpuInfo.vendor,
       connectionType: connectionType,
+      audioInput: audioDevices.audioInput || "N/A",
+      audioOutput: audioDevices.audioOutput || "N/A",
+      cacheUsed: cacheStorage.used,
+      cacheQuota: cacheStorage.quota,
+      cacheAvailable: cacheStorage.available,
     });
   };
 
@@ -531,6 +584,31 @@ const NetworkDetails = () => {
                     icon={DirectionsRunIcon}
                     label="GPU Vendor/Renderer"
                     value={hardwareInfo.renderer}
+                  />
+                  <DetailItem
+                    icon={MicIcon}
+                    label="Audio Input Devices"
+                    value={hardwareInfo.audioInput}
+                  />
+                  <DetailItem
+                    icon={VolumeUpIcon}
+                    label="Audio Output Devices"
+                    value={hardwareInfo.audioOutput}
+                  />
+                  <DetailItem
+                    icon={StorageOutlinedIcon}
+                    label="Browser Cache Used"
+                    value={hardwareInfo.cacheUsed}
+                  />
+                  <DetailItem
+                    icon={StorageIcon}
+                    label="Browser Cache Quota"
+                    value={hardwareInfo.cacheQuota}
+                  />
+                  <DetailItem
+                    icon={StorageIcon}
+                    label="Browser Cache Available"
+                    value={hardwareInfo.cacheAvailable}
                   />
                 </>
               </CardContent>
