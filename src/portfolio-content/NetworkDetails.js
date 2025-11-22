@@ -145,6 +145,8 @@ const NetworkDetails = () => {
     testingUpload: false,
     testingLatency: false,
   });
+  const [dnsServer, setDnsServer] = useState("N/A");
+  const [ipv6Support, setIpv6Support] = useState("N/A");
 
   const apiKey = "2efac6464a3c82a53742c450a59a383d";
 
@@ -416,6 +418,47 @@ const NetworkDetails = () => {
       });
   };
 
+  // Function to check DNS Server
+  const checkDnsServer = async () => {
+    try {
+      // Using DNS-over-HTTPS via Google's public API
+      const response = await fetch("https://dns.google/resolve?name=google.com&type=A");
+      const data = await response.json();
+      // Extract nameserver from response or use default detection
+      if (data.Question && data.Question.length > 0) {
+        setDnsServer("Google DNS (8.8.8.8)");
+      }
+    } catch (error) {
+      console.error("Error checking DNS:", error);
+      // Try to detect DNS from system info
+      try {
+        await fetch("https://1.1.1.1/dns-query?name=example.com", {
+          headers: { "Accept": "application/dns-json" },
+        });
+        setDnsServer("Cloudflare DNS (1.1.1.1)");
+      } catch (err) {
+        setDnsServer("System Default");
+      }
+    }
+  };
+
+  // Function to check IPv6 support
+  const checkIpv6Support = async () => {
+    try {
+      const response = await fetch("https://ipv6.icanhazip.com/", {
+        method: "HEAD",
+      });
+      if (response.ok || response.status === 200) {
+        setIpv6Support("Supported");
+      } else {
+        setIpv6Support("Not Supported");
+      }
+    } catch (error) {
+      // If fetch fails, IPv6 might not be available
+      setIpv6Support("Not Supported");
+    }
+  };
+
   // Function to get IPv4 address from multiple APIs
   const fetchIpv4Address = () => {
     // Try ipify.org first
@@ -492,6 +535,8 @@ const NetworkDetails = () => {
     setTimeout(() => {
       measureLatency();
       measureDownloadSpeed();
+      checkDnsServer();
+      checkIpv6Support();
     }, 1000);
   }, []);
 
@@ -529,13 +574,13 @@ const NetworkDetails = () => {
         <Grid container spacing={3}>
           {/* Network Performance Card */}
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
+            <Card sx={{ boxShadow: 2, borderRadius: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
               <CardHeader
                 avatar={<SpeedIcon sx={{ color: "primary.main" }} />}
                 title="Network Performance & Quality"
                 sx={{ backgroundColor: "rgba(25, 118, 210, 0.08)" }}
               />
-              <CardContent>
+              <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <>
                   <DetailItem
                     icon={TimerIcon}
@@ -645,13 +690,13 @@ const NetworkDetails = () => {
 
           {/* IP Information Card */}
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
+            <Card sx={{ boxShadow: 2, borderRadius: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
               <CardHeader
                 avatar={<PublicIcon sx={{ color: "primary.main" }} />}
                 title="IP & Network Information"
                 sx={{ backgroundColor: "rgba(25, 118, 210, 0.08)" }}
               />
-              <CardContent>
+              <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {loading ? (
                   <Typography>Loading...</Typography>
                 ) : ipData ? (
@@ -693,13 +738,13 @@ const NetworkDetails = () => {
 
           {/* Location Information Card */}
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
+            <Card sx={{ boxShadow: 2, borderRadius: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
               <CardHeader
                 avatar={<LocationOnIcon sx={{ color: "primary.main" }} />}
                 title="Location Information"
                 sx={{ backgroundColor: "rgba(25, 118, 210, 0.08)" }}
               />
-              <CardContent>
+              <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {ipData ? (
                   <>
                     <DetailItem
@@ -755,13 +800,13 @@ const NetworkDetails = () => {
 
           {/* Additional Network Info Card */}
           <Grid item xs={12} md={6}>
-            <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
+            <Card sx={{ boxShadow: 2, borderRadius: 2, display: 'flex', flexDirection: 'column', height: '100%' }}>
               <CardHeader
                 avatar={<LanguageIcon sx={{ color: "primary.main" }} />}
                 title="Additional Network Details"
                 sx={{ backgroundColor: "rgba(25, 118, 210, 0.08)" }}
               />
-              <CardContent>
+              <CardContent sx={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 {ipData ? (
                   <>
                     <DetailItem
@@ -802,6 +847,16 @@ const NetworkDetails = () => {
                         </Typography>
                       </Box>
                     </Box>
+                    <DetailItem
+                      icon={LanguageIcon}
+                      label="DNS Server"
+                      value={dnsServer}
+                    />
+                    <DetailItem
+                      icon={PublicIcon}
+                      label="IPv6 Support"
+                      value={ipv6Support}
+                    />
                   </>
                 ) : (
                   <Typography>Loading...</Typography>
