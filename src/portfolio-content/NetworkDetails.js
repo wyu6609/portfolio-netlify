@@ -144,11 +144,26 @@ const NetworkDetails = () => {
     testingDownload: false,
     testingUpload: false,
     testingLatency: false,
+    testingAll: false,
   });
   const [dnsServer, setDnsServer] = useState("N/A");
   const [ipv6Support, setIpv6Support] = useState("N/A");
 
   const apiKey = "2efac6464a3c82a53742c450a59a383d";
+
+  // Function to run all tests at once
+  const runAllTests = async () => {
+    setNetworkMetrics(prev => ({ ...prev, testingAll: true }));
+    try {
+      await measureLatency();
+      await measureDownloadSpeed();
+      await measureUploadSpeed();
+    } catch (error) {
+      console.error("Error running all tests:", error);
+    } finally {
+      setNetworkMetrics(prev => ({ ...prev, testingAll: false }));
+    }
+  };
 
   // Function to measure latency/ping
   const measureLatency = async () => {
@@ -461,33 +476,33 @@ const NetworkDetails = () => {
 
   // Function to get IPv4 address from multiple APIs
   const fetchIpv4Address = () => {
-    // Try ipify.org first
-    fetch("https://api.ipify.org?format=json")
-      .then((response) => response.json())
+    // Try ipv4.icanhazip.com first for guaranteed IPv4 (not IPv6)
+    fetch("https://ipv4.icanhazip.com/")
+      .then((response) => response.text())
       .then((data) => {
-        if (data.ip) {
+        const ipv4 = data.trim();
+        if (ipv4) {
           setIpData((prevData) => ({
             ...prevData,
-            ipv4: data.ip,
+            ipv4: ipv4,
           }));
         }
       })
       .catch((error) => {
-        console.error("Error fetching IPv4 from ipify:", error);
-        // Fallback to another API
-        fetch("https://ipv4.icanhazip.com/")
-          .then((response) => response.text())
+        console.error("Error fetching IPv4 from icanhazip:", error);
+        // Fallback to ipify.org
+        fetch("https://api.ipify.org?format=json")
+          .then((response) => response.json())
           .then((data) => {
-            const ipv4 = data.trim();
-            if (ipv4) {
+            if (data.ip) {
               setIpData((prevData) => ({
                 ...prevData,
-                ipv4: ipv4,
+                ipv4: data.ip,
               }));
             }
           })
           .catch((err) =>
-            console.error("Error fetching IPv4 from icanhazip:", err)
+            console.error("Error fetching IPv4 from ipify:", err)
           );
       });
   };
@@ -608,13 +623,13 @@ const NetworkDetails = () => {
                     value={networkMetrics.networkQuality}
                     iconColor={getQualityColor(networkMetrics.networkQuality)}
                   />
-                  <Box sx={{ display: "flex", gap: 1.5, mt: 2, flexWrap: "wrap" }}>
+                  <Box sx={{ display: "flex", gap: 1.5, mt: 2 }}>
                     <Button
                       variant="contained"
                       size="small"
-                      onClick={measureLatency}
-                      disabled={networkMetrics.testingLatency}
-                      startIcon={networkMetrics.testingLatency ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <TimerIcon />}
+                      onClick={runAllTests}
+                      disabled={networkMetrics.testingAll}
+                      startIcon={networkMetrics.testingAll ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <TimerIcon />}
                       sx={{
                         backgroundColor: '#00bcd4',
                         color: 'white',
@@ -634,53 +649,7 @@ const NetworkDetails = () => {
                         },
                       }}
                     >
-                      {networkMetrics.testingLatency ? "Testing..." : "Test Latency"}
-                    </Button>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      onClick={measureDownloadSpeed}
-                      disabled={networkMetrics.testingDownload}
-                      startIcon={networkMetrics.testingDownload ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <CloudDownloadIcon />}
-                      sx={{
-                        backgroundColor: '#00bcd4',
-                        color: 'white',
-                        textTransform: 'none',
-                        fontWeight: 600,
-                        borderRadius: 1,
-                        '&:hover': {
-                          backgroundColor: '#00acc1',
-                        },
-                        '&:disabled': {
-                          backgroundColor: 'rgba(0, 188, 212, 0.5)',
-                          color: 'rgba(255, 255, 255, 0.7)',
-                        },
-                      }}
-                    >
-                      {networkMetrics.testingDownload ? "Testing..." : "Test Download"}
-                    </Button>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      onClick={measureUploadSpeed}
-                      disabled={networkMetrics.testingUpload}
-                      startIcon={networkMetrics.testingUpload ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <CloudUploadIcon />}
-                      sx={{
-                        backgroundColor: '#00bcd4',
-                        color: 'white',
-                        textTransform: 'none',
-                        fontWeight: 600,
-                        borderRadius: 1,
-                        '&:hover': {
-                          backgroundColor: '#00acc1',
-                        },
-                        '&:disabled': {
-                          backgroundColor: 'rgba(0, 188, 212, 0.5)',
-                          color: 'rgba(255, 255, 255, 0.7)',
-                        },
-                      }}
-                    >
-                      {networkMetrics.testingUpload ? "Testing..." : "Test Upload"}
+                      {networkMetrics.testingAll ? "Testing..." : "Run Tests"}
                     </Button>
                   </Box>
                 </>
