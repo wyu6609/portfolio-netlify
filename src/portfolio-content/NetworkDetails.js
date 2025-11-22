@@ -8,6 +8,7 @@ import {
   CardContent,
   CardHeader,
   Paper,
+  Button,
 } from "@mui/material";
 import PublicIcon from "@mui/icons-material/Public";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -29,9 +30,15 @@ import ComputerIcon from "@mui/icons-material/Computer";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import MicIcon from "@mui/icons-material/Mic";
 import StorageOutlinedIcon from "@mui/icons-material/StorageOutlined";
+import TimerIcon from "@mui/icons-material/Timer";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import SignalCellularConnectedNoInternet0BarIcon from "@mui/icons-material/SignalCellularConnectedNoInternet0Bar";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import SyncIcon from "@mui/icons-material/Sync";
 
 // Helper component for detail items
-const DetailItem = ({ icon: Icon, label, value }) => (
+const DetailItem = ({ icon: Icon, label, value, iconColor }) => (
   <Box
     sx={{
       display: "flex",
@@ -40,7 +47,7 @@ const DetailItem = ({ icon: Icon, label, value }) => (
       borderBottom: "1px solid #eee",
     }}
   >
-    {Icon ? <Icon sx={{ mr: 2, color: "primary.main", fontSize: 24 }} /> : null}
+    {Icon ? <Icon sx={{ mr: 2, color: iconColor || "primary.main", fontSize: 24 }} /> : null}
     <Box sx={{ flex: 1 }}>
       <Typography variant="caption" sx={{ color: "textSecondary" }}>
         {label}
@@ -95,6 +102,22 @@ const getISPName = (asn) => {
   return asnToISPMap[asnWithPrefix] || asn; // Return ASN if not found in map
 };
 
+// Function to get color based on network quality
+const getQualityColor = (quality) => {
+  switch (quality) {
+    case "Excellent":
+      return "#4caf50"; // Green
+    case "Good":
+      return "#8bc34a"; // Light green
+    case "Fair":
+      return "#ff9800"; // Orange
+    case "Poor":
+      return "#f44336"; // Red
+    default:
+      return "#1976d2"; // Blue (primary)
+  }
+};
+
 const NetworkDetails = () => {
   const [ipData, setIpData] = useState(null);
   const [geoData, setGeoData] = useState(null);
@@ -112,8 +135,124 @@ const NetworkDetails = () => {
     renderer: "N/A",
     connectionType: "N/A",
   });
+  const [networkMetrics, setNetworkMetrics] = useState({
+    latency: "N/A",
+    downloadSpeed: "N/A",
+    uploadSpeed: "N/A",
+    jitter: "N/A",
+    networkQuality: "N/A",
+    testingDownload: false,
+    testingUpload: false,
+    testingLatency: false,
+  });
 
   const apiKey = "2efac6464a3c82a53742c450a59a383d";
+
+  // Function to measure latency/ping
+  const measureLatency = async () => {
+    try {
+      setNetworkMetrics(prev => ({ ...prev, testingLatency: true }));
+      const latencies = [];
+      
+      for (let i = 0; i < 5; i++) {
+        const start = performance.now();
+        await fetch("https://api.ipify.org?format=json", {
+          method: "HEAD",
+          mode: "no-cors",
+        }).catch(() => {});
+        const end = performance.now();
+        latencies.push(end - start);
+      }
+      
+      const avgLatency = (latencies.reduce((a, b) => a + b, 0) / latencies.length).toFixed(2);
+      const jitter = (Math.max(...latencies) - Math.min(...latencies)).toFixed(2);
+      
+      setNetworkMetrics(prev => ({
+        ...prev,
+        latency: `${avgLatency} ms`,
+        jitter: `${jitter} ms`,
+        testingLatency: false,
+      }));
+    } catch (error) {
+      console.error("Latency test error:", error);
+      setNetworkMetrics(prev => ({ ...prev, testingLatency: false }));
+    }
+  };
+
+  // Function to measure download speed
+  const measureDownloadSpeed = async () => {
+    try {
+      setNetworkMetrics(prev => ({ ...prev, testingDownload: true }));
+      const testFileSize = 1024 * 1024; // 1MB test file
+      const testFile = new Blob([new ArrayBuffer(testFileSize)]);
+      const testFileUrl = URL.createObjectURL(testFile);
+      
+      const start = performance.now();
+      const response = await fetch(testFileUrl);
+      await response.blob();
+      const end = performance.now();
+      
+      const timeSec = (end - start) / 1000;
+      const speedMbps = ((testFileSize * 8) / (timeSec * 1024 * 1024)).toFixed(2);
+      
+      URL.revokeObjectURL(testFileUrl);
+      
+      setNetworkMetrics(prev => ({
+        ...prev,
+        downloadSpeed: `${speedMbps} Mbps`,
+        testingDownload: false,
+      }));
+    } catch (error) {
+      console.error("Download speed test error:", error);
+      setNetworkMetrics(prev => ({ ...prev, testingDownload: false }));
+    }
+  };
+
+  // Function to measure upload speed
+  const measureUploadSpeed = async () => {
+    try {
+      setNetworkMetrics(prev => ({ ...prev, testingUpload: true }));
+      const testDataSize = 1024 * 512; // 512KB test data
+      const testData = new Blob([new ArrayBuffer(testDataSize)]);
+      
+      const start = performance.now();
+      await fetch("https://httpbin.org/post", {
+        method: "POST",
+        body: testData,
+      }).catch(() => {});
+      const end = performance.now();
+      
+      const timeSec = (end - start) / 1000;
+      const speedMbps = ((testDataSize * 8) / (timeSec * 1024 * 1024)).toFixed(2);
+      
+      setNetworkMetrics(prev => ({
+        ...prev,
+        uploadSpeed: `${speedMbps} Mbps`,
+        testingUpload: false,
+      }));
+    } catch (error) {
+      console.error("Upload speed test error:", error);
+      setNetworkMetrics(prev => ({ ...prev, testingUpload: false }));
+    }
+  };
+
+  // Function to calculate network quality score
+  const calculateNetworkQuality = () => {
+    const latencyNum = parseFloat(networkMetrics.latency);
+    const downloadNum = parseFloat(networkMetrics.downloadSpeed);
+    
+    if (isNaN(latencyNum) || isNaN(downloadNum)) return "Testing...";
+    
+    let quality = "Excellent";
+    if (latencyNum > 100) quality = "Poor";
+    else if (latencyNum > 50) quality = "Fair";
+    else if (latencyNum > 20) quality = "Good";
+    
+    if (downloadNum < 1) quality = "Poor";
+    else if (downloadNum < 5) quality = "Fair";
+    
+    return quality;
+  };
 
   // Function to get GPU information via WebGL
   const getGPUInfo = () => {
@@ -142,21 +281,24 @@ const NetworkDetails = () => {
   const getAudioDevices = async () => {
     try {
       const devices = await navigator.mediaDevices.enumerateDevices();
-      const audioInputDevices = devices.filter(d => d.kind === 'audioinput');
-      const audioOutputDevices = devices.filter(d => d.kind === 'audiooutput');
-      
+      const audioInputDevices = devices.filter((d) => d.kind === "audioinput");
+      const audioOutputDevices = devices.filter(
+        (d) => d.kind === "audiooutput"
+      );
+
       // Extract device names, fallback to count if names not available
       const audioInputLabels = audioInputDevices
-        .map(d => d.label || `Microphone ${audioInputDevices.indexOf(d) + 1}`)
+        .map((d) => d.label || `Microphone ${audioInputDevices.indexOf(d) + 1}`)
         .join(", ");
-      
+
       const audioOutputLabels = audioOutputDevices
-        .map(d => d.label || `Speaker ${audioOutputDevices.indexOf(d) + 1}`)
+        .map((d) => d.label || `Speaker ${audioOutputDevices.indexOf(d) + 1}`)
         .join(", ");
-      
-      return { 
+
+      return {
         audioInput: audioInputLabels || `${audioInputDevices.length} device(s)`,
-        audioOutput: audioOutputLabels || `${audioOutputDevices.length} device(s)`,
+        audioOutput:
+          audioOutputLabels || `${audioOutputDevices.length} device(s)`,
       };
     } catch (err) {
       return { audioInput: "N/A", audioOutput: "N/A" };
@@ -345,7 +487,21 @@ const NetworkDetails = () => {
         }
       );
     }
+
+    // Auto-measure latency and download speed on load
+    setTimeout(() => {
+      measureLatency();
+      measureDownloadSpeed();
+    }, 1000);
   }, []);
+
+  // Update network quality when metrics change
+  useEffect(() => {
+    setNetworkMetrics(prev => ({
+      ...prev,
+      networkQuality: calculateNetworkQuality(),
+    }));
+  }, [networkMetrics.latency, networkMetrics.downloadSpeed]);
 
   return (
     <Box
@@ -371,6 +527,122 @@ const NetworkDetails = () => {
         </Typography>
 
         <Grid container spacing={3}>
+          {/* Network Performance Card */}
+          <Grid item xs={12} md={6}>
+            <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
+              <CardHeader
+                avatar={<SpeedIcon sx={{ color: "primary.main" }} />}
+                title="Network Performance & Quality"
+                sx={{ backgroundColor: "rgba(25, 118, 210, 0.08)" }}
+              />
+              <CardContent>
+                <>
+                  <DetailItem
+                    icon={TimerIcon}
+                    label="Latency (Ping)"
+                    value={networkMetrics.testingLatency ? "Testing..." : networkMetrics.latency}
+                  />
+                  <DetailItem
+                    icon={TimerIcon}
+                    label="Jitter"
+                    value={networkMetrics.testingLatency ? "Testing..." : networkMetrics.jitter}
+                  />
+                  <DetailItem
+                    icon={CloudDownloadIcon}
+                    label="Download Speed"
+                    value={networkMetrics.testingDownload ? "Testing..." : networkMetrics.downloadSpeed}
+                  />
+                  <DetailItem
+                    icon={CloudUploadIcon}
+                    label="Upload Speed"
+                    value={networkMetrics.testingUpload ? "Testing..." : networkMetrics.uploadSpeed}
+                  />
+                  <DetailItem
+                    icon={SignalCellularConnectedNoInternet0BarIcon}
+                    label="Network Quality"
+                    value={networkMetrics.networkQuality}
+                    iconColor={getQualityColor(networkMetrics.networkQuality)}
+                  />
+                  <Box sx={{ display: "flex", gap: 1.5, mt: 2, flexWrap: "wrap" }}>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      onClick={measureLatency}
+                      disabled={networkMetrics.testingLatency}
+                      startIcon={networkMetrics.testingLatency ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <TimerIcon />}
+                      sx={{
+                        backgroundColor: '#00bcd4',
+                        color: 'white',
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        borderRadius: 1,
+                        '&:hover': {
+                          backgroundColor: '#00acc1',
+                        },
+                        '&:disabled': {
+                          backgroundColor: 'rgba(0, 188, 212, 0.5)',
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                        '@keyframes spin': {
+                          '0%': { transform: 'rotate(0deg)' },
+                          '100%': { transform: 'rotate(360deg)' },
+                        },
+                      }}
+                    >
+                      {networkMetrics.testingLatency ? "Testing..." : "Test Latency"}
+                    </Button>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      onClick={measureDownloadSpeed}
+                      disabled={networkMetrics.testingDownload}
+                      startIcon={networkMetrics.testingDownload ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <CloudDownloadIcon />}
+                      sx={{
+                        backgroundColor: '#00bcd4',
+                        color: 'white',
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        borderRadius: 1,
+                        '&:hover': {
+                          backgroundColor: '#00acc1',
+                        },
+                        '&:disabled': {
+                          backgroundColor: 'rgba(0, 188, 212, 0.5)',
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                      }}
+                    >
+                      {networkMetrics.testingDownload ? "Testing..." : "Test Download"}
+                    </Button>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      onClick={measureUploadSpeed}
+                      disabled={networkMetrics.testingUpload}
+                      startIcon={networkMetrics.testingUpload ? <SyncIcon sx={{ animation: 'spin 1s linear infinite' }} /> : <CloudUploadIcon />}
+                      sx={{
+                        backgroundColor: '#00bcd4',
+                        color: 'white',
+                        textTransform: 'none',
+                        fontWeight: 600,
+                        borderRadius: 1,
+                        '&:hover': {
+                          backgroundColor: '#00acc1',
+                        },
+                        '&:disabled': {
+                          backgroundColor: 'rgba(0, 188, 212, 0.5)',
+                          color: 'rgba(255, 255, 255, 0.7)',
+                        },
+                      }}
+                    >
+                      {networkMetrics.testingUpload ? "Testing..." : "Test Upload"}
+                    </Button>
+                  </Box>
+                </>
+              </CardContent>
+            </Card>
+          </Grid>
+
           {/* IP Information Card */}
           <Grid item xs={12} md={6}>
             <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
@@ -482,7 +754,7 @@ const NetworkDetails = () => {
           </Grid>
 
           {/* Additional Network Info Card */}
-          <Grid item xs={12}>
+          <Grid item xs={12} md={6}>
             <Card sx={{ boxShadow: 2, borderRadius: 2 }}>
               <CardHeader
                 avatar={<LanguageIcon sx={{ color: "primary.main" }} />}
