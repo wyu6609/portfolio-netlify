@@ -24,6 +24,7 @@ import GamesIcon from "@mui/icons-material/Games";
 import LoginIcon from "@mui/icons-material/Login";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import PublicIcon from "@mui/icons-material/Public";
+import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
 
 const categories = [
   {
@@ -179,6 +180,23 @@ export default function Navigator(props) {
             </ListItem>
             <Collapse in={openGames} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://workout-week--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <FitnessCenterIcon />
+                    </ListItemIcon>
+                    <ListItemText>Workout Week</ListItemText>
+                  </ListItemButton>
+                </ListItem>
                 <ListItem disablePadding sx={{ pl: 4 }}>
                   <ListItemButton
                     component={Link}
