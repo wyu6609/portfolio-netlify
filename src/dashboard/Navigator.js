@@ -25,6 +25,11 @@ import LoginIcon from "@mui/icons-material/Login";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import PublicIcon from "@mui/icons-material/Public";
 import FitnessCenterIcon from "@mui/icons-material/FitnessCenter";
+import CodeIcon from "@mui/icons-material/Code";
+import GridOnIcon from "@mui/icons-material/GridOn";
+import PetsIcon from "@mui/icons-material/Pets";
+import Grid4x4Icon from "@mui/icons-material/Grid4x4";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 
 const categories = [
   {
@@ -111,9 +116,14 @@ export default function Navigator(props) {
   const { ...other } = props;
 
   const [openGames, setOpenGames] = React.useState(false);
+  const [openVibeCoding, setOpenVibeCoding] = React.useState(false);
 
   const handleGamesClick = () => {
     setOpenGames((prev) => !prev);
+  };
+
+  const handleVibeCodingClick = () => {
+    setOpenVibeCoding((prev) => !prev);
   };
 
   const handleListItemClick = (event, index) => {
@@ -180,23 +190,6 @@ export default function Navigator(props) {
             </ListItem>
             <Collapse in={openGames} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItem disablePadding sx={{ pl: 4 }}>
-                  <ListItemButton
-                    component="a"
-                    href="https://workout-week--williamyu385.replit.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => {
-                      props.btnSound();
-                    }}
-                    sx={item}
-                  >
-                    <ListItemIcon>
-                      <FitnessCenterIcon />
-                    </ListItemIcon>
-                    <ListItemText>Workout Week</ListItemText>
-                  </ListItemButton>
-                </ListItem>
                 <ListItem disablePadding sx={{ pl: 4 }}>
                   <ListItemButton
                     component={Link}
@@ -275,6 +268,105 @@ export default function Navigator(props) {
                       <PublicIcon />
                     </ListItemIcon>
                     <ListItemText>Device Diagnostics</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+              </List>
+            </Collapse>
+            {/* VibeCoding submenu */}
+            <ListItem disablePadding>
+              <ListItemButton onClick={handleVibeCodingClick} sx={item}>
+                <ListItemIcon>
+                  <CodeIcon />
+                </ListItemIcon>
+                <ListItemText>VibeCoding</ListItemText>
+                {openVibeCoding ? <ExpandLess /> : <ExpandMore />}
+              </ListItemButton>
+            </ListItem>
+            <Collapse in={openVibeCoding} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://workout-week--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <FitnessCenterIcon />
+                    </ListItemIcon>
+                    <ListItemText>Workout Week</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://tile-merge-mania--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <GridOnIcon />
+                    </ListItemIcon>
+                    <ListItemText>2048</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://insight-quest--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <PetsIcon />
+                    </ListItemIcon>
+                    <ListItemText>Purrsonality Test</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://sudoku-spark--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <Grid4x4Icon />
+                    </ListItemIcon>
+                    <ListItemText>Sudoku</ListItemText>
+                  </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ pl: 4 }}>
+                  <ListItemButton
+                    component="a"
+                    href="https://flappy-clone--williamyu385.replit.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => {
+                      props.btnSound();
+                    }}
+                    sx={item}
+                  >
+                    <ListItemIcon>
+                      <SportsEsportsIcon />
+                    </ListItemIcon>
+                    <ListItemText>Flappybird Clone</ListItemText>
                   </ListItemButton>
                 </ListItem>
               </List>
