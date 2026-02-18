@@ -32,6 +32,14 @@ const bounceAnimation = keyframes`
 
 const cards = [
   {
+    title: "Pokemon 2.0",
+    description: "Pokemon 2.0 enhanced",
+    img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/pokedexv2-screen.png?raw=true",
+    link: "https://willpokedexv2.netlify.app/",
+    git: "https://github.com/wyu6609/pokemonv2",
+    disabled: false,
+  },
+  {
     title: "2048",
     description: "Classic 2048, built with REACT and MATERIAL UI",
     img: "https://github.com/wyu6609/portfolio-netlify/blob/main/src/images/2048_app.png?raw=true",

@@ -273,7 +273,7 @@ export default function Navigator(props) {
               </List>
             </Collapse>
             {/* VibeCoding submenu */}
-            <ListItem disablePadding>
+            {/* <ListItem disablePadding>
               <ListItemButton onClick={handleVibeCodingClick} sx={item}>
                 <ListItemIcon>
                   <CodeIcon />
@@ -281,8 +281,8 @@ export default function Navigator(props) {
                 <ListItemText>VibeCoding</ListItemText>
                 {openVibeCoding ? <ExpandLess /> : <ExpandMore />}
               </ListItemButton>
-            </ListItem>
-            <Collapse in={openVibeCoding} timeout="auto" unmountOnExit>
+            </ListItem> */}
+            {/* <Collapse in={openVibeCoding} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <ListItem disablePadding sx={{ pl: 4 }}>
                   <ListItemButton
@@ -371,7 +371,7 @@ export default function Navigator(props) {
                 </ListItem>
               </List>
             </Collapse>
-            <Divider sx={{ mt: 1 }} />
+            <Divider sx={{ mt: 1 }} /> */}
           </Box>
         ))}
         <ListItem edge="end">
