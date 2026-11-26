@@ -14,6 +14,9 @@ import {
   Typography,
   Box,
 } from "@mui/material";
+import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
+import CenterFocusStrongIcon from "@mui/icons-material/CenterFocusStrong";
+import FaceIcon from "@mui/icons-material/Face";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
@@ -31,6 +34,30 @@ const bounceAnimation = keyframes`
 `;
 
 const cards = [
+  {
+    title: "Violet Pocket SP",
+    description: "Play Game Boy Advance ROMs in an SP-style handheld and save your progress in the browser.",
+    icon: SportsEsportsIcon,
+    color: "#563994",
+    link: "https://wyu6609.github.io/violet-pocket-sp/",
+    git: "https://github.com/wyu6609/violet-pocket-sp",
+  },
+  {
+    title: "Object Atlas",
+    description: "Point your camera at everyday objects to see their names and a live count of what’s in frame.",
+    icon: CenterFocusStrongIcon,
+    color: "#23503b",
+    link: "https://wyu6609.github.io/object-atlas/",
+    git: "https://github.com/wyu6609/object-atlas",
+  },
+  {
+    title: "EmotionAI",
+    description: "Explore seven facial expression scores from your webcam and track how they change over 60 seconds. Video stays on your device.",
+    icon: FaceIcon,
+    color: "#224a76",
+    link: "https://wyu6609.github.io/emotion-ai/",
+    git: "https://github.com/wyu6609/emotion-ai",
+  },
   {
     title: "Pokedex 2.0",
     description: "Pokedex 2.0 enhanced",
@@ -324,24 +351,34 @@ const Projects = () => {
                   transition: "background 0.3s",
                 }}
               >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    mt: 2,
-                    borderRadius: 3,
-                    boxShadow: 2,
-                    width: "100%",
-                    height: { xs: 160, sm: 180, md: 140 },
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    background: "transparent",
-                    display: "block",
-                    maxWidth: { xs: "100%", sm: "90%" },
-                    maxHeight: { xs: 180, sm: 200, md: 140 },
-                  }}
-                  image={card.img}
-                  alt={card.title}
-                />
+                {card.icon ? (
+                  <Box sx={{
+                    mt: 2, width: "100%", height: { xs: 160, sm: 180, md: 140 },
+                    borderRadius: 3, display: "grid", placeItems: "center",
+                    bgcolor: card.color, color: "#fff",
+                  }}>
+                    <card.icon aria-hidden="true" sx={{ fontSize: 64 }} />
+                  </Box>
+                ) : (
+                  <CardMedia
+                    component="img"
+                    sx={{
+                      mt: 2,
+                      borderRadius: 3,
+                      boxShadow: 2,
+                      width: "100%",
+                      height: { xs: 160, sm: 180, md: 140 },
+                      objectFit: "contain",
+                      objectPosition: "center",
+                      background: "transparent",
+                      display: "block",
+                      maxWidth: { xs: "100%", sm: "90%" },
+                      maxHeight: { xs: 180, sm: 200, md: 140 },
+                    }}
+                    image={card.img}
+                    alt={card.title}
+                  />
+                )}
               </Box>
               <CardContent
                 sx={{
