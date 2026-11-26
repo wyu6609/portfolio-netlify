@@ -1,5 +1,5 @@
 import React from "react";
-import { alpha, styled } from "@mui/material/styles";
+import { alpha, darken, styled } from "@mui/material/styles";
 
 const cards = [
   {
@@ -151,17 +151,17 @@ const Gallery = styled('section')(({ theme }) => ({
   '& h1': { fontSize: 'clamp(2.25rem,5vw,4rem)', letterSpacing: '-.055em', lineHeight: 1.05, fontWeight: 550 },
   '& h2': { fontSize: '1.5rem', letterSpacing: '-.035em', margin: '48px 0 18px' },
   '& .project-grid': { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%, 245px),1fr))', gap: 'clamp(14px, 1.6vw, 24px)' },
-  '& article': { minWidth: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,255,255,.55))', backdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,.9)', borderRadius: 18, boxShadow: '0 8px 24px rgba(28,40,52,.055)' },
+  '& article': { minWidth: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', backgroundColor: 'rgba(255,255,255,.76)', backgroundImage: 'linear-gradient(145deg,'+alpha(theme.palette.primary.light,.14)+','+alpha(theme.palette.primary.main,.24)+')', backdropFilter: 'blur(14px)', border: '1px solid '+alpha(theme.palette.primary.main,.34), borderRadius: 18, boxShadow: '0 8px 24px rgba(28,40,52,.055)' },
   '& .project-art': { display: 'grid', placeItems: 'center', aspectRatio: '16 / 9', padding: '5% 7%', background: 'linear-gradient(150deg,#fff,'+alpha(theme.palette.primary.light,.12)+')' },
-  '& img': { width: '100%', height: '100%', minHeight: 0, objectFit: 'contain', mixBlendMode: 'multiply' },
+  '& img': { width: '100%', height: '100%', minHeight: 0, objectFit: 'contain', borderRadius: 4 },
   '& .project-copy': { padding: '20px clamp(16px,2vw,24px)', display: 'flex', flexDirection:'column', flexGrow: 1 },
   '& h3': { fontSize: '1.3rem', letterSpacing: '-.035em', lineHeight: 1.2 },
   '& p': { marginTop: 8, fontSize: '1rem', lineHeight: 1.5, color: '#45515c' },
   '& .project-actions': { display:'flex', alignItems:'center', flexWrap:'wrap', gap: 14, marginTop:'auto', paddingTop:18 },
   '& a': { color:'inherit', fontWeight:600, fontSize:'.875rem', textUnderlineOffset:4 },
   '& a:focus-visible': { outline:'3px solid '+theme.palette.primary.main, outlineOffset:3 },
-  '& .launch': { background:'#20272c', color:'#fff', padding:'9px 14px', borderRadius:8, textDecoration:'none' },
-  '& .launch:hover': { background:theme.palette.primary.main, color:theme.palette.getContrastText(theme.palette.primary.main) },
+  '& .launch': { background:darken(theme.palette.primary.main,.32), color:'#fff', padding:'9px 14px', borderRadius:8, textDecoration:'none' },
+  '& .launch:hover': { background:darken(theme.palette.primary.main,.43), color:'#fff' },
   '& .slide-controls': { display: 'none' },
   '@media (max-width: 600px)': {
     '& .project-grid': { display: 'flex', gap: 12, overflowX: 'auto', scrollSnapType: 'x mandatory', overscrollBehaviorX: 'contain', scrollbarWidth: 'none', paddingBlock: 4 },
