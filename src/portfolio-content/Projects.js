@@ -1,4 +1,5 @@
 import React from "react";
+import GlobalStyles from "@mui/material/GlobalStyles";
 import { alpha, darken, styled } from "@mui/material/styles";
 
 const cards = [
@@ -164,6 +165,7 @@ const Gallery = styled('section')(({ theme }) => ({
   '& .launch:hover': { background:darken(theme.palette.primary.main,.43), color:'#fff' },
   '@media (max-width: 600px)': {
     '& .project-grid': { gridTemplateColumns: 'minmax(0, 1fr)' },
+    '& article': { scrollSnapAlign: 'start' },
   },
   '& .offline': { fontSize:'.875rem', color:'#545f68' },
 }));
@@ -191,6 +193,12 @@ function ProjectGrid({ projects, label }) {
 
 export default function Projects() {
   return <Gallery aria-label="Projects">
+    <GlobalStyles styles={{
+      '@media (max-width: 600px) and (prefers-reduced-motion: no-preference)': {
+        html: { scrollSnapType: 'y proximity', scrollPaddingTop: '68px' },
+        '.gallery-head': { scrollSnapAlign: 'start' },
+      },
+    }} />
     <div className="gallery-head"><h1>Projects</h1><a href="https://github.com/wyu6609?tab=repositories" {...external}>All repositories</a></div>
     <ProjectGrid label="Featured projects" projects={cards.slice(0,3)} />
     <h2>More projects</h2><ProjectGrid label="More projects" projects={cards.slice(3).filter(card => !card.disabled)} />
