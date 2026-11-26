@@ -1,34 +1,5 @@
 import React from "react";
-import { keyframes } from "@emotion/react";
-import {
-  Link,
-  Container,
-  IconButton,
-  Button,
-  Grid,
-  Card,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Divider,
-  Typography,
-  Box,
-} from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import "./Project.css";
-import Glasscard from "./Glasscard.js";
-
-// Define a bounce animation
-const bounceAnimation = keyframes`
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-`;
+import { alpha, styled } from "@mui/material/styles";
 
 const cards = [
   {
@@ -171,287 +142,54 @@ const cards = [
     git: "https://github.com/wyu6609/Weather-app",
   },
 ];
-const stackCards = [1, 2, 3, 4];
-const Projects = () => {
-  return (
-    <Container
-      sx={{
-        pb: 3,
-        alignItems: "center",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e3e9f3 100%)",
-        border: "none",
-        borderRadius: 5,
-        boxShadow: 6,
-        minWidth: { xs: "100%", sm: 0 },
-        pt: 4,
-      }}
-    >
-      <Typography
-        align="center"
-        variant="h4"
-        component="h2"
-        color="#111827"
-        fontWeight="bold"
-        letterSpacing="1px"
-        sx={{
-          py: 2,
-          alignItems: "center",
-          color: "#111827",
-          fontWeight: "bold",
-          letterSpacing: "1px",
-          textDecoration: "none",
-          transition: "transform 0.3s ease, color 0.3s ease",
-          "&:hover": {
-            color: "primary.main",
-            textDecoration: "underline",
-            cursor: "pointer",
-            transform: "scale(1.1)",
-          },
-        }}
-      >
-        <Link
-          href="https://github.com/wyu6609?tab=repositories"
-          target="_blank"
-          underline="none"
-          sx={{
-            color: "inherit",
-            "&:hover": { color: "primary.main" },
-          }}
-        >
-          PROJECTS
-        </Link>
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          background: "rgba(255, 213, 128, 0.25)",
-          borderRadius: 3,
-          px: 3,
-          py: 1.5,
-          mb: 3,
-          maxWidth: 420,
-          mx: "auto",
-          boxShadow: 1,
-        }}
-      >
-        <WarningAmberIcon sx={{ color: "#ff9800", mr: 1, fontSize: 28 }} />
-        <Typography
-          align="center"
-          variant="body1"
-          sx={{
-            color: "#b26a00",
-            fontWeight: 600,
-            letterSpacing: "0.5px",
-            fontSize: 16,
-            userSelect: "none",
-          }}
-        >
-          Heroku-hosted applications are currently down.
-        </Typography>
-      </Box>
-      <Grid container spacing={4} justifyContent="center">
-        {cards.map((card) => (
-          <Grid item key={card.title} xs={12} sm={6} md={3}>
-            <Card
-              className="fancy_card"
-              sx={{
-                alignItems: "center",
-                height: "100%",
-                background: "rgba(255,255,255,0.95)",
-                borderRadius: 4,
-                boxShadow: card.disabled ? 0 : 4,
-                display: "flex",
-                flexDirection: "column",
-                pointerEvents: card.disabled ? "none" : "auto",
-                opacity: card.disabled ? 0.8 : 1,
-                filter: card.disabled ? "grayscale(0.1)" : "none",
-                transition:
-                  "box-shadow 0.2s, transform 0.2s, opacity 0.2s, filter 0.2s",
-                cursor: card.disabled ? "default" : "pointer",
-                position: "relative",
-                "&:hover": {
-                  boxShadow: card.disabled ? 0 : 8,
-                  transform: card.disabled ? "none" : "scale(1.03)",
-                  background: "#fff",
-                },
-              }}
-              onClick={(e) => {
-                // Prevent card click if clicking on an action button
-                if (
-                  e.target.closest(".MuiIconButton-root") ||
-                  card.disabled ||
-                  !card.link
-                ) {
-                  return;
-                }
-                window.open(card.link, "_blank");
-              }}
-              tabIndex={card.disabled ? -1 : 0}
-              aria-disabled={card.disabled}
-              role="button"
-            >
-              {card.disabled && (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    bgcolor: "rgba(255,255,255,0.7)",
-                    zIndex: 2,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    borderRadius: 4,
-                  }}
-                >
-                  <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#e53935"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <rect x="3" y="13" width="18" height="8" rx="2" />
-                    <rect x="7" y="9" width="10" height="4" rx="1" />
-                    <circle cx="12" cy="17" r="1.5" fill="#e53935" />
-                  </svg>
-                  <Typography
-                    variant="subtitle1"
-                    sx={{ color: "#e53935", fontWeight: 700, mt: 1 }}
-                  >
-                    Server Down
-                  </Typography>
-                </Box>
-              )}
-              <Box
-                sx={{
-                  width: "100%",
-                  px: { xs: 2, sm: 3 },
-                  boxSizing: "border-box",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  background: "#fff", // Solid white background
-                  borderRadius: 3,
-                  boxShadow: 0,
-                  transition: "background 0.3s",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  sx={{
-                    mt: 2,
-                    borderRadius: 3,
-                    boxShadow: 2,
-                    width: "100%",
-                    height: { xs: 160, sm: 180, md: 140 },
-                    objectFit: "contain",
-                    objectPosition: "center",
-                    background: "transparent",
-                    display: "block",
-                    maxWidth: { xs: "100%", sm: "90%" },
-                    maxHeight: { xs: 180, sm: 200, md: 140 },
-                  }}
-                  image={card.img}
-                  alt={card.title}
-                />
-              </Box>
-              <CardContent
-                sx={{
-                  flexGrow: 1,
-                  width: "100%",
-                  px: 2,
-                  pt: 2,
-                  pb: 1,
-                }}
-              >
-                <Typography
-                  align="center"
-                  gutterBottom
-                  variant="h6"
-                  component="h6"
-                  sx={{
-                    mt: 1,
-                    fontWeight: 700,
-                    color: "primary.main",
-                    letterSpacing: 1,
-                  }}
-                >
-                  {card.title}
-                </Typography>
-                <Typography
-                  align="center"
-                  variant="body2"
-                  sx={{ fontSize: 12, color: "#444", mb: 1 }}
-                >
-                  {card.description}
-                </Typography>
-              </CardContent>
-              <Divider sx={{ width: "80%", mx: "auto", mb: 1 }} />
-              <CardActions sx={{ justifyContent: "center", pb: 2 }}>
-                {card.demo && (
-                  <IconButton
-                    sx={{
-                      background: "#eaf4fc",
-                      borderRadius: "50%",
-                      mx: 1,
-                      boxShadow: 1,
-                      "&:hover": {
-                        backgroundColor: "#d0e8fa",
-                        transform: "scale(1.1)",
-                      },
-                      transition: "all 0.2s",
-                    }}
-                    onClick={() => {
-                      window.open(card.demo, "_blank");
-                    }}
-                  >
-                    <YouTubeIcon
-                      sx={{
-                        color: "#e53935",
-                        fontSize: 30,
-                      }}
-                    />
-                  </IconButton>
-                )}
-                <IconButton
-                  sx={{
-                    background: "#f6f8fa",
-                    borderRadius: "50%",
-                    mx: 1,
-                    boxShadow: 1,
-                    "&:hover": {
-                      backgroundColor: "#e1e4e8",
-                      transform: "scale(1.1)",
-                    },
-                    transition: "all 0.2s",
-                  }}
-                  onClick={() => {
-                    window.open(card.git, "_blank");
-                  }}
-                >
-                  <GitHubIcon
-                    sx={{
-                      color: "#24292f",
-                      fontSize: 30,
-                    }}
-                  />
-                </IconButton>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
-  );
-};
 
-export default Projects;
+const Gallery = styled('section')(({ theme }) => ({
+  maxWidth: 1360, margin: '0 auto', padding: 'clamp(16px, 3vw, 48px) clamp(4px, 2vw, 32px) 88px', color: '#182028',
+  background: 'radial-gradient(ellipse at 85% 0%, '+alpha(theme.palette.primary.main,.13)+' 0%, transparent 52rem)',
+  '& h1, & h2, & h3, & p': { margin: 0 },
+  '& .gallery-head': { display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12, marginBottom: 28 },
+  '& h1': { fontSize: 'clamp(2.25rem,5vw,4rem)', letterSpacing: '-.055em', lineHeight: 1.05, fontWeight: 550 },
+  '& h2': { fontSize: '1.5rem', letterSpacing: '-.035em', margin: '48px 0 18px' },
+  '& .project-grid': { display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(min(100%, 245px),1fr))', gap: 'clamp(14px, 1.6vw, 24px)' },
+  '& article': { minWidth: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: 'linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,255,255,.55))', backdropFilter: 'blur(14px)', border: '1px solid rgba(255,255,255,.9)', borderRadius: 18, boxShadow: '0 8px 24px rgba(28,40,52,.055)' },
+  '& .project-art': { display: 'grid', placeItems: 'center', aspectRatio: '16 / 9', padding: '5% 7%', background: 'linear-gradient(150deg,#fff,'+alpha(theme.palette.primary.light,.12)+')' },
+  '& img': { width: '100%', height: '100%', minHeight: 0, objectFit: 'contain', mixBlendMode: 'multiply' },
+  '& .project-copy': { padding: '20px clamp(16px,2vw,24px)', display: 'flex', flexDirection:'column', flexGrow: 1 },
+  '& h3': { fontSize: '1.3rem', letterSpacing: '-.035em', lineHeight: 1.2 },
+  '& p': { marginTop: 8, fontSize: '1rem', lineHeight: 1.5, color: '#45515c' },
+  '& .project-actions': { display:'flex', alignItems:'center', flexWrap:'wrap', gap: 14, marginTop:'auto', paddingTop:18 },
+  '& a': { color:'inherit', fontWeight:600, fontSize:'.875rem', textUnderlineOffset:4 },
+  '& a:focus-visible': { outline:'3px solid '+theme.palette.primary.main, outlineOffset:3 },
+  '& .launch': { background:'#20272c', color:'#fff', padding:'9px 14px', borderRadius:8, textDecoration:'none' },
+  '& .launch:hover': { background:theme.palette.primary.main, color:theme.palette.getContrastText(theme.palette.primary.main) },
+  '& .offline': { fontSize:'.875rem', color:'#545f68' },
+}));
+
+const external = { target: '_blank', rel: 'noopener noreferrer' };
+function ProjectGrid({ projects }) {
+  return <div className="project-grid">{projects.map(card => {
+    const image = <img src={card.img} alt="" loading="lazy" />;
+    return <article key={card.title}>
+      {card.disabled ? <div className="project-art">{image}</div> :
+        <a className="project-art" href={card.link} aria-label={'Open '+card.title} {...external}>{image}</a>}
+      <div className="project-copy">
+        <h3>{card.title}</h3><p>{card.description}</p>
+        <div className="project-actions">
+          {card.disabled ? <span className="offline">Demo offline</span> :
+            <a className="launch" href={card.link} {...external}>{card.title === 'Violet Pocket SP' ? 'Play emulator' : 'Try demo'}</a>}
+          <a href={card.git} aria-label={card.title+' source code'} {...external}>Source</a>
+          {card.demo && <a href={card.demo} {...external}>Watch demo</a>}
+        </div>
+      </div>
+    </article>;
+  })}</div>;
+}
+
+export default function Projects() {
+  return <Gallery aria-label="Projects">
+    <div className="gallery-head"><h1>Projects</h1><a href="https://github.com/wyu6609?tab=repositories" {...external}>All repositories</a></div>
+    <ProjectGrid projects={cards.slice(0,3)} />
+    <h2>More projects</h2><ProjectGrid projects={cards.slice(3).filter(card => !card.disabled)} />
+    <h2>Archived projects</h2><ProjectGrid projects={cards.filter(card => card.disabled)} />
+  </Gallery>;
+}
