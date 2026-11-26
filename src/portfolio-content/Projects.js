@@ -32,6 +32,14 @@ const bounceAnimation = keyframes`
 
 const cards = [
   {
+    title: "Violet Pocket PS1",
+    description: "Play Crash Bandicoot or load your own PlayStation disc. Pick up where you left off with per-game autosaves.",
+    img: process.env.PUBLIC_URL + "/violet-pocket-ps1-laptop.webp",
+    alt: "Laptop mockup of Violet Pocket PS1 with a jungle demo and save controls",
+    link: "https://wyu6609.github.io/violet-pocket-ps1/",
+    git: "https://github.com/wyu6609/violet-pocket-ps1",
+  },
+  {
     title: "Violet Pocket SP",
     description: "Play Game Boy Advance ROMs in an SP-style handheld and save your progress in the browser.",
     img: process.env.PUBLIC_URL + "/project-laptops.svg#violet-pocket-sp",
@@ -361,7 +369,7 @@ const Projects = () => {
                     maxHeight: { xs: 180, sm: 200, md: 140 },
                   }}
                   image={card.img}
-                  alt={card.title}
+                  alt={card.alt || card.title}
                 />
               </Box>
               <CardContent
