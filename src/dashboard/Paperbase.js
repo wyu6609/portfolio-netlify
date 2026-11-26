@@ -317,6 +317,7 @@ export default function Paperbase() {
         <Box
           sx={{
             flex: 1,
+            minWidth: 0,
             display: "flex",
             flexDirection: "column",
           }}
