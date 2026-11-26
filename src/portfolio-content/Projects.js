@@ -162,34 +162,15 @@ const Gallery = styled('section')(({ theme }) => ({
   '& a:focus-visible': { outline:'3px solid '+theme.palette.primary.main, outlineOffset:3 },
   '& .launch': { background:darken(theme.palette.primary.main,.32), color:'#fff', padding:'9px 14px', borderRadius:8, textDecoration:'none' },
   '& .launch:hover': { background:darken(theme.palette.primary.main,.43), color:'#fff' },
-  '& .slide-controls': { display: 'none' },
   '@media (max-width: 600px)': {
-    '& .project-grid': { display: 'flex', gap: 12, overflowX: 'auto', scrollSnapType: 'x mandatory', overscrollBehaviorX: 'contain', scrollbarWidth: 'none', paddingBlock: 4 },
-    '& .project-grid::-webkit-scrollbar': { display: 'none' },
-    '& article': { flex: '0 0 calc(100% - 28px)', scrollSnapAlign: 'start' },
-    '& .slide-controls': { display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, marginTop: 6, fontSize: '.875rem', fontVariantNumeric: 'tabular-nums' },
-    '& .slide-controls button': { width: 44, height: 44, borderRadius: '50%', border: '1px solid '+alpha(theme.palette.primary.main,.25), background: 'rgba(255,255,255,.74)', fontSize: '1.35rem', color: 'inherit', cursor: 'pointer' },
-    '& .slide-controls button:disabled': { opacity: .35, cursor: 'default' },
-    '& .slide-controls button:focus-visible': { outline: '3px solid '+theme.palette.primary.main },
-    '@media (prefers-reduced-motion: no-preference)': { '& .project-grid': { scrollBehavior: 'smooth' } },
+    '& .project-grid': { gridTemplateColumns: 'minmax(0, 1fr)' },
   },
   '& .offline': { fontSize:'.875rem', color:'#545f68' },
 }));
 
 const external = { target: '_blank', rel: 'noopener noreferrer' };
 function ProjectGrid({ projects, label }) {
-  const track = React.useRef(null);
-  const [active, setActive] = React.useState(0);
-  function updatePosition() {
-    const row = track.current;
-    const step = row.children[1].offsetLeft - row.children[0].offsetLeft;
-    if (step > 0) setActive(Math.min(projects.length - 1, Math.max(0, Math.round(row.scrollLeft / step))));
-  }
-  function move(index) {
-    const row = track.current;
-    row.scrollTo({ left: row.children[index].offsetLeft - row.children[0].offsetLeft });
-  }
-  return <section aria-label={label}><div ref={track} className="project-grid" onScroll={updatePosition}>{projects.map(card => {
+  return <section aria-label={label}><div className="project-grid">{projects.map(card => {
     const image = <img src={card.img} alt="" loading="lazy" />;
     return <article key={card.title}>
       {card.disabled ? <div className="project-art">{image}</div> :
@@ -205,11 +186,6 @@ function ProjectGrid({ projects, label }) {
       </div>
     </article>;
   })}</div>
-    <div className="slide-controls">
-      <button type="button" disabled={active === 0} onClick={() => move(active - 1)} aria-label={"Previous project in " + label}>‹</button>
-      <span aria-live="polite" aria-atomic="true">{active + 1} / {projects.length}</span>
-      <button type="button" disabled={active === projects.length - 1} onClick={() => move(active + 1)} aria-label={"Next project in " + label}>›</button>
-    </div>
   </section>;
 }
 
